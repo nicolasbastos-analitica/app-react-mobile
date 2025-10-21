@@ -12,34 +12,36 @@ import {
   ScrollView,
 } from 'react-native';
 import { Buffer } from 'buffer';
-import * as bluetooth from 'react-native-bluetooth-classic';
+import RNBluetoothClassic, {
+  BluetoothDevice,
+  BluetoothEventSubscription,
+} from 'react-native-bluetooth-classic';
 
 // --- Lógica de Autenticação ---
 const COMPANY_KEY = Buffer.from("8E12B960", 'hex');
-const COMMAND_SUFFIX = '\r';
+const COMMAND_SUFFIX = '\r\n'; // Símbolo de fim de comando
 
 const calculateAuthKey = (seedData: string): string => {
-  const seedHex = seedData.replace('AT+BT_SEED=', '').replace(/\r?\n/g, '').trim();
+  // 1. Limpa a seed (procurando por \r\n agora)
+  const seedHex = seedData.replace('AT+BT_SEED=', '').replace(COMMAND_SUFFIX, '').trim();
   const seeds = Buffer.from(seedHex, 'hex');
-  const companyKey = Buffer.from('8E12B960', 'hex');
   const key = Buffer.alloc(8);
 
-  const toByte = (val: number) => (val & 0xFF); // simula cast (byte) do Java
-
-  key[0] = toByte(seeds[4] ^ companyKey[3]);
-  key[1] = toByte(companyKey[1]);
-  key[2] = toByte(key[0] + companyKey[2]);
-  key[3] = toByte(key[1] + seeds[0]);
-  key[4] = toByte(key[2] ^ companyKey[0]);
-  key[5] = toByte(seeds[5] ^ key[3]);
-  key[6] = toByte(seeds[7] & key[2]);
-  key[7] = toByte(seeds[3] ^ key[6]);
+  // ... (lógica de criptografia, que está correta) ...
+  key[0] = seeds[4] ^ COMPANY_KEY[3];
+  key[1] = COMPANY_KEY[1];
+  key[2] = (key[0] + COMPANY_KEY[2]) & 0xFF;
+  key[3] = (key[1] + seeds[0]) & 0xFF;
+  key[4] = key[2] ^ COMPANY_KEY[0];
+  key[5] = seeds[5] ^ key[3];
+  key[6] = seeds[7] & key[2];
+  key[7] = seeds[3] ^ key[6];
 
   const authKeyHex = key.toString('hex').toUpperCase().padStart(16, '0');
-  console.log('SEED HEX:', seedHex);
-  console.log('AUTH KEY:', authKeyHex);
-  for (let i = 0; i < 8; i++) console.log(`key[${i}] = 0x${key[i].toString(16).padStart(2, '0')}`);
-  return 'AT+BT_AUTH=' + authKeyHex;
+  
+  // 2. CORREÇÃO:
+  // Adicionamos o sufixo \r\n, exatamente como o BluetoothClient.java faz
+  return 'AT+BT_AUTH=' + authKeyHex + COMMAND_SUFFIX;
 };
 
 type AuthStep =
@@ -48,20 +50,24 @@ type AuthStep =
   | 'waiting_for_seed'
   | 'sending_auth'
   | 'waiting_for_auth_ok'
+  | 'sending_user_code'         // <-- Adicionado de volta
+  | 'waiting_for_user_ok'     // <-- Adicionado de volta
+  | 'starting_telemetry'      // <-- Adicionado de volta
+  | 'connected'                 // <-- Adicionado de volta
   | 'failed';
 
 export default function App() {
-  const [devices, setDevices] = useState<BoundedDevice[]>([]);
-  const [connectedDevice, setConnectedDevice] = useState<BluetoothConnection | null>(null);
+  const [devices, setDevices] = useState<BluetoothDevice[]>([]);
+  const [connectedDevice, setConnectedDevice] = useState<BluetoothDevice | null>(null);
   const [data, setData] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [authStep, setAuthStep] = useState<AuthStep>('disconnected');
 
   const dataBuffer = useRef<string>('');
-  const connectionRef = useRef<BluetoothConnection | null>(null);
+  const connectionRef = useRef<BluetoothDevice | null>(null);
   const authStepRef = useRef<AuthStep>('disconnected');
-  const dataSubscription = useRef<EmitterSubscription | null>(null);
-  let authTimeout = useRef<NodeJS.Timeout | null>(null);
+  const dataSubscription = useRef<BluetoothEventSubscription | null>(null);
+  const authTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const updateAuthStep = (step: AuthStep) => {
     authStepRef.current = step;
@@ -121,46 +127,65 @@ export default function App() {
     }
   };
 
-  const processMessage = (message: string) => {
+const processMessage = (message: string) => {
     console.log('PROCESSANDO:', JSON.stringify(message));
     const currentStep = authStepRef.current;
-
-    if (message.includes('FAIL') || message.includes('BUSY') || message.includes('TIMEOUT')) {
-      console.error('Falha detectada:', message);
-      Alert.alert('Erro', `Falha detectada: ${message}`);
-      disconnectDevice();
-      updateAuthStep('failed');
+    
+    // Se já estamos conectados, apenas adicione os dados
+    if (currentStep === 'connected') {
+      setData((prevData) => prevData + message);
       return;
     }
-    const sendData = (data: string) => {
-  console.log('SAT MESSAGE OUT:', data);
-  connectionRef.current?.write(data);
-};
 
-
+    // Lógica do Handshake (processo de autenticação)
     switch (currentStep) {
       case 'waiting_for_seed':
         if (message.startsWith('AT+BT_SEED=')) {
           updateAuthStep('sending_auth');
           const authCommand = calculateAuthKey(message);
-          console.log('Enviando AUTH:', authCommand + COMMAND_SUFFIX);
-          sendData(authCommand + COMMAND_SUFFIX);
+          console.log('Enviando AUTH:', authCommand);
+          // O authCommand já vem com o sufixo \r\n
+          connectionRef.current?.write(authCommand); 
           updateAuthStep('waiting_for_auth_ok');
-          startAuthTimeout();
         }
         break;
 
       case 'waiting_for_auth_ok':
         if (message.includes('AT+BT_AUTH_OK')) {
-          console.log('Autenticação OK recebida.');
-          clearAuthTimeout();
-          updateAuthStep('disconnected');
+          // CORRETO: Prossiga para o próximo passo
+          updateAuthStep('sending_user_code'); 
+          console.log('Enviando CÓDIGO DE USUÁRIO...');
+          connectionRef.current?.write('AT+BT_COD_USER=0000000000000001' + COMMAND_SUFFIX);
+          updateAuthStep('waiting_for_user_ok');
+        } else if (message.includes('FAIL') || message.includes('BUSY') || message.includes('TIMEOUT')) {
+          console.error('Autenticação falhou:', message);
+          Alert.alert('Erro de Autenticação', `Falha: ${message}`);
+          disconnectDevice();
+          updateAuthStep('failed');
+        }
+        break;
+
+      case 'waiting_for_user_ok':
+        if (message.includes('AT+BT_COD_USER_OK')) {
+          updateAuthStep('starting_telemetry');
+          console.log('Enviando START TELEMETRIA...');
+          connectionRef.current?.write('AT_BT_PRM_START' + COMMAND_SUFFIX);
+          
+          console.log('Enviando SIMULATED FRAME OFF...');
+          connectionRef.current?.write('AT+BT_SIMULATED_FRAME_OFF' + COMMAND_SUFFIX);
+          
+          updateAuthStep('connected');
+          // AGORA SIM: Mude a UI para "Conectado"
+          setConnectedDevice(connectionRef.current); 
+          console.log('HANDSHAKE COMPLETO. Ouvindo telemetria.');
+        } else if (message.includes('FAIL') || message.includes('BUSY') || message.includes('TIMEOUT')) {
+          console.error('Falha no login de usuário:', message);
+          Alert.alert('Erro de Usuário', `Falha: ${message}`);
+          disconnectDevice();
+          updateAuthStep('failed');
         }
         break;
     }
-
-    // Atualiza o histórico de dados recebidos
-    setData(prev => prev + message + '\n');
   };
 
   const onDataReceived = (event: { data: string }) => {
@@ -179,34 +204,35 @@ export default function App() {
     }
   };
 
-  const connectDevice = async (device: BoundedDevice) => {
+  const connectDevice = async (device: BluetoothDevice) => {
     try {
-      dataBuffer.current = '';
-      setData('');
       updateAuthStep('connecting');
-
       console.log(`Tentando conexão com ${device.name}...`);
       const connection = await RNBluetoothClassic.connectToDevice(device.id);
-
-      console.log('Conectado fisicamente, iniciando handshake...');
+      
+      console.log('Conectado fisicamente, aguardando seed...');
       connectionRef.current = connection;
-      setConnectedDevice(connection);
+      
+      // NÃO mude a UI para "conectado" ainda.
+      // setConnectedDevice(connection); // <-- REMOVIDO DAQUI
 
-      if (dataSubscription.current) dataSubscription.current.remove();
+      dataBuffer.current = '';
+      if (dataSubscription.current) {
+        dataSubscription.current.remove();
+      }
       dataSubscription.current = connection.onDataReceived(onDataReceived);
-
+      
+      // Apenas mude o passo e espere. O dispositivo enviará a seed.
       updateAuthStep('waiting_for_seed');
-      console.log('Solicitando SEED...');
-      connection.write('AT+BT_SEED_REQ' + COMMAND_SUFFIX);
+      
+      // connection.write('AT+BT_SEED_REQ' + COMMAND_SUFFIX); // <-- REMOVIDO
 
     } catch (err: any) {
       console.error('Conexão falhou:', err);
       Alert.alert('Erro', `Falha na conexão: ${err.message}`);
       updateAuthStep('failed');
-      setConnectedDevice(null);
     }
   };
-
   const disconnectDevice = async () => {
     clearAuthTimeout();
     try {
@@ -227,7 +253,7 @@ export default function App() {
     }
   };
 
-  const renderDeviceItem = ({ item }: { item: BoundedDevice }) => (
+  const renderDeviceItem = ({ item }: { item: BluetoothDevice }) => (
     <View style={styles.deviceItem}>
       <Text style={styles.deviceName}>{item.name}</Text>
       <Button title="Conectar" onPress={() => connectDevice(item)} />
