@@ -19,7 +19,7 @@ import RNBluetoothClassic, {
 
 // --- Lógica de Autenticação ---
 const COMPANY_KEY = Buffer.from("8E12B960", 'hex');
-const COMMAND_SUFFIX = '\r\n'; // Símbolo de fim de comando
+const COMMAND_SUFFIX = '\r'; // Símbolo de fim de comando
 
 const calculateAuthKey = (seedData: string): string => {
   // 1. Limpa a seed (procurando por \r\n agora)
@@ -27,7 +27,6 @@ const calculateAuthKey = (seedData: string): string => {
   const seeds = Buffer.from(seedHex, 'hex');
   const key = Buffer.alloc(8);
 
-  // ... (lógica de criptografia, que está correta) ...
   key[0] = seeds[4] ^ COMPANY_KEY[3];
   key[1] = COMPANY_KEY[1];
   key[2] = (key[0] + COMPANY_KEY[2]) & 0xFF;
@@ -37,11 +36,15 @@ const calculateAuthKey = (seedData: string): string => {
   key[6] = seeds[7] & key[2];
   key[7] = seeds[3] ^ key[6];
 
-  const authKeyHex = key.toString('hex').toUpperCase().padStart(16, '0');
+  let authKeyHex = key.toString('hex').toUpperCase();
+
+  while (authKeyHex.length < 16) {
+    authKeyHex = '0' + authKeyHex;
+  }
   
   // 2. CORREÇÃO:
   // Adicionamos o sufixo \r\n, exatamente como o BluetoothClient.java faz
-  return 'AT+BT_AUTH=' + authKeyHex + COMMAND_SUFFIX;
+  return 'AT+BT_AUTH=' + authKeyHex + COMMAND_SUFFIX + '\n'
 };
 
 type AuthStep =
@@ -155,8 +158,9 @@ const processMessage = (message: string) => {
           // CORRETO: Prossiga para o próximo passo
           updateAuthStep('sending_user_code'); 
           console.log('Enviando CÓDIGO DE USUÁRIO...');
-          connectionRef.current?.write('AT+BT_COD_USER=0000000000000001' + COMMAND_SUFFIX);
+          connectionRef.current?.write('AT+BT_COD_USER=0000000000000001' + COMMAND_SUFFIX + '\n');
           updateAuthStep('waiting_for_user_ok');
+          
         } else if (message.includes('FAIL') || message.includes('BUSY') || message.includes('TIMEOUT')) {
           console.error('Autenticação falhou:', message);
           Alert.alert('Erro de Autenticação', `Falha: ${message}`);
@@ -169,10 +173,10 @@ const processMessage = (message: string) => {
         if (message.includes('AT+BT_COD_USER_OK')) {
           updateAuthStep('starting_telemetry');
           console.log('Enviando START TELEMETRIA...');
-          connectionRef.current?.write('AT_BT_PRM_START' + COMMAND_SUFFIX);
+          connectionRef.current?.write('AT_BT_PRM_START' + COMMAND_SUFFIX + '\n');
           
           console.log('Enviando SIMULATED FRAME OFF...');
-          connectionRef.current?.write('AT+BT_SIMULATED_FRAME_OFF' + COMMAND_SUFFIX);
+          connectionRef.current?.write('AT+BT_SIMULATED_FRAME_OFF' + COMMAND_SUFFIX + '\n');
           
           updateAuthStep('connected');
           // AGORA SIM: Mude a UI para "Conectado"
