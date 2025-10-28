@@ -16,6 +16,12 @@ import RNBluetoothClassic, {
   BluetoothDevice,
   BluetoothEventSubscription,
 } from 'react-native-bluetooth-classic';
+import { styles } from '../style/styles';
+import { parse } from 'path';
+// No topo do App.tsx
+import { getInstance as getDecoderInstance } from '../decoder/decoderFactory'; // Ajuste o caminho
+import { IBluechipDataDecoder, SensorData } from '../decoder/bluechipDecoder.types'; // Importe a interface SensorData também
+
 
 // --- Lógica de Autenticação ---
 const COMPANY_KEY = Buffer.from("8E12B960", 'hex');
@@ -41,7 +47,7 @@ const calculateAuthKey = (seedData: string): string => {
   while (authKeyHex.length < 16) {
     authKeyHex = '0' + authKeyHex;
   }
-  
+
   // 2. CORREÇÃO:
   // Adicionamos o sufixo \r\n, exatamente como o BluetoothClient.java faz
   return 'AT+BT_AUTH=' + authKeyHex + COMMAND_SUFFIX + '\n'
@@ -59,12 +65,23 @@ type AuthStep =
   | 'connected'                 // <-- Adicionado de volta
   | 'failed';
 
+
+// Fora do componente App, ou dentro se preferir
+
+/**
+ * Decodifica um frame de dados hexadecimal do Bluechip.
+ * @param hexFrame A string hexadecimal pura (sem prefixo AT+BT_...).
+ * @returns Um objeto SensorData com os valores decodificados.
+ */
+
+
 export default function App() {
   const [devices, setDevices] = useState<BluetoothDevice[]>([]);
   const [connectedDevice, setConnectedDevice] = useState<BluetoothDevice | null>(null);
   const [data, setData] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [authStep, setAuthStep] = useState<AuthStep>('disconnected');
+  const [sensorData, setSensorData] = useState<SensorData>({});
 
   const dataBuffer = useRef<string>('');
   const connectionRef = useRef<BluetoothDevice | null>(null);
@@ -129,16 +146,118 @@ export default function App() {
       setIsLoading(false);
     }
   };
+const updateSensorStateFromDecoder = (decoder: IBluechipDataDecoder, rawFrame: string) => {
+    try {
+        // Cria um novo objeto SensorData com os valores decodificados
+        const newData: SensorData = {
+            // Copia todos os valores usando os métodos do decoder
+            latitude: decoder.decodeLatitude(),
+            longitude: decoder.decodeLongitude(),
+            heading: decoder.decodeCompass(), // Ajuste os nomes das propriedades se necessário
+            battery: decoder.decodeBattery(),
+            firmwareVersion: decoder.decodeFirmwareVersion(),
+            protocolVersion: decoder.decodeProtocolVersion(),
+            engineStatus: decoder.decodeEngineStatus(),
+            ignitionStatus: decoder.decodeIgnitionStatus(),
+            gpsStatus: decoder.decodeGpsStatus(),
+            // Adiciona telemetria apenas se disponível
+            ...(decoder.isTelematicsAvailable() && {
+                hourMeter: decoder.decodeHourMeter(),
+                odometer: decoder.decodeOdometer(),
+                speed: decoder.decodeSpeed(), // Garanta que 'speed' (minúsculo) esteja na sua interface SensorData
+                rpm: decoder.decodeRPM(),
+                acceleratorPedal: decoder.decodeAcceleratorPedal(),
+                engineTorque: decoder.decodeEngineTorque(),
+                engineLoad: decoder.decodeEngineLoad(),
+                turboPressure: decoder.decodeTurboPressure(),
+                engineAdmissionAirPressure: decoder.decodeAdmissionValveAirPressure(),
+                fuelFlow: decoder.decodeFuelFlow(),
+                harvestUnitSpeed: decoder.decodeHarvestUnitSpeed(),
+                totalFuelUsage: decoder.decodeTotalFuelUsage(),
+                engineOilPressure: decoder.decodeEngineOilPressure(),
+                transmissionOilPressure: decoder.decodeTransmissionOilPressure(),
+                fuelPressure: decoder.decodeFuelPressure(),
+                engineOilTemperature: decoder.decodeEngineOilTemperature(),
+                engineWaterTemperature: decoder.decodeEngineWaterTemperature(),
+                engineAdmissionAirTemperature: decoder.decodeEngineAdmissionAirTemperature(),
+                environmentAirTemperature: decoder.decodeEnvironmentAirTemperature(),
+                transmissionOilTemperature: decoder.decodeTransmissionOilTemperature(),
+                hydraulicFluidTemperature: decoder.decodeHydraulicFluidTemperature(),
+                fuelTemperature: decoder.decodeFuelTemperature(),
+                fuelLevel: decoder.decodeFuelLevel(),
+                transmissionOilLevel: decoder.decodeTransmissionOilLevel(),
+                hydraulicFluidLevel: decoder.decodeHydraulicFluidLevel(),
+                agriculturalImplementHeightPercentage: decoder.decodeAgriculturalImplementHeightPercentage(),
+                elevatorConveyorBeltHourMeter: decoder.decodeElevatorConveyorBeltHourMeter(),
+                autopilotHourMeter: decoder.decodeAutoPilotHourMeter(),
+                caneBaseCutPressure: decoder.decodeCaneBaseCutPressure(),
+                caneChipperPressure: decoder.decodeCaneChipperPressure(),
+                primaryExtractorSpeed: decoder.decodePrimaryExtractorSpeed(),
+                // Digitais (Telemetria)
+                sugarCaneElevatorStatus: decoder.decodeSugarCaneElevatorStatus(),
+                sugarCaneBaseCutStatus: decoder.decodeSugarCaneBaseCutStatus(),
+                sugarCanePrimaryExtractorStatus: decoder.decodeSugarCanePrimaryExtractorStatus(),
+                sugarCaneSecondaryExtractorStatus: decoder.decodeSugarCaneSecondaryExtractorStatus(),
+                failureCodeStatus: decoder.decodeFailureCodeStatus(),
+                powerTakeoffStatus: decoder.decodePowerTakeOffStatus(),
+                rtkPilotStatus: decoder.decodeRtkPilotStatus(),
+                industryStatus: decoder.decodeIndustryStatus(),
+                grainDischargeStatus: decoder.decodeGrainDischargeStatus(),
+                harvestUnitStatus: decoder.decodeHarvestUnitStatus(),
+                packingCottonProcessStatus: decoder.decodePackingCottonProcessStatus(),
+                waterPumpStatus: decoder.decodeWaterPumpStatus(),
+                radiatorPropellerStatus: decoder.decodeRadiatorPropellerStatus(),
+                sprayLiquidReleaseStatus: decoder.decodeSprayLiquidReleaseStatus(),
+                centralSprayNozzleStatus: decoder.decodeCentralSprayNozzleStatus(),
+                leftSprayNozzleOneStatus: decoder.decodeLeftSprayNozzle1Status(),
+                leftSprayNozzleTwoStatus: decoder.decodeLeftSprayNozzle2Status(),
+                leftSprayNozzleThreeStatus: decoder.decodeLeftSprayNozzle3Status(),
+                leftSprayNozzleFourStatus: decoder.decodeLeftSprayNozzle4Status(),
+                rightSprayNozzleOneStatus: decoder.decodeRightSprayNozzle1Status(),
+                rightSprayNozzleTwoStatus: decoder.decodeRightSprayNozzle2Status(),
+                rightSprayNozzleThreeStatus: decoder.decodeRightSprayNozzle3Status(),
+                rightSprayNozzleFourStatus: decoder.decodeRightSprayNozzle4Status(),
+                conveyorPlanterStatus: decoder.decodeConveyorPlanterStatus(),
+                // Múltiplos Estados (Telemetria)
+                platformStatus: decoder.decodePlatformStatus(),
+                sprayApplicationMode: decoder.decodeSprayApplicationMode(),
+                caneBaseCutHeight: decoder.decodeCaneBaseCutHeight(),
+            }),
+            error: null, // Limpa qualquer erro de decodificação anterior
+            // rawFrame: rawFrame, // Opcional: guardar o frame bruto
+        };
 
-const processMessage = (message: string) => {
+        // Atualiza o estado do React com os novos dados
+        setSensorData(newData);
+
+    } catch (error: any) {
+        console.error("Erro DENTRO da decodificação dos campos:", error);
+        setSensorData(prev => ({ ...prev, error: `Erro nos campos: ${error.message}` }));
+    }
+};
+
+  const processMessage = (message: string) => {
     console.log('PROCESSANDO:', JSON.stringify(message));
     const currentStep = authStepRef.current;
-    
+
     // Se já estamos conectados, apenas adicione os dados
     if (currentStep === 'connected') {
-      setData((prevData) => prevData + message);
+      if (message.startsWith('AT+BT_PRM=')) {
+        try {
+          const decoder : IBluechipDataDecoder = getDecoderInstance(message + '\n'); // Adiciona o \n que a factory espera
+          updateSensorStateFromDecoder(decoder, message + '\n');
+        } catch (error: any) {
+            console.error("Erro ao criar decodificador:", error);
+            setSensorData(prev => ({ ...prev, error: `Erro ao criar decodificador: ${error.message}` }));
+        }
+      } else if (message.startsWith('AT+BT_DATA=')) {
+        console.warn("Decodificação de AT+BT_DATA não implementada com a nova factory.");
+      } else {
+        setData((prevData) => prevData + message);
+      }
       return;
     }
+
 
     // Lógica do Handshake (processo de autenticação)
     switch (currentStep) {
@@ -148,7 +267,7 @@ const processMessage = (message: string) => {
           const authCommand = calculateAuthKey(message);
           console.log('Enviando AUTH:', authCommand);
           // O authCommand já vem com o sufixo \r\n
-          connectionRef.current?.write(authCommand); 
+          connectionRef.current?.write(authCommand);
           updateAuthStep('waiting_for_auth_ok');
         }
         break;
@@ -156,11 +275,11 @@ const processMessage = (message: string) => {
       case 'waiting_for_auth_ok':
         if (message.includes('AT+BT_AUTH_OK')) {
           // CORRETO: Prossiga para o próximo passo
-          updateAuthStep('sending_user_code'); 
+          updateAuthStep('sending_user_code');
           console.log('Enviando CÓDIGO DE USUÁRIO...');
           connectionRef.current?.write('AT+BT_COD_USER=0000000000000001' + COMMAND_SUFFIX + '\n');
           updateAuthStep('waiting_for_user_ok');
-          
+
         } else if (message.includes('FAIL') || message.includes('BUSY') || message.includes('TIMEOUT')) {
           console.error('Autenticação falhou:', message);
           Alert.alert('Erro de Autenticação', `Falha: ${message}`);
@@ -174,19 +293,22 @@ const processMessage = (message: string) => {
           updateAuthStep('starting_telemetry');
           console.log('Enviando START TELEMETRIA...');
           connectionRef.current?.write('AT_BT_PRM_START' + COMMAND_SUFFIX + '\n');
-          
+
           console.log('Enviando SIMULATED FRAME OFF...');
           connectionRef.current?.write('AT+BT_SIMULATED_FRAME_OFF' + COMMAND_SUFFIX + '\n');
-          
+          connectionRef.current?.write('AT+BT_SIMULATED_FRAME_ON' + COMMAND_SUFFIX + '\n');
+
           updateAuthStep('connected');
           // AGORA SIM: Mude a UI para "Conectado"
-          setConnectedDevice(connectionRef.current); 
+          setConnectedDevice(connectionRef.current);
           console.log('HANDSHAKE COMPLETO. Ouvindo telemetria.');
         } else if (message.includes('FAIL') || message.includes('BUSY') || message.includes('TIMEOUT')) {
           console.error('Falha no login de usuário:', message);
           Alert.alert('Erro de Usuário', `Falha: ${message}`);
           disconnectDevice();
           updateAuthStep('failed');
+          connectionRef.current?.write('AT+BT_REAL_RPM=<value>' + COMMAND_SUFFIX + '\n');
+
         }
         break;
     }
@@ -213,10 +335,10 @@ const processMessage = (message: string) => {
       updateAuthStep('connecting');
       console.log(`Tentando conexão com ${device.name}...`);
       const connection = await RNBluetoothClassic.connectToDevice(device.id);
-      
+
       console.log('Conectado fisicamente, aguardando seed...');
       connectionRef.current = connection;
-      
+
       // NÃO mude a UI para "conectado" ainda.
       // setConnectedDevice(connection); // <-- REMOVIDO DAQUI
 
@@ -225,10 +347,10 @@ const processMessage = (message: string) => {
         dataSubscription.current.remove();
       }
       dataSubscription.current = connection.onDataReceived(onDataReceived);
-      
+
       // Apenas mude o passo e espere. O dispositivo enviará a seed.
       updateAuthStep('waiting_for_seed');
-      
+
       // connection.write('AT+BT_SEED_REQ' + COMMAND_SUFFIX); // <-- REMOVIDO
 
     } catch (err: any) {
@@ -264,7 +386,10 @@ const processMessage = (message: string) => {
     </View>
   );
 
+
+
   return (
+
     <View style={styles.container}>
       <Text style={styles.title}>App Bluetooth Classic</Text>
 
@@ -273,8 +398,34 @@ const processMessage = (message: string) => {
           <Text style={styles.infoText}>
             Conectado a: <Text style={{ fontWeight: 'bold' }}>{connectedDevice.name}</Text>
           </Text>
-          <Text style={styles.infoText}>Dados Recebidos:</Text>
+
+          {/* Seção para exibir os dados decodificados */}
+          <View style={styles.sensorDisplay}>
+            <Text style={styles.sensorTitle}>Dados da Máquina:</Text>
+            {/* Verifica se há erro na decodificação */}
+            {sensorData.error ? (
+              <Text style={styles.errorText}>Erro na Decodificação: {sensorData.error}</Text>
+            ) : (
+              <>
+                {/* Exibe cada sensor. Usa ?. e ?? 'N/A' para segurança */}
+                <Text style={styles.sensorText}>Protocolo: {sensorData.protocolVersion ?? 'N/A'}</Text>
+                <Text style={styles.sensorText}>Firmware: {sensorData.firmwareVersion ?? 'N/A'}</Text>
+                <Text style={styles.sensorText}>Latitude: {sensorData.latitude?.toFixed(7) ?? 'N/A'}</Text>
+                <Text style={styles.sensorText}>Longitude: {sensorData.longitude?.toFixed(7) ?? 'N/A'}</Text>
+                <Text style={styles.sensorText}>RPM: {sensorData.rpm ?? 'N/A'}</Text>
+                <Text style={styles.sensorText}>Velocidade: {sensorData.speed ?? 'N/A'} Km/h</Text>
+                <Text style={styles.sensorText}>Bateria: {sensorData.battery?.toFixed(2) ?? 'N/A'} V</Text>
+                <Text style={styles.sensorText}>Ignição: {sensorData.ignitionStatus === null ? 'N/A' : (sensorData.ignitionStatus ? 'Ligada' : 'Desligada')}</Text>
+                <Text style={styles.sensorText}>Motor: {sensorData.engineStatus === null ? 'N/A' : (sensorData.engineStatus ? 'Ligado' : 'Desligado')}</Text>
+                <Text style={styles.sensorText}>GPS: {sensorData.gpsStatus === null ? 'N/A' : (sensorData.gpsStatus ? 'Válido' : 'Inválido')}</Text>
+                {/* Adicione mais <Text> para outros sensores que você decodificar */}
+              </>
+            )}
+          </View>
+
+          <Text style={styles.infoText}>Dados Brutos Recebidos:</Text>
           <ScrollView style={styles.dataBox}>
+            {/* Mostra os dados brutos como antes */}
             <Text>{data}</Text>
           </ScrollView>
           <Button title="Desconectar" onPress={disconnectDevice} color="#c0392b" />
@@ -317,34 +468,6 @@ const processMessage = (message: string) => {
     </View>
   );
 }
+;
 
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#f5f5f5' },
-  title: { fontSize: 24, fontWeight: 'bold', textAlign: 'center', marginBottom: 20 },
-  deviceItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 15,
-    marginVertical: 5,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    elevation: 2,
-  },
-  deviceName: { fontSize: 16, fontWeight: '500' },
-  emptyText: { textAlign: 'center', marginTop: 40, fontSize: 16, color: '#7f8c8d' },
-  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  loadingText: { marginTop: 15, fontSize: 16, color: '#3498db' },
-  connectedContainer: { flex: 1 },
-  infoText: { fontSize: 18, marginBottom: 10 },
-  dataBox: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    padding: 10,
-    marginBottom: 20,
-  },
-});
+
