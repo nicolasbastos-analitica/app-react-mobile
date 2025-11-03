@@ -6,5 +6,9 @@ export const styles = StyleSheet.create({
       height:40,
       
     },
+    containerAvatar:{
+        marginTop:80,
+        marginLeft:343,
+    }
 }
 );
