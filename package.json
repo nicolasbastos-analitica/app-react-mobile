@@ -53,12 +53,11 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.16",
     "tailwindcss-animate": "^1.0.7",
-    "tamagui": "^1.135.7",
     "vaul": "^1.1.2"
   },
   "devDependencies": {
-    "@tamagui/babel-plugin": "^1.135.7",
     "@types/react": "~19.1.0",
+    "@types/yargs": "^17.0.34",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
