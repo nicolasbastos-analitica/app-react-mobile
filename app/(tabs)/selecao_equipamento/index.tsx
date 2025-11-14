@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import { Avatar, Button, Icon, TextInput } from "react-native-paper";
 import { styles } from "./styles";
 
 const iconColhedora = require("@/assets/images/colhedora4x.png");
-const iconTrator = require("@/assets/images/trator.png")
-const iconUnion = require("@/assets/images/Union.png")
+const iconTrator = require("@/assets/images/trator.png");
+const iconUnion = require("@/assets/images/Union.png");
 const numEquip = 80001;
 const modeloEquip = 'New Holland Tc5090';
 export default function SelecaoEquipamento() {
+    const [selectedEquip, setSelectedEquip] = useState("colhedora");
     return (
         <View>
             <View style={styles.containerAvatar}>

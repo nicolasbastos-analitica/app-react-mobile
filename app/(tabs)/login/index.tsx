@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import {
-  View,
-  ImageBackground,
   ActivityIndicator,
-  Text,
+  Image,
+  ImageBackground,
   KeyboardAvoidingView,
   Platform,
-  ScrollView
+  Pressable,
+  ScrollView,
+  Text,
+  View
 } from "react-native";
 import "../../global.css";
 // Removi o 'Drawer' que não estava sendo usado
-import { Avatar, Button, Dialog, MD3Colors, Modal, Portal, ProgressBar, TextInput, } from 'react-native-paper';
+import { Avatar, Button, Dialog, Icon, IconButton, MD3Colors, Modal, Portal, ProgressBar, TextInput } from 'react-native-paper';
 const backgroundImage = require("@/assets/images/splash_screen.png");
 // const lock = require("@/assets/images/lock.png")
+import { Link } from 'expo-router';
 import { styles } from "./styles";
 
 export default function Login() {
@@ -21,7 +24,7 @@ export default function Login() {
   const [isPasswordPanelVisible, setIsPasswordPanelVisible] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isDialogVisible, setDialogVisible] = useState(false);
-  
+
   const showPanel = () => setIsPanelVisible(true);
   const hidePanel = () => setIsPanelVisible(false);
   const showPasswordPanel = () => setIsPasswordPanelVisible(true);
@@ -31,8 +34,12 @@ export default function Login() {
 
   const user = 'José da Silva Machado';
   const numRegistro = '000000001';
+  const haveIcon = false;
+  const userIcon = require('@/assets/images/react-logo.png');
+  const nullUserIcon = require('@/assets/images/user_icon.png');
+  const lockIcon = require('@/assets/images/lock_icon.png')
 
-  
+
 
   return (
     <View style={{ flex: 1 }}>
@@ -46,16 +53,16 @@ export default function Login() {
           <ActivityIndicator size="large" color="#0000ff" />
         )}
         <Button
-          style={styles.botao_login}
-          labelStyle={styles.botao_login_label}
+          style={styles.botaoLogin}
+          labelStyle={styles.botaoLoginLabel}
           mode="contained"
           onPress={showPanel}
         >
           Iniciar
         </Button>
         <Button
-          style={styles.botao_sincronizacao}
-          labelStyle={styles.botao_login_label}
+          style={styles.botaoSincronizacao}
+          labelStyle={styles.botaoLoginLabel}
           mode="contained"
           onPress={showDialog}
         >
@@ -134,13 +141,15 @@ export default function Login() {
         >
 
           <ScrollView contentContainerStyle={styles.panelContent}>
-          <Button icon="chevron-left" mode="contained" onPress={hidePasswordPanel} style={styles.botaoVoltar} labelStyle={styles.botaoVoltarLabel}>
-            Voltar
-          </Button>
-            <Text style={styles.panelTitle}>Bem-vindo</Text>
+            <IconButton icon="chevron-left" mode="contained" onPress={hidePasswordPanel} 
+            containerColor={styles.botaoVoltar.backgroundColor} 
+            iconColor={styles.botaoVoltarLabel.color} 
+            style={styles.botaoVoltar} 
+            size={14}>
+            </IconButton>
 
             <View style={styles.containerUser} >
-              <Avatar.Image size={64} source={require('@/assets/images/react-logo.png')} />
+              <Avatar.Image size={36} source={haveIcon == false ? nullUserIcon : userIcon} />
               <View style={styles.userTextContainer} >
                 <Text style={styles.panelUser}>
                   {user}
@@ -155,7 +164,7 @@ export default function Login() {
             </Text>
 
             <TextInput
-              theme={{
+              theme={{ 
                 roundness: 8,
                 colors: {
                   primary: "#8F8CB5", // Cor (focado)
@@ -169,7 +178,8 @@ export default function Login() {
               style={styles.input}
               left={
                 <TextInput.Icon
-                  icon='lock'
+                  icon={()=> (<Image source={lockIcon}/>)}
+                  // style={{ width: 13, height: 14 }} 
                   color="#00B16B"
                 />
               }
@@ -181,20 +191,17 @@ export default function Login() {
                 />
               }
             />
-            <Button style={styles.botao_esqueci_senha} labelStyle={styles.label_botao_esqueci_senha}>Esqueci minha senha</Button>
+            <Button style={styles.botaoEsqueciSenha} labelStyle={styles.labelBotaoEsqueciSenha}>Esqueci minha senha</Button>
 
             <View style={styles.paginationDots}>
               <View style={[styles.dot, styles.dotActive]} />
               <View style={[styles.dot, styles.dotActive]} />
             </View>
-            <Button
-              style={styles.iniciarButton}
-              labelStyle={styles.iniciarButtonLabel}
-              mode="contained"
-              onPress={hidePasswordPanel}
-            >
-              Iniciar
-            </Button>
+            <Link href="/(tabs)/selecao_equipamento" asChild >
+              <Pressable style={styles.botaoEntrar}>
+                <Text style={styles.textBotaoEntrar}>Entrar <Icon source="check" color="#FFFFFF" size={20} /></Text>
+              </Pressable>
+            </Link>
           </ScrollView>
         </KeyboardAvoidingView>
       </Modal>

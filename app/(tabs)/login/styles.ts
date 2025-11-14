@@ -1,5 +1,4 @@
-import { BackHandler, StyleSheet } from "react-native";
-import { Modal } from "react-native-paper";
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   backgroundImage: {
@@ -7,8 +6,8 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  // Seu botão de Login (gatilho)
-  botao_login: {
+  // Botão "Iniciar" (Background)
+  botaoLogin: {
     position: 'absolute',
     bottom: 120,
     height: 56,
@@ -17,7 +16,14 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
   },
-  botao_sincronizacao: {
+  // Label dos botões Iniciar e Sincronizar (Background)
+  botaoLoginLabel: {
+    fontSize: 18,
+    color: "#FFFFFF",
+    fontWeight: 'bold',
+  },
+  // Botão "Sincronizar" (Background)
+  botaoSincronizacao: {
     position: 'absolute',
     bottom: 50,
     height: 56,
@@ -26,13 +32,8 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
   },
-  botao_login_label: {
-    fontSize: 18,
-    color: "#FFFFFF",
-    fontWeight: 'bold',
-  },
 
-  // --- NOVOS ESTILOS PARA O PAINEL BRANCO ---
+  // --- Modal 1: Painel de Login (Registro) ---
 
   // O container do Modal (a "parte branca")
   panelContainer: {
@@ -43,18 +44,19 @@ export const styles = StyleSheet.create({
     width: '100%',
     maxHeight: '80%',
   },
-  passwordPanelContainer: {
-    backgroundColor: '#FAFBFD',
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    bottom: -26,
-  },
+  // Estilo do conteúdo do ScrollView (usado nos dois modais)
   panelContent: {
     padding: 24,
     paddingBottom: 40,
   },
-
+  // Container dos itens no Modal 1
+  containerItens: {
+    marginTop: 36,
+    marginBottom: 36,
+    marginLeft: 24,
+    marginRight: 24,
+  },
+  // Título "Login"
   panelTitle: {
     fontSize: 28,
     fontFamily: 'Montserrat',
@@ -62,88 +64,24 @@ export const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 24,
   },
+  // Descrição "Digite o número..." (usado também no Modal 2)
   panelDescription: {
-    fontSize: 16,
+    fontSize: 12,
     color: '#666666',
     marginBottom: 24,
   },
-  panelDescriptionPassword: {
-    fontSize: 16,
-    color: '#050412',
-    marginBottom: 24,
-  },
-  panelUser: {
-    fontSize: 20,
-    color: '#666666',
-    // marginBottom: 24,
-  },
-  containerUser: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  containerItens: {
-    marginTop: 36,
-    marginBottom: 36,
-    marginLeft: 24,
-    marginRight: 24,
-  },
-  userTextContainer: {
-    marginLeft: 16,
-    justifyContent: 'center',
-    // alignItems:'center',
-    marginTop: 21,
-  },
-  numRegistro: {
-    fontWeight: 'bold',
-  },
+  // Input (usado nos dois modais)
   input: {
     backgroundColor: '#FFFFFF', // Fundo do input
     marginBottom: 24,
   },
-  botaoVoltar: {
-    display: 'flex',
-    padding: 4,
-    justifyContent: 'center',
-    width: 120,
-    alignItems: 'center',
-    gap: 12,
-    // marginLeft: 24,
-    backgroundColor: '#F5F4FF',
-    borderRadius: 8,
-  },
-  botao_esqueci_senha: {
-    backgroundColor: 'rgba(0, 177, 107, 0.10)',
-    color: 'black',
-    paddingBottom: 8,
-    paddingTop: 8,
-    paddingLeft: 12,
-    paddingRight: 12,
-    marginBottom:24,
-    justifyContent:'center',
-    width:200,
-    // height:40,
-  },
-  label_botao_esqueci_senha: {
-    color: '#00B16B',
-    fontSize:14,
-    fontFamily:'Montserrat',
-    fontWeight:700,
-  },
-  botaoVoltarLabel: {
-    fontFamily: 'Montserrat',
-    fontSize: 14,
-    color: '#625F7E',
-    fontWeight: '600',
-
-  },
-
+  // Container das bolinhas (usado nos dois modais)
   paginationDots: {
     flexDirection: 'row',
     justifyContent: 'center',
     marginBottom: 24,
   },
+  // Bolinha inativa
   dot: {
     width: 10,
     height: 10,
@@ -152,19 +90,120 @@ export const styles = StyleSheet.create({
     marginHorizontal: 4,
     gap: 24,
   },
+  // Bolinha ativa
   dotActive: {
     backgroundColor: '#00B16B', // Cor da bolinha ativa
   },
+  // Botão "Iniciar" (Dentro do Modal 1)
   iniciarButton: {
     height: 56,
     borderRadius: 8,
     backgroundColor: "#00B16B",
     justifyContent: 'center',
   },
+  // Label do botão "Iniciar" (Dentro do Modal 1)
   iniciarButtonLabel: {
     fontSize: 18,
     color: "#FFFFFF",
     fontWeight: 'bold',
   },
 
+  // --- Modal 2: Painel de Senha ---
+
+  // Container do Modal 2
+  passwordPanelContainer: {
+    backgroundColor: '#FAFBFD',
+    position: 'absolute',
+    width: '100%',
+    height: '60%',
+    bottom: -26,
+    borderRadius: 20,
+  },
+  // Botão de voltar
+  botaoVoltar: {
+    display: 'flex',
+    justifyContent: 'center',
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    backgroundColor: '#F5F4FF',
+    borderRadius: 8,
+    margin:0,
+  },
+  // Label do botão de voltar
+  botaoVoltarLabel: {
+    fontFamily: "Font Awesome 6 Pro",
+    fontSize: 14,
+    color: '#625F7E',
+    fontWeight: '600',
+  },
+  // Container do Avatar + Textos
+  containerUser: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    // marginBottom: 24,
+  },
+  // Container dos textos (Nome e Registro)
+  userTextContainer: {
+    marginLeft: 16,
+    justifyContent: 'center',
+    // alignItems:'center',
+    marginTop: 24,
+  },
+  // Texto do nome do usuário
+  panelUser: {
+    fontSize: 14,
+    color: '#666666',
+    // marginBottom: 24,
+  },
+  // Estilo do número de registro (bold)
+  numRegistro: {
+    fontWeight: 'bold',
+  },
+  // Descrição "Insira sua senha..."
+  panelDescriptionPassword: {
+    fontSize: 16,
+    fontWeight:400,
+    color: '#050412',
+    marginBottom: 24,
+  },
+  // Botão "Esqueci minha senha"
+  botaoEsqueciSenha: {
+    backgroundColor: 'rgba(143, 140, 181, 0.10)',
+    color: 'black',
+    paddingBottom: 4,
+    paddingTop: 4,
+    // paddingLeft: 4,
+    // paddingRight: 4,
+    marginBottom: 24,
+    justifyContent: 'center',
+    width: 200,
+    borderRadius:100,
+    // height:40,
+  },
+  // Label do botão "Esqueci minha senha"
+  labelBotaoEsqueciSenha: {
+    color: '#625F7E',
+    fontSize: 14,
+    fontFamily: 'Montserrat',
+    fontWeight:700
+
+  },
+  // Botão "Entrar" (Pressable)
+  botaoEntrar: {
+    display: 'flex',
+    height: 56,
+    borderRadius: 8,
+    backgroundColor: "#00B16B",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  // Texto do botão "Entrar"
+  textBotaoEntrar: {
+    fontSize: 18,
+    color: "#FFFFFF",
+    fontWeight:'600'
+    // fontWeight: 'bold',
+  }
 });
