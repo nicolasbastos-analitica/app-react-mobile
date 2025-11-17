@@ -5,8 +5,31 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: '#000'
+  },
+  afterClick1: {
+    position: 'absolute',
+    top: '40%'
   },
   // Botão "Iniciar" (Background)
+  logoContainer: {
+    position: 'absolute',
+    top: '40%', // Posiciona o container a 25% do topo
+    alignItems: 'center', // Centraliza o logo e o texto dentro dele
+  },
+  logoAnalitica: {
+    width: 250, // Largura da imagem do logo
+    height: 80, // Altura da imagem do logo
+    marginBottom: 16, // Espaço entre o logo e o texto da versão
+  },
+  versionText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '500',
+    position: 'absolute',
+    top: '75%', // Posiciona o container a 25% do topo
+    alignItems: 'center',
+  },
   botaoLogin: {
     position: 'absolute',
     bottom: 120,
@@ -15,6 +38,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#00B16B",
     borderRadius: 8,
     justifyContent: 'center',
+    alignContent: 'center'
   },
   // Label dos botões Iniciar e Sincronizar (Background)
   botaoLoginLabel: {
@@ -51,23 +75,23 @@ export const styles = StyleSheet.create({
   },
   // Container dos itens no Modal 1
   containerItens: {
-    marginTop: 36,
-    marginBottom: 36,
-    marginLeft: 24,
-    marginRight: 24,
+    // marginTop: 36,
+    // marginBottom: 36,
+    // marginLeft: 24,
+    // marginRight: 24,
   },
   // Título "Login"
   panelTitle: {
-    fontSize: 28,
-    fontFamily: 'Montserrat',
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontFamily: 'Montserrat-Bold',
     color: '#000000',
     marginBottom: 24,
   },
   // Descrição "Digite o número..." (usado também no Modal 2)
   panelDescription: {
+    fontFamily: 'Montserrat',
     fontSize: 12,
-    color: '#666666',
+    color: '#050412',
     marginBottom: 24,
   },
   // Input (usado nos dois modais)
@@ -115,8 +139,8 @@ export const styles = StyleSheet.create({
     backgroundColor: '#FAFBFD',
     position: 'absolute',
     width: '100%',
-    height: '60%',
-    bottom: -26,
+    height: 416,
+    bottom: -35,
     borderRadius: 20,
   },
   // Botão de voltar
@@ -128,7 +152,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5F4FF',
     borderRadius: 8,
-    margin:0,
+    margin: 0,
   },
   // Label do botão de voltar
   botaoVoltarLabel: {
@@ -146,25 +170,26 @@ export const styles = StyleSheet.create({
   },
   // Container dos textos (Nome e Registro)
   userTextContainer: {
-    marginLeft: 16,
+    marginLeft: 12,
     justifyContent: 'center',
     // alignItems:'center',
     marginTop: 24,
   },
   // Texto do nome do usuário
   panelUser: {
+    fontFamily: 'Montserrat',
     fontSize: 14,
-    color: '#666666',
+    color: '#050412',
     // marginBottom: 24,
   },
   // Estilo do número de registro (bold)
   numRegistro: {
-    fontWeight: 'bold',
+    fontFamily: 'Montserrat-Bold',
   },
   // Descrição "Insira sua senha..."
   panelDescriptionPassword: {
     fontSize: 16,
-    fontWeight:400,
+    fontFamily: 'Montserrat',
     color: '#050412',
     marginBottom: 24,
   },
@@ -179,7 +204,7 @@ export const styles = StyleSheet.create({
     marginBottom: 24,
     justifyContent: 'center',
     width: 200,
-    borderRadius:100,
+    borderRadius: 100,
     // height:40,
   },
   // Label do botão "Esqueci minha senha"
@@ -187,7 +212,7 @@ export const styles = StyleSheet.create({
     color: '#625F7E',
     fontSize: 14,
     fontFamily: 'Montserrat',
-    fontWeight:700
+    fontWeight: 700
 
   },
   // Botão "Entrar" (Pressable)
@@ -203,7 +228,58 @@ export const styles = StyleSheet.create({
   textBotaoEntrar: {
     fontSize: 18,
     color: "#FFFFFF",
-    fontWeight:'600'
+    fontWeight: '600'
     // fontWeight: 'bold',
+  },
+
+  //Recuperação de senha :
+
+  containerPasssword: {
+    backgroundColor: 'white',
+    width: '100%',
+    height: '100%',
+  },
+  botaoVoltarRecuperarSenha: {
+    marginTop: 32,
+    marginLeft: 24,
+    marginRight: 24,
+  },
+  containerBody: {
+    padding: 24,
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  Titulo: {
+    color: '#050412',
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 20,
+    marginBottom: 24,
+  },
+  textoEsqueceuSenha: {
+    fontFamily: 'Montserrat',
+    color: '#050412',
+    fontSize: 16,
+    fontWeight: 400,
+    marginBottom: 24,
+
+  }, inputRecuperarSenha: {
+    maxHeight: '10%',
+    width: "100%",
+    justifyContent: 'center',
+    backgroundColor: '#FFF',
+  },
+  containerBotaEnviar: {
+    marginLeft: 24,
+    width: 322,
+    padding: 24,
+  },
+  botaoRecuperarSenha:{
+    backgroundColor: "#00B16B",
+    borderRadius: 8,
+    height:41,
+    justifyContent: 'center',
+    alignContent: 'center'
   }
 });

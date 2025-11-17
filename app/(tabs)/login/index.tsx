@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import React, { useState } from "react";
 import {
   ActivityIndicator,
@@ -10,13 +11,11 @@ import {
   Text,
   View
 } from "react-native";
-import "../../global.css";
-// Removi o 'Drawer' que não estava sendo usado
 import { Avatar, Button, Dialog, Icon, IconButton, MD3Colors, Modal, Portal, ProgressBar, TextInput } from 'react-native-paper';
-const backgroundImage = require("@/assets/images/splash_screen.png");
-// const lock = require("@/assets/images/lock.png")
-import { Link } from 'expo-router';
+import "../../global.css";
 import { styles } from "./styles";
+const backgroundImage = require("@/assets/images/background_img.png");
+const logoAnalitica = require("@/assets/images/logo_analitica2x.png");
 
 export default function Login() {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -39,44 +38,59 @@ export default function Login() {
   const nullUserIcon = require('@/assets/images/user_icon.png');
   const lockIcon = require('@/assets/images/lock_icon.png')
 
+  const appVersion = '1.0'
+
+
 
 
   return (
     <View style={{ flex: 1 }}>
       {/* ... (ImageBackground e Botão "Iniciar" não mudam) ... */}
-      <ImageBackground
-        source={backgroundImage}
-        style={styles.backgroundImage}
-        onLoadEnd={() => setImageLoaded(true)}
-      >
-        {!imageLoaded && (
-          <ActivityIndicator size="large" color="#0000ff" />
-        )}
-        <Button
-          style={styles.botaoLogin}
-          labelStyle={styles.botaoLoginLabel}
-          mode="contained"
-          onPress={showPanel}
+      {/* <View style ={styles.afterClick1}> */}
+
+        <ImageBackground
+          source={backgroundImage}
+          style={styles.backgroundImage}
+          onLoadEnd={() => setImageLoaded(true)}
         >
-          Iniciar
-        </Button>
-        <Button
-          style={styles.botaoSincronizacao}
-          labelStyle={styles.botaoLoginLabel}
-          mode="contained"
-          onPress={showDialog}
-        >
-          Sincronizar
-        </Button>
-        <Portal>
-          <Dialog visible={isDialogVisible} onDismiss={hideDialog}>
-            <Dialog.Content>
-              <Text>Sincronizando...</Text>
-              <ProgressBar progress={0.5} color={MD3Colors.error50} />
-            </Dialog.Content>
-          </Dialog>
-        </Portal>
-      </ImageBackground>
+          {!imageLoaded && (
+            <ActivityIndicator size="large" color="#0000ff" />
+          )}
+          <View style={styles.logoContainer}>
+            <Image
+              source={logoAnalitica}
+              style={styles.logoAnalitica}
+              resizeMode="contain"
+            />
+          </View>
+          <Text style={styles.versionText}>Versão {appVersion}</Text>
+
+          <Button
+            style={styles.botaoLogin}
+            labelStyle={styles.botaoLoginLabel}
+            mode="contained"
+            onPress={showPanel}
+          >
+            Iniciar
+          </Button>
+          <Button
+            style={styles.botaoSincronizacao}
+            labelStyle={styles.botaoLoginLabel}
+            mode="contained"
+            onPress={showDialog}
+          >
+            Sincronizar
+          </Button>
+          <Portal>
+            <Dialog visible={isDialogVisible} onDismiss={hideDialog}>
+              <Dialog.Content>
+                <Text>Sincronizando...</Text>
+                <ProgressBar progress={0.5} color={MD3Colors.error50} />
+              </Dialog.Content>
+            </Dialog>
+          </Portal>
+        </ImageBackground>
+      {/* </View> */}
 
       <Modal
         visible={isPanelVisible}
@@ -108,7 +122,7 @@ export default function Login() {
                 left={
                   <TextInput.Icon
                     icon="account-circle-outline"
-                    color="#00B16B"
+                    color="#42405F"
                   />
                 }
               />
@@ -141,11 +155,11 @@ export default function Login() {
         >
 
           <ScrollView contentContainerStyle={styles.panelContent}>
-            <IconButton icon="chevron-left" mode="contained" onPress={hidePasswordPanel} 
-            containerColor={styles.botaoVoltar.backgroundColor} 
-            iconColor={styles.botaoVoltarLabel.color} 
-            style={styles.botaoVoltar} 
-            size={14}>
+            <IconButton icon="chevron-left" mode="contained" onPress={hidePasswordPanel}
+              containerColor={styles.botaoVoltar.backgroundColor}
+              iconColor={styles.botaoVoltarLabel.color}
+              style={styles.botaoVoltar}
+              size={14}>
             </IconButton>
 
             <View style={styles.containerUser} >
@@ -164,7 +178,7 @@ export default function Login() {
             </Text>
 
             <TextInput
-              theme={{ 
+              theme={{
                 roundness: 8,
                 colors: {
                   primary: "#8F8CB5", // Cor (focado)
@@ -178,7 +192,7 @@ export default function Login() {
               style={styles.input}
               left={
                 <TextInput.Icon
-                  icon={()=> (<Image source={lockIcon}/>)}
+                  icon={() => (<Image source={lockIcon} />)}
                   // style={{ width: 13, height: 14 }} 
                   color="#00B16B"
                 />
