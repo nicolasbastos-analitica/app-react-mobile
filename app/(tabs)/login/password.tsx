@@ -1,19 +1,29 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
-import { Button, Icon, IconButton, TextInput } from "react-native-paper";
+import { Button, IconButton, TextInput } from "react-native-paper";
 import { styles } from './styles';
 const sendEmailIcon = require('@/assets/images/send_email.png')
 
 export default function password() {
+    const router = useRouter();
+    function sendEmail() {
+        return 0;
+    }
+
     return (
+
         <View style={styles.containerPasssword}>
-            <View>
-                <IconButton icon="chevron-left" mode="contained" onPress={() => { }}
-                    containerColor={styles.botaoVoltar.backgroundColor}
-                    iconColor={styles.botaoVoltarLabel.color}
-                    style={[styles.botaoVoltar, styles.botaoVoltarRecuperarSenha]}
-                    size={14}>
-                </IconButton>
+            <View >
+
+                <View>
+                    <IconButton icon="chevron-left" mode="contained" onPress={() => router.replace('/(tabs)/login')}
+                        containerColor={styles.botaoVoltar.backgroundColor}
+                        iconColor={styles.botaoVoltarLabel.color}
+                        style={[styles.botaoVoltar, styles.botaoVoltarRecuperarSenha]}
+                        size={14}>
+                    </IconButton>
+                </View>
             </View>
 
             <View style={styles.containerBody}>
@@ -48,17 +58,16 @@ export default function password() {
             <View style={styles.containerBotaEnviar}>
                 <Button
                     style={styles.botaoRecuperarSenha}
-                    labelStyle={styles.botaoLoginLabel}
+                    labelStyle={styles.botaoRecuperarSenhaLabel}
                     mode="contained"
-                    onPress={()=>{}}
-                >
-                    <Text style={styles.textBotaoEntrar}>Entrar <Icon source={sendEmailIcon} color="#FFFFFF" size={14} /></Text>
-
+                    icon={sendEmailIcon}
+                    contentStyle={{ flexDirection: 'row-reverse' }}
+                    onPress={() => { sendEmail() }}
+                >Enviar
                 </Button>
-
 
             </View>
         </View>
-        
+
     );
 }

@@ -48,48 +48,48 @@ export default function Login() {
       {/* ... (ImageBackground e Botão "Iniciar" não mudam) ... */}
       {/* <View style ={styles.afterClick1}> */}
 
-        <ImageBackground
-          source={backgroundImage}
-          style={styles.backgroundImage}
-          onLoadEnd={() => setImageLoaded(true)}
-        >
-          {!imageLoaded && (
-            <ActivityIndicator size="large" color="#0000ff" />
-          )}
-          <View style={styles.logoContainer}>
-            <Image
-              source={logoAnalitica}
-              style={styles.logoAnalitica}
-              resizeMode="contain"
-            />
-          </View>
-          <Text style={styles.versionText}>Versão {appVersion}</Text>
+      <ImageBackground
+        source={backgroundImage}
+        style={styles.backgroundImage}
+        onLoadEnd={() => setImageLoaded(true)}
+      >
+        {!imageLoaded && (
+          <ActivityIndicator size="large" color="#0000ff" />
+        )}
+        <View style={styles.logoContainer}>
+          <Image
+            source={logoAnalitica}
+            style={styles.logoAnalitica}
+            resizeMode="contain"
+          />
+        </View>
+        <Text style={styles.versionText}>Versão {appVersion}</Text>
 
-          <Button
-            style={styles.botaoLogin}
-            labelStyle={styles.botaoLoginLabel}
-            mode="contained"
-            onPress={showPanel}
-          >
-            Iniciar
-          </Button>
-          <Button
-            style={styles.botaoSincronizacao}
-            labelStyle={styles.botaoLoginLabel}
-            mode="contained"
-            onPress={showDialog}
-          >
-            Sincronizar
-          </Button>
-          <Portal>
-            <Dialog visible={isDialogVisible} onDismiss={hideDialog}>
-              <Dialog.Content>
-                <Text>Sincronizando...</Text>
-                <ProgressBar progress={0.5} color={MD3Colors.error50} />
-              </Dialog.Content>
-            </Dialog>
-          </Portal>
-        </ImageBackground>
+        <Button
+          style={styles.botaoLogin}
+          labelStyle={styles.botaoLoginLabel}
+          mode="contained"
+          onPress={showPanel}
+        >
+          Iniciar
+        </Button>
+        <Button
+          style={styles.botaoSincronizacao}
+          labelStyle={styles.botaoLoginLabel}
+          mode="contained"
+          onPress={showDialog}
+        >
+          Sincronizar
+        </Button>
+        <Portal>
+          <Dialog visible={isDialogVisible} onDismiss={hideDialog}>
+            <Dialog.Content>
+              <Text>Sincronizando...</Text>
+              <ProgressBar progress={0.5} color={MD3Colors.error50} />
+            </Dialog.Content>
+          </Dialog>
+        </Portal>
+      </ImageBackground>
       {/* </View> */}
 
       <Modal
@@ -205,7 +205,13 @@ export default function Login() {
                 />
               }
             />
-            <Button style={styles.botaoEsqueciSenha} labelStyle={styles.labelBotaoEsqueciSenha}>Esqueci minha senha</Button>
+            <Link href={"/(tabs)/login/password"} asChild>
+              <Pressable style={styles.botaoEsqueciSenha}>
+                <Text style={styles.labelBotaoEsqueciSenha}>
+                  Esqueci minha senha
+                </Text>
+              </Pressable>
+            </Link>
 
             <View style={styles.paginationDots}>
               <View style={[styles.dot, styles.dotActive]} />

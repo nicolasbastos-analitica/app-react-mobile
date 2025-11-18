@@ -2,7 +2,7 @@ import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, Text, View } from "react-native";
-import { Avatar, Button, Icon, IconButton, TextInput } from "react-native-paper";
+import { Avatar, Button, Icon, IconButton } from "react-native-paper";
 import { styles } from "./styles";
 
 const colheitadeira = require("@/assets/images/colheitadeira2x.png")
@@ -20,7 +20,7 @@ const userIcon = require('@/assets/images/react-logo.png');
 const nullUserIcon = require('@/assets/images/user_icon.png');
 const Blue = 'BLUE_530';
 
-export default function SelecaoEquipamento() {
+export default function Implementos() {
     const [selectedEquip, setSelectedEquip] = useState("colhedora");
     const [IsActivate, setIsActivate] = useState(true);
     return (
@@ -70,25 +70,7 @@ export default function SelecaoEquipamento() {
                 <Text style={styles.tituloPagina}>Seleção de Máquina</Text>
 
 
-                <TextInput
-                    theme={{
-                        roundness: 8,
-                        colors: {
-                            primary: "#8F8CB5", // Cor (focado)
-                            outline: "#8F8CB5", // Cor da borda (inativo)
-                            onSurfaceVariant: "#8F8CB5" // Cor do label (inativo)
-                        }
-                    }}
-                    label="Buscar equipamento"
-                    mode="outlined"
-
-                    style={styles.input}
-                    left={
-                        <TextInput.Icon
-                            icon='magnify'
-                            color="#42405F"
-                        />}
-                />
+            
 
                 <View style={styles.maquinaInfo}>
                     <ImageBackground source={colheitadeira} style={styles.maquinaImg}>
@@ -111,7 +93,6 @@ export default function SelecaoEquipamento() {
                     style={styles.nextButton}
                     labelStyle={styles.nextButtonLabel}
                     mode="contained"
-                    onPress={() => router.replace('/implementos')}
                 >
                     Próximo
                 </Button>
