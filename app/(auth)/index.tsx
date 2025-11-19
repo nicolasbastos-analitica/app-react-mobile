@@ -1,3 +1,4 @@
+import "@/app/global.css";
 import { Link } from 'expo-router';
 import React, { useState } from "react";
 import {
@@ -12,7 +13,6 @@ import {
   View
 } from "react-native";
 import { Avatar, Button, Dialog, Icon, IconButton, MD3Colors, Modal, Portal, ProgressBar, TextInput } from 'react-native-paper';
-import "../../global.css";
 import { styles } from "./styles";
 const backgroundImage = require("@/assets/images/background_img.png");
 const logoAnalitica = require("@/assets/images/logo_analitica2x.png");
@@ -205,7 +205,7 @@ export default function Login() {
                 />
               }
             />
-            <Link href={"/(tabs)/login/password"} asChild>
+            <Link href={'/(auth)/password'} asChild>
               <Pressable style={styles.botaoEsqueciSenha}>
                 <Text style={styles.labelBotaoEsqueciSenha}>
                   Esqueci minha senha

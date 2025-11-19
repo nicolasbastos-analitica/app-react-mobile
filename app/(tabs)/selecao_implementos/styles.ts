@@ -4,7 +4,8 @@ export const styles = StyleSheet.create({
 
   // 1. GERAL / ROOT
   containerGeral: {
-    backgroundColor: "#FAFBFD"
+    backgroundColor: "#FAFBFD",
+    flex: 1, // <--- ADICIONE ISSO
   },
   containerHeader: {
     display: 'flex',
@@ -48,7 +49,7 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     marginTop: 32,
     marginRight: 24,
-    gap:4
+    gap: 4
   },
   containerBlueSwitchOFF: {
     backgroundColor: '#EF4C51',
@@ -61,7 +62,7 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     marginTop: 32,
     marginRight: 24,
-    gap:4
+    gap: 4
   },
   textBlue: {
     color: "#FFF",
@@ -77,7 +78,9 @@ export const styles = StyleSheet.create({
   containerBody: {
     marginLeft: 24,
     marginRight: 24,
-    marginBottom: 24
+    marginBottom: 24,
+    flex: 1, // <--- ADICIONE ISSO
+
   },
 
   // 4.1. CONTAINER DO USUÁRIO
@@ -109,26 +112,32 @@ export const styles = StyleSheet.create({
   tituloPagina: {
     fontFamily: 'Montserrat-Bold', // ATUALIZADO (era Montserrat + fontWeight: 700)
     fontSize: 22,
+    marginTop: 24,
     // fontStyle: 'normal', // Pode ser removido
     // fontWeight: '700', // REMOVIDO
     color: '#050412',
   },
-
+  subTitulos: {
+    color: "#050412",
+    fontFamily: 'Montserrat',
+    fontSize: 12,
+    marginTop: 16,
+  },
   // 4.3. INPUT DE BUSCA
   input: {
     backgroundColor: '#FFFFFF',
-    marginBottom: 24,
-    marginTop: 24,
+    marginBottom: 16,
+    marginTop: 8,
   },
 
   // 4.4. CARD DA MÁQUINA (ImageBackground)
   maquinaInfo: {
-    height: 240,
+    // height: 126,
     marginBottom: '25%'
   },
   maquinaImg: {
     backgroundColor: '#000',
-    height: 240,
+    // height: 126,
     borderRadius: 12,
   },
 
@@ -153,7 +162,7 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
   },
   tituloMargin: {
-    marginBottom: 82
+    marginBottom: 8
   },
 
   // 4.4.2. NÚMERO MÁQUINA
@@ -198,6 +207,7 @@ export const styles = StyleSheet.create({
 
   // 5. BOTÃO PRÓXIMO E SEPARADOR (RODAPÉ)
   botaoProximo: {
+    // marginTop: 'auto',
     borderTopWidth: 1,
     borderTopColor: '#D4D3DF',
     borderStyle: 'solid',
@@ -207,9 +217,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#00B16B",
     justifyContent: 'center',
-    marginLeft: 24,
-    marginRight: 24,
-    marginTop: 18,
+    margin: 24,
   },
   nextButtonLabel: {
     fontSize: 18,
@@ -249,8 +257,8 @@ export const styles = StyleSheet.create({
     height: 9, // Altura da bolinha
     borderRadius: 7,
     backgroundColor: '#000',
-    position:'absolute',
-    left:1.7 // Cor verde da preta
+    position: 'absolute',
+    left: 1.7 // Cor verde da preta
   },
   customSwitchThumbActive: {
     alignSelf: 'flex-end', // Posição direita (ON)
@@ -258,4 +266,134 @@ export const styles = StyleSheet.create({
   customSwitchThumbInactive: {
     alignSelf: 'flex-start', // Posição esquerda (OFF)
   },
+  panelContent: {
+    padding: 24,
+    paddingBottom: 40,
+  },
+  modalOrdemProducao: {
+    flex: 1,
+    height: 646,
+    bottom: -34,
+    position: 'absolute',
+    backgroundColor: '#FFF',
+    borderRadius: 16,
+    width: '100%',
+    alignSelf: 'center',
+    // padding: 16,
+    zIndex: 9999,
+  }, tituloPaginaModal: {
+    flex: 1,
+    fontFamily: 'Montserrat-Bold', // ATUALIZADO (era Montserrat + fontWeight: 700)
+    fontSize: 22,
+    marginTop: 4,
+    // marginTop: 24,
+    // fontStyle: 'normal', // Pode ser removido
+    // fontWeight: '700', // REMOVIDO
+    color: '#050412',
+  },
+  modalContainer: {
+    flex: 1,
+    marginLeft: 24,
+    marginRight: 24,
+    marginTop: 24,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    // flex:0.1,
+    alignContent: 'center',
+    height: 40,
+
+  }, botaofecharModal: {
+    marginBottom: 12,
+  }, modalInput: {
+    // flex:1,
+    zIndex: 10,
+    marginBottom: 4,
+  }, containerOrdens: {
+    // flex:1,
+    zIndex: 1,
+    marginBottom: 8,
+  },
+  ordemProducaoItem: {
+    // flex:1,
+    backgroundColor: "#FAFBFD",
+    borderColor: '#F5F4FF',
+    borderWidth: 1,
+    borderRadius: 8,
+    height: 58,
+    padding: 12,
+    marginBottom: 8,
+  },
+  ordemProducaoInfo: {
+    flexDirection: 'row',
+    marginBottom: 4,
+  },
+  ordemProducao: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 12,
+    color: "#24C0DE",
+    marginRight: 8,
+    height: 15,
+
+  },
+  zona: {
+    color: "#050412",
+    fontFamily: 'Montserrat',
+    fontSize: 12,
+
+  },
+  funcao: {
+    color: "#050412",
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 12,
+    height: 15,
+
+  },
+  nextButtonModal: {
+    height: 56,
+    borderRadius: 8,
+    backgroundColor: "#00B16B",
+    justifyContent: 'center',
+    margin: 24,
+  },
+  ordemProducaoItemSelected: {
+    // flex:1,
+    backgroundColor: "#050412",
+    // flex:1,
+    borderRadius: 8,
+    height: 58,
+    padding: 12,
+    marginBottom: 8,
+  },
+  ordemProducaoTextSelected: {
+    color: '#24C0DE',
+  },
+  zonaTextSelected: {
+    color: '#FFFFFF',
+  },
+  funcaoTextSelected: {
+    color: '#FFFFFF',
+  },
+    modalContainer2: {
+    flex: 1,
+    marginLeft: 24,
+    marginRight: 24,
+    marginTop: 24,
+  },
+  modalOrdemProducao2: {
+    flex: 1,
+    height: 626,
+    bottom: -34,
+    position: 'absolute',
+    backgroundColor: '#FFF',
+    borderRadius: 16,
+    width: '100%',
+    alignSelf: 'center',
+    // padding: 16,
+    zIndex: 9999,
+  },
+  maquinaInfoModal:{
+    marginTop:24,
+    marginBottom:24,
+  }
 });

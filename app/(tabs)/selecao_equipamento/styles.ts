@@ -4,7 +4,8 @@ export const styles = StyleSheet.create({
 
   // 1. GERAL / ROOT
   containerGeral: {
-    backgroundColor: "#FAFBFD"
+    backgroundColor: "#FAFBFD",
+    flex: 1, // <--- ADICIONE ISSO
   },
   containerHeader: {
     display: 'flex',
@@ -77,7 +78,8 @@ export const styles = StyleSheet.create({
   containerBody: {
     marginLeft: 24,
     marginRight: 24,
-    marginBottom: 24
+    marginBottom: 24,
+    flex: 1,
   },
 
   // 4.1. CONTAINER DO USUÁRIO
@@ -161,7 +163,7 @@ export const styles = StyleSheet.create({
     height: 32,
     width: 82,
     backgroundColor: 'rgba(5, 4, 18, 0.70)',
-    display: 'flex',
+    // display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -171,14 +173,18 @@ export const styles = StyleSheet.create({
   numMaquina: {
     fontFamily: 'Montserrat', // ADICIONADO
     fontSize: 14,
-    color: '#FFF'
+    color: '#FFF',
+    height:17
+
   },
   numEquip: {
     color: '#FFF',
     fontFamily: 'Montserrat-Bold', // JÁ CORRETO
     fontSize: 14,
     fontStyle: 'normal',
-    marginLeft: 8
+    marginLeft: 8,
+    height:17
+    
   },
 
   // 4.4.3. MODELO MÁQUINA
@@ -207,9 +213,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#00B16B",
     justifyContent: 'center',
-    marginLeft: 24,
-    marginRight: 24,
-    marginTop: 18,
+    margin:24,
   },
   nextButtonLabel: {
     fontSize: 18,

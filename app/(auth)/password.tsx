@@ -17,7 +17,7 @@ export default function password() {
             <View >
 
                 <View>
-                    <IconButton icon="chevron-left" mode="contained" onPress={() => router.replace('/(tabs)/login')}
+                    <IconButton icon="chevron-left" mode="contained" onPress={() => router.replace('/(auth)')}
                         containerColor={styles.botaoVoltar.backgroundColor}
                         iconColor={styles.botaoVoltarLabel.color}
                         style={[styles.botaoVoltar, styles.botaoVoltarRecuperarSenha]}

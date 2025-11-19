@@ -2,7 +2,7 @@ import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, Text, View } from "react-native";
-import { Avatar, Button, Icon, IconButton, TextInput } from "react-native-paper";
+import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
 import { styles } from "./styles";
 
 const colheitadeira = require("@/assets/images/colheitadeira2x.png")
@@ -23,10 +23,14 @@ const Blue = 'BLUE_530';
 export default function SelecaoEquipamento() {
     const [selectedEquip, setSelectedEquip] = useState("colhedora");
     const [IsActivate, setIsActivate] = useState(true);
+    const [implemento1Text, setImplemento1Text] = useState('');
+    const handleClearImplemento1 = () => {
+        setImplemento1Text('');
+    };
     return (
         <View style={styles.containerGeral}>
             <View style={styles.containerHeader}>
-                <IconButton icon="chevron-left" mode="contained" onPress={() => router.replace('/(tabs)/login')}
+                <IconButton icon="chevron-left" mode="contained" onPress={() => router.replace('/(auth)')}
                     containerColor={styles.botaoVoltar.backgroundColor}
                     iconColor={styles.botaoVoltarLabel.color}
                     style={[styles.botaoVoltar, styles.botaoVoltarRecuperarSenha]}
@@ -81,13 +85,25 @@ export default function SelecaoEquipamento() {
                     }}
                     label="Buscar equipamento"
                     mode="outlined"
-
+                    value={implemento1Text}
+                    onChangeText={setImplemento1Text}
                     style={styles.input}
                     left={
                         <TextInput.Icon
                             icon='magnify'
                             color="#42405F"
                         />}
+
+
+                    right={
+                        implemento1Text.length > 0 ? (
+                            <TextInput.Icon
+                                icon="close"
+                                color="#8F8CB5"
+                                onPress={handleClearImplemento1}
+                            />
+                        ) : null
+                    }
                 />
 
                 <View style={styles.maquinaInfo}>
@@ -111,12 +127,12 @@ export default function SelecaoEquipamento() {
                     style={styles.nextButton}
                     labelStyle={styles.nextButtonLabel}
                     mode="contained"
-                    onPress={() => router.replace('/implementos')}
+                    onPress={() => router.replace('/(tabs)/selecao_implementos')}
                 >
                     Próximo
                 </Button>
             </View>
-
+          
         </View>
     );
 }
