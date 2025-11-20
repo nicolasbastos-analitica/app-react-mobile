@@ -26,6 +26,11 @@ const mockOrdens = [
     { id: '000145', zona: '47590', funcao: 'Fertirrigação' },
     { id: '000146', zona: '47591', funcao: 'Preparo e correção de solo' },
 ];
+const turnos = [
+    { id: 'A', hora: '23:00 às 07:20' },
+    { id: 'B', hora: '07:00 às 15:20' },
+    { id: 'C', hora: '15:00 às 23:20' },
+]
 
 
 
@@ -38,6 +43,8 @@ export default function Implementos() {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModal2Visible, setIsModal2Visible] = useState(false);
     const [selectedId, setSelectedId] = useState<string | null>(null);
+    const [selectedOrder, setSelectedOrder] = useState<OrdemProducao | null>(null);
+    const [selectedTurno, setSelectedTurno] = useState<turno | null>(null);
     const handleSelect = (id: string | null) => {
         setSelectedId(id);
     };
@@ -51,6 +58,15 @@ export default function Implementos() {
         setModalText('');
     };
 
+    interface OrdemProducao {
+        id: string;
+        zona: string;
+        funcao: string;
+    }
+    interface turno {
+        id: string;
+        hora: string;
+    }
     const ordensFiltradas = mockOrdens.filter(item =>
         item.id.includes(modalText)
     );
@@ -271,6 +287,7 @@ export default function Implementos() {
                                             {item.funcao}
                                         </Text>
                                     </Pressable>
+
                                 );
                             })}
                         </View>
@@ -282,7 +299,7 @@ export default function Implementos() {
                         style={styles.nextButtonModal}
                         labelStyle={styles.nextButtonLabel}
                         mode="contained"
-                        onPress={() => { setIsModalVisible(false); setIsModal2Visible(true); }}
+                        onPress={() => { setIsModalVisible(false); setIsModal2Visible(true); const selectedOrder = mockOrdens.find(order => order.id === selectedId); setSelectedOrder(selectedOrder || null); }}
                     >
                         Selecionar
                     </Button>
@@ -298,7 +315,7 @@ export default function Implementos() {
             >
                 <View style={styles.modalContainer}>
                     <View style={styles.modalHeader}>
-                        <Text style={styles.tituloPaginaModal}>Ordem de Produção</Text>
+                        <Text style={styles.tituloPaginaModal}>Turno de Trabalho</Text>
                         <IconButton icon="close" mode="contained" onPress={() => { setIsModal2Visible(false) }}
                             containerColor={styles.botaoVoltar.backgroundColor}
                             iconColor={styles.botaoVoltarLabel.color}
@@ -320,8 +337,78 @@ export default function Implementos() {
                             <View style={styles.modeloMAquinaContainer}>
                                 <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Modelo</Text><Text style={styles.numEquip}>{modeloEquip}</Text>
                             </View>
+
                         </ImageBackground>
+                        {selectedOrder ? (
+                            <Pressable
+                                style={
+                                    styles.ordemProducaoItemTurno
+                                }
+                            >
+                                <Text style={styles.tituloOrdemProducao}>Ordem Produção</Text>
+                                <Text style={[styles.zona]}>
+                                    {selectedOrder.funcao}
+                                </Text>
+                                <View style={styles.ordemProducaoInfoSelected}>
+                                    <Text style={[styles.ordemProducao]}>{selectedOrder.id}</Text>
+                                    <Text style={[styles.zona]}>Zona: </Text>
+                                    <Text style={[styles.zona]}>{selectedOrder.zona}</Text>
+                                </View>
+
+                            </Pressable>
+                        ) : (
+                            <Text>Nenhuma ordem selecionada.</Text>
+                        )}
+
                     </View>
+                    <View style={styles.modalScrollWrapper}>
+                        <ScrollView style={styles.scrollViewTurnos}>
+                            {turnos.map((item) => {
+                                const isSelected = selectedId === item.id;
+
+                                return (
+                                    <Pressable
+                                        key={item.id}
+                                        onPress={() => handleSelect(isSelected ? null : item.id)}
+                                        style={[
+                                            styles.turnnoItem,
+                                            isSelected && styles.turnnoItemSelected
+                                        ]}
+                                    >
+                                        <View style={styles.turnoInfo}>
+                                            <Text style={[styles.turno, isSelected && styles.funcaoTextSelected]}><Text>Turno </Text>{item.id}</Text>
+                                            <Text style={[styles.ordemProducao, isSelected && styles.ordemProducao]}>{item.hora} </Text>
+                                        </View>
+                                    </Pressable>
+                                );
+                            })}
+                        </ScrollView>
+                    </View>
+                </View>
+                <View style={styles.botaoProximo}>
+                    <Button
+                        style={styles.nextButtonModal}
+                        labelStyle={styles.nextButtonLabel}
+                        mode="contained"
+                        onPress={() => {
+                            const selectedTurno = turnos.find(turnos => turnos.id === selectedId); setSelectedTurno(selectedTurno || null); setIsModal2Visible(false); setIsModalVisible(false); 
+                            if(selectedTurno){
+                                router.replace({
+                                    pathname: '/(tabs)/home',
+                                    params:{
+                                        turnoID: selectedTurno.id,
+                                        turnoHora: selectedTurno.hora,
+                                        ordemID: selectedOrder?.id,
+                                        ordemZona: selectedOrder?.zona,
+                                        ordemFuncao: selectedOrder?.funcao
+                                    }
+                                });
+
+                            };
+                        }}
+                    >
+                        Confirmar
+                    </Button>
                 </View>
             </Modal>
         </View>

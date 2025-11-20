@@ -39,8 +39,8 @@ export const styles = StyleSheet.create({
 
   // 3. SWITCH BLUE_350
   containerBlueSwitchON: {
-    backgroundColor: '#00B16B',
-    width: 150,
+    backgroundColor: '#3B82F6',
+    width: 75,
     height: 40,
     display: 'flex',
     flexDirection: 'row',
@@ -49,11 +49,12 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     marginTop: 32,
     marginRight: 24,
-    gap: 4
+    gap: 4,
+    marginLeft: 24
   },
   containerBlueSwitchOFF: {
-    backgroundColor: '#EF4C51',
-    width: 150,
+    backgroundColor: '#FAFBFD',
+    width: 75,
     height: 40,
     display: 'flex',
     flexDirection: 'row',
@@ -62,7 +63,9 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     marginTop: 32,
     marginRight: 24,
-    gap: 4
+    gap: 4,
+    borderWidth: 2,
+    borderColor: '#050412',
   },
   textBlue: {
     color: "#FFF",
@@ -72,6 +75,7 @@ export const styles = StyleSheet.create({
   styleActivation: {
     fontFamily: 'Montserrat-Bold', // JÁ CORRETO
     fontSize: 11,
+    color: "#050412",
   },
 
   // 4. CORPO PRINCIPAL
@@ -79,19 +83,19 @@ export const styles = StyleSheet.create({
     marginLeft: 24,
     marginRight: 24,
     marginBottom: 24,
-    flex: 1, // <--- ADICIONE ISSO
-
+    flex: 1,
   },
 
   // 4.1. CONTAINER DO USUÁRIO
   containerUser: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 24,
   },
   userTextContainer: {
     marginLeft: 12,
     justifyContent: 'center',
-    marginTop: 24,
+    // marginTop: 24,
   },
   panelUser: {
     fontFamily: 'Montserrat', // JÁ CORRETO
@@ -112,44 +116,39 @@ export const styles = StyleSheet.create({
   tituloPagina: {
     fontFamily: 'Montserrat-Bold', // ATUALIZADO (era Montserrat + fontWeight: 700)
     fontSize: 22,
-    marginTop: 24,
     // fontStyle: 'normal', // Pode ser removido
     // fontWeight: '700', // REMOVIDO
     color: '#050412',
   },
-  subTitulos: {
-    color: "#050412",
-    fontFamily: 'Montserrat',
-    fontSize: 12,
-    marginTop: 16,
-  },
+
   // 4.3. INPUT DE BUSCA
   input: {
     backgroundColor: '#FFFFFF',
-    marginBottom: 16,
-    marginTop: 8,
+    marginBottom: 24,
+    marginTop: 24,
   },
 
   // 4.4. CARD DA MÁQUINA (ImageBackground)
   maquinaInfo: {
-    // height: 126,
-    marginBottom: '25%'
+    height: 240,
+    marginBottom: '25%',
+    marginTop: 24,
   },
   maquinaImg: {
     backgroundColor: '#000',
-    // height: 126,
+    height: 240,
     borderRadius: 12,
   },
 
   // 4.4.1. TÍTULO MÁQUINA (COLHEDORA)
   tituloMaquina: {
     height: 32,
-    width: 135,
+    width: 280,
     backgroundColor: 'rgba(5, 4, 18, 0.70)',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     margin: 8,
     padding: 8,
     marginTop: 16,
@@ -161,8 +160,11 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     marginLeft: 8,
   },
+  iconSeta: {
+    marginLeft: 'auto',
+  },
   tituloMargin: {
-    marginBottom: 8
+    // marginBottom: 82
   },
 
   // 4.4.2. NÚMERO MÁQUINA
@@ -170,7 +172,7 @@ export const styles = StyleSheet.create({
     height: 32,
     width: 82,
     backgroundColor: 'rgba(5, 4, 18, 0.70)',
-    display: 'flex',
+    // display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -180,14 +182,20 @@ export const styles = StyleSheet.create({
   numMaquina: {
     fontFamily: 'Montserrat', // ADICIONADO
     fontSize: 14,
-    color: '#FFF'
+    color: '#FFF',
+    height: 17,
+    width: 'auto'
+
   },
   numEquip: {
     color: '#FFF',
     fontFamily: 'Montserrat-Bold', // JÁ CORRETO
     fontSize: 14,
     fontStyle: 'normal',
-    marginLeft: 8
+    marginLeft: 8,
+    height: 17,
+    width: 'auto'
+
   },
 
   // 4.4.3. MODELO MÁQUINA
@@ -200,6 +208,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     marginLeft: 16,
     marginBottom: 8,
+    width: 'auto'
   },
   alinhamentoModelo: {
     marginLeft: 8
@@ -207,17 +216,53 @@ export const styles = StyleSheet.create({
 
   // 5. BOTÃO PRÓXIMO E SEPARADOR (RODAPÉ)
   botaoProximo: {
-    // marginTop: 'auto',
-    borderTopWidth: 1,
-    borderTopColor: '#D4D3DF',
-    borderStyle: 'solid',
+   
+    flexDirection: 'row',
+    marginLeft: 24,
+
   },
   nextButton: {
     height: 56,
     borderRadius: 8,
     backgroundColor: "#00B16B",
     justifyContent: 'center',
-    margin: 24,
+    // margin: 24,
+    marginTop: 12,
+    marginRight: 12,
+    width:'45%',
+  },
+  nextButtonRed:{
+    height: 56,
+    borderRadius: 8,
+    backgroundColor: "#EF4C51",
+    justifyContent: 'center',
+    // margin: 24,
+    marginTop: 12,
+    marginRight: 12,
+    width:'45%',
+  },
+  tituloBotoes: {
+    flex: 1,
+    fontFamily: 'Montserrat-Bold', // ATUALIZADO (era Montserrat + fontWeight: 700)
+    fontSize: 22,
+    marginTop: 24,
+    marginLeft: 24,
+
+    // marginTop: 24,
+    // fontStyle: 'normal', // Pode ser removido
+    // fontWeight: '700', // REMOVIDO
+    color: '#050412',
+  },
+  containerBottom: {
+    borderTopWidth: 1,
+    borderTopColor: '#D4D3DF',
+    borderStyle: 'solid',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    height: 121,
+    marginBottom: 24
+
   },
   nextButtonLabel: {
     fontSize: 18,
@@ -231,15 +276,19 @@ export const styles = StyleSheet.create({
   customSwitchTrack: {
     width: 25,
     height: 17, // Altura da barra
-    backgroundColor: '#050412', // Cor escura do trilho
+    backgroundColor: '#FFF', // Cor escura do trilho
     borderRadius: 10,
     padding: 3, // Espaçamento interno
     justifyContent: 'center',
   },
+  switch: {
+    marginLeft: 30,
+    marginBottom: 4
+  },
   customSwitchTrackOFF: {
     width: 25,
     height: 17, // Altura da barra
-    backgroundColor: '#EF4C51', // Cor escura do trilho
+    backgroundColor: '#FAFBFD', // Cor escura do trilho
     borderRadius: 10,
     borderWidth: 3,
     borderColor: "050412",
@@ -250,7 +299,7 @@ export const styles = StyleSheet.create({
     width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
     height: 9, // Altura da bolinha
     borderRadius: 7,
-    backgroundColor: '#00B16B', // Cor verde da bolinha
+    backgroundColor: '#3B82F6', // Cor verde da bolinha
   },
   customSwitchThumbOFF: {
     width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
@@ -266,69 +315,32 @@ export const styles = StyleSheet.create({
   customSwitchThumbInactive: {
     alignSelf: 'flex-start', // Posição esquerda (OFF)
   },
-  panelContent: {
-    padding: 24,
-    paddingBottom: 40,
-  },
-  modalOrdemProducao: {
-    flex: 1,
-    height: 646,
-    bottom: -34,
-    position: 'absolute',
-    backgroundColor: '#FFF',
-    borderRadius: 16,
-    width: '100%',
-    alignSelf: 'center',
-    // padding: 16,
-    zIndex: 9999,
-  }, tituloPaginaModal: {
-    flex: 1,
-    fontFamily: 'Montserrat-Bold', // ATUALIZADO (era Montserrat + fontWeight: 700)
-    fontSize: 22,
-    marginTop: 4,
-    // marginTop: 24,
-    // fontStyle: 'normal', // Pode ser removido
-    // fontWeight: '700', // REMOVIDO
-    color: '#050412',
-  },
-  modalContainer: {
-    flexDirection: 'column', // <--- ADICIONE ISSO
-    flex: 1,
-    marginLeft: 24,
-    marginRight: 24,
-    marginBottom:0,
-    marginTop: 24,
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    // flex:0.1,
-    alignContent: 'center',
-    height: 40,
-
-  }, botaofecharModal: {
-    marginBottom: 12,
-  }, modalInput: {
-    // flex:1,
-    zIndex: 10,
-    marginBottom: 4,
-  }, containerOrdens: {
-    // flex:1,
-    zIndex: 1,
-    marginBottom: 8,
-  },
-  ordemProducaoItem: {
-    // flex:1,
-    backgroundColor: "#FAFBFD",
-    borderColor: '#F5F4FF',
-    borderWidth: 1,
+  buttonSair: {
+    backgroundColor: "#EF4C51",
+    padding: 8,
     borderRadius: 8,
-    height: 58,
-    padding: 12,
-    marginBottom: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 40,
+    width: 52,
+    marginRight: 24,
+    marginTop: 24
   },
-  ordemProducaoInfo: {
+  buttonSairLabel: {
+    color: "#FFF",
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 12,
+  },
+  turnoInfo: {
     flexDirection: 'row',
     marginBottom: 4,
+  },
+  turno: {
+    color: "#050412",
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 12,
+    height: 15,
+
   },
   ordemProducao: {
     fontFamily: 'Montserrat-Bold',
@@ -338,112 +350,9 @@ export const styles = StyleSheet.create({
     height: 15,
 
   },
-  zona: {
-    color: "#050412",
-    fontFamily: 'Montserrat',
-    fontSize: 12,
-
-  },
-  funcao: {
-    color: "#050412",
-    fontFamily: 'Montserrat-Bold',
-    fontSize: 12,
-    height: 15,
-
-  },
-  nextButtonModal: {
-    height: 56,
-    borderRadius: 8,
-    backgroundColor: "#00B16B",
-    justifyContent: 'center',
-    margin: 24,
-  },
-  ordemProducaoItemSelected: {
-    // flex:1,
-    backgroundColor: "#050412",
-    // flex:1,
-    borderRadius: 8,
-    height: 58,
-    padding: 12,
-    marginBottom: 8,
-  },
-  ordemProducaoTextSelected: {
-    color: '#24C0DE',
-  },
-  zonaTextSelected: {
-    color: '#FFFFFF',
-  },
-  funcaoTextSelected: {
-    color: '#FAFBFD',
-    fontFamily: 'Montserrat-Bold',
-    fontSize: 12,
-    height: 15,
-  },
-  modalContainer2: {
-    flexDirection: 'column', // <--- ADICIONE ISSO
-    flex: 1,
-    marginLeft: 24,
-    marginRight: 24,
-    marginTop: 24,
-  },
-  modalOrdemProducao2: {
-    flex: 1,
-    height: 626,
-    bottom: -34,
-    position: 'absolute',
-    backgroundColor: '#FFF',
-    borderRadius: 16,
-    width: '100%',
-    alignSelf: 'center',
-    // padding: 16,
-    zIndex: 9999,
-  },
-  maquinaInfoModal: {
-    marginTop: 24,
-    marginBottom: 24,
-  },
-  turnnoItem: {
-    // flex:1,
-    marginBottom: 8,
-    backgroundColor: "#FAFBFD",
-    borderColor: '#F5F4FF',
-    borderWidth: 1,
-    borderRadius: 8,
-    height: 58,
-    padding: 12,
-    // marginBottom: 8,
-    flexDirection: 'column'
-  },
-  turnnoItemSelected: {
-    // flex:1,
-    backgroundColor: "#050412",
-    borderRadius: 8,
-    height: 58,
-    padding: 12,
-    // marginBottom: 8,
-  },
-  turnoInfo: {
-    flexDirection: 'column',
-    marginBottom: 4,
-  },
-  turno: {
-    color: "#050412",
-    fontFamily: 'Montserrat',
-    fontSize: 12,
-    height: 15,
-
-  },
-  tituloOrdemProducao: {
-    fontFamily: 'Montserrat-Bold',
-    fontSize: 14,
-    color: "#050412",
-    marginBottom: 8,
-    height: 17
-  },
-  ordemProducaoInfoSelected: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    alignSelf: 'stretch',
+  iconBluetooth: {
+    marginRight: 8,
+    marginBottom: 4
   },
   ordemProducaoItemTurno: {
     height: 83,
@@ -458,11 +367,26 @@ export const styles = StyleSheet.create({
     marginTop: 24,
     // marginBottom: 24,
   },
-  modalScrollWrapper: {
-    flex: 1, // Isso garante que esta área absorva o espaço restante após os cabeçalhos
-    marginTop: 10,
+  tituloOrdemProducao: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 14,
+    color: "#050412",
+    marginBottom: 8,
+    height: 17
+  }, zona: {
+    color: "#050412",
+    fontFamily: 'Montserrat',
+    fontSize: 12,
+
+  }, ordemProducaoInfoSelected: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    alignSelf: 'stretch',
   },
-  scrollViewTurnos: {
-    flex: 1,
+  ordemProducaoHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    justifyContent: 'space-between'
   }
 });

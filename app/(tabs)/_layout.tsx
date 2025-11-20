@@ -39,6 +39,12 @@ export default function TabLayout() {
           href: null, // Esconde da barra
         }}
       />
+         <Tabs.Screen
+        name="home"
+        options={{
+          href: null, // Esconde da barra
+        }}
+      />
     </Tabs>
   );
 }
