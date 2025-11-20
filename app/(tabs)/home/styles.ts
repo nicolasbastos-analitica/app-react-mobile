@@ -388,5 +388,13 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch',
     justifyContent: 'space-between'
-  }
+  },
+  containerIndicadores:{
+    // flex:1,
+    // marginTop:'6%'
+  },
+  tituloIndicadores:{
+
+  },
+
 });

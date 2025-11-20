@@ -140,8 +140,12 @@ export default function Home() {
                     </Pressable>
 
                 </View>
+            
 
             </View>
+                <View style={styles.containerIndicadores}>
+                    <Text style={styles.tituloIndicadores}>Indicadores</Text>
+                </View>
             <View style={styles.containerBottom}>
                 <Text style={styles.tituloBotoes}>Iniciar Jornada</Text>
                 <View style={styles.botaoProximo}>
