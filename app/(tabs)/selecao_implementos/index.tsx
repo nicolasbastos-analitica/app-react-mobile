@@ -118,7 +118,7 @@ export default function Implementos() {
 
                     <Text style={styles.tituloPagina}>Implementos</Text>
                     <Text style={styles.subTitulos}>Implemento 1</Text>
-                    {!isModalVisible || !isModal2Visible && (
+                    {(!isModalVisible && !isModal2Visible) && (
                         <TextInput
                             theme={{
                                 roundness: 8,
@@ -150,7 +150,7 @@ export default function Implementos() {
                         />
                     )}
                     <Text style={styles.subTitulos}>Implemento 2</Text>
-                    {!isModalVisible || !isModal2Visible && (
+                    {(!isModalVisible && !isModal2Visible) && (
 
                         <TextInput
                             theme={{
