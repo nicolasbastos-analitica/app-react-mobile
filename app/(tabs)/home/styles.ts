@@ -216,7 +216,7 @@ export const styles = StyleSheet.create({
 
   // 5. BOTÃO PRÓXIMO E SEPARADOR (RODAPÉ)
   botaoProximo: {
-   
+
     flexDirection: 'row',
     marginLeft: 24,
 
@@ -229,9 +229,9 @@ export const styles = StyleSheet.create({
     // margin: 24,
     marginTop: 12,
     marginRight: 12,
-    width:'45%',
+    width: '45%',
   },
-  nextButtonRed:{
+  nextButtonRed: {
     height: 56,
     borderRadius: 8,
     backgroundColor: "#EF4C51",
@@ -239,7 +239,7 @@ export const styles = StyleSheet.create({
     // margin: 24,
     marginTop: 12,
     marginRight: 12,
-    width:'45%',
+    width: '45%',
   },
   tituloBotoes: {
     flex: 1,
@@ -389,12 +389,73 @@ export const styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'space-between'
   },
-  containerIndicadores:{
-    // flex:1,
-    // marginTop:'6%'
+  containerIndicadores: {
+    // marginLeft: 24,
   },
-  tituloIndicadores:{
+  tituloIndicadores: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 14,
+    color: '#050412',
 
   },
+  descricaoIndicadores: {
+    color: '#625F7E',
+    fontFamily: 'Montserrat',
+    fontSize: 12,
+    marginTop: 0.5
+  },
+  card: {
+    flex:1,
+    width: 'auto',
+    height: 'auto',
+    backgroundColor: 'rgba(0, 177, 107, 0.10)',
+    // padding: 16,
+    borderRadius: 12,
+    borderColor: '#F5F4FF',
+    borderWidth: 1,
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 12
+  },
+  textCard: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 12,
+    color: '#050412',
+    marginTop: 8,
+    textAlign: 'center'
 
+  },
+  meta:{
+    backgroundColor:"#FFF",
+    width:"100%",
+    padding:12,
+    borderWidth:1,
+    borderColor:'#F5F4FF'
+  },
+textMeta:{
+  color:'#625F7E',
+  fontFamily:'Montserrat',
+  fontSize:10,
+},
+  textMediaDia: {
+    fontSize: 12,
+    color: '#625F7E',
+    marginBottom: 8,
+    fontFamily: 'Montserrat',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    padding: 10,
+  },
+  header: {
+    textAlign: 'center',
+    fontSize: 18,
+    padding: 16,
+    marginTop: 16,
+  },
 });
