@@ -2,10 +2,10 @@ import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, Text, View } from "react-native";
-import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
+import { Avatar, Button, Icon, IconButton, TextInput } from "react-native-paper";
 import { styles } from "./styles";
 
-const colheitadeira = require("@/assets/images/colheitadeira2x.png")
+const colheitadeira = require("@/assets/images/colheitadeira.png")
 const iconColhedora = require("@/assets/images/colhedora4x.png");
 const iconTrator = require("@/assets/images/trator.png");
 const iconUnion = require("@/assets/images/Union.png");

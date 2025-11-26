@@ -6,10 +6,12 @@ import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native
 import { styles } from './styles';
 
 const iconImplemento = require("@/assets/images/implemento_icon.png");
-const colheitadeira = require("@/assets/images/colheitadeira2x.png")
+const colheitadeira = require("@/assets/images/colheitadeira.png")
 const iconColhedora = require("@/assets/images/colhedora4x.png");
 const iconTrator = require("@/assets/images/trator.png");
 const iconUnion = require("@/assets/images/Union.png");
+const checkIcon = require('@/assets/images/check.png')
+
 const numEquip = 34531;
 const modeloEquip = 'New Holland Tc5090';
 
@@ -282,7 +284,12 @@ export default function Implementos() {
                                             <Text style={[styles.zona, isSelected && styles.zonaTextSelected]}>Zona: </Text>
                                             <Text style={[styles.zona, isSelected && styles.zonaTextSelected]}>{item.zona}</Text>
                                         </View>
+                                        <View style={styles.posicaoCheckModal1}>
 
+                                            {isSelected && (
+                                                <Icon source={checkIcon} size={14} color="#FFF" />
+                                            )}
+                                        </View>
                                         <Text style={[styles.funcao, isSelected && styles.funcaoTextSelected]}>
                                             {item.funcao}
                                         </Text>
@@ -354,6 +361,7 @@ export default function Implementos() {
                                     <Text style={[styles.zona]}>Zona: </Text>
                                     <Text style={[styles.zona]}>{selectedOrder.zona}</Text>
                                 </View>
+                                
 
                             </Pressable>
                         ) : (
@@ -379,6 +387,13 @@ export default function Implementos() {
                                             <Text style={[styles.turno, isSelected && styles.funcaoTextSelected]}><Text>Turno </Text>{item.id}</Text>
                                             <Text style={[styles.ordemProducao, isSelected && styles.ordemProducao]}>{item.hora} </Text>
                                         </View>
+                                        <View style={styles.posicaoCheckModal1}>
+
+                                            {isSelected && (
+                                                <Icon source={checkIcon} size={14} color="#FFF" />
+                                            )}
+                                        </View>
+                                        
                                     </Pressable>
                                 );
                             })}
@@ -391,11 +406,11 @@ export default function Implementos() {
                         labelStyle={styles.nextButtonLabel}
                         mode="contained"
                         onPress={() => {
-                            const selectedTurno = turnos.find(turnos => turnos.id === selectedId); setSelectedTurno(selectedTurno || null); setIsModal2Visible(false); setIsModalVisible(false); 
-                            if(selectedTurno){
+                            const selectedTurno = turnos.find(turnos => turnos.id === selectedId); setSelectedTurno(selectedTurno || null); setIsModal2Visible(false); setIsModalVisible(false);
+                            if (selectedTurno) {
                                 router.replace({
                                     pathname: '/(tabs)/home',
-                                    params:{
+                                    params: {
                                         turnoID: selectedTurno.id,
                                         turnoHora: selectedTurno.hora,
                                         ordemID: selectedOrder?.id,

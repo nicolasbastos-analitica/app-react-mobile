@@ -351,6 +351,11 @@ export const styles = StyleSheet.create({
     height: 15,
 
   },
+  posicaoCheckModal1:{
+    position:'absolute',
+    right: 12, // Joga pra direita
+    top: '62%',   // Alinha no topo (ajuste conforme padding do item)
+  },
   nextButtonModal: {
     height: 56,
     borderRadius: 8,

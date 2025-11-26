@@ -5,11 +5,13 @@ import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { TelemetryProvider } from '../decoder/TelemetryContext';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
+    <TelemetryProvider>
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
@@ -46,5 +48,6 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+    </TelemetryProvider>
   );
 }

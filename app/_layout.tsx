@@ -7,6 +7,7 @@ import { PaperProvider } from 'react-native-paper';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { TelemetryProvider } from './decoder/TelemetryContext';
 import './global.css';
 
 export const unstable_settings = {
@@ -33,6 +34,7 @@ export default function RootLayout() {
   }
 
   return (
+    <TelemetryProvider>
     <PaperProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack screenOptions={{ headerShown: false }}>
@@ -50,5 +52,6 @@ export default function RootLayout() {
         <StatusBar style="auto" />
       </ThemeProvider>
     </PaperProvider>
+    </TelemetryProvider>
   );
 }

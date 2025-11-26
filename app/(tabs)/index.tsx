@@ -1,26 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { Buffer } from 'buffer';
+import React, { useEffect, useRef, useState } from 'react';
 import {
-  View,
-  Text,
+  ActivityIndicator,
+  Alert,
   Button,
   FlatList,
   PermissionsAndroid,
   Platform,
-  Alert,
-  StyleSheet,
-  ActivityIndicator,
   ScrollView,
+  Text,
+  View
 } from 'react-native';
-import { Buffer } from 'buffer';
 import RNBluetoothClassic, {
   BluetoothDevice,
   BluetoothEventSubscription,
 } from 'react-native-bluetooth-classic';
 import { styles } from '../style/styles';
-import { parse } from 'path';
 // No topo do App.tsx
-import { getInstance as getDecoderInstance } from '../decoder/decoderFactory'; // Ajuste o caminho
 import { IBluechipDataDecoder, SensorData } from '../decoder/bluechipDecoder.types'; // Importe a interface SensorData também
+import { getInstance as getDecoderInstance } from '../decoder/decoderFactory'; // Ajuste o caminho
 
 
 // --- Lógica de Autenticação ---

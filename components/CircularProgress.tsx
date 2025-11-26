@@ -11,7 +11,7 @@ export default function CircularProgressFigma({ percentage }: Props) {
   const size = 90;          // Tamanho do círculo
   const strokeWidth = 10;    // Grossura da linha
   const color = "#00B16B";   // Verde EXATO do Figma (Sólido)
-  const trackColor = "#F0F0F0"; // Fundo cinza claro
+  const trackColor = "#FFF"; // Fundo cinza claro
 
   // Matemática do Círculo
   const center = size / 2;
