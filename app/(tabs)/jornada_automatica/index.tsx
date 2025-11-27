@@ -6,7 +6,7 @@ import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
 
 // Assets
 const checkIcon = require('@/assets/images/check.png');
-
+const iconEventoAtivo = require('@/assets/images/evento_ativo.png')
 // Constants
 const mockOrdens = [
     { id: '000143', zona: '47588', funcao: 'Colheita Mecânica 2 linhas' },
@@ -57,7 +57,7 @@ export default function JornadaAutomatica() {
             <View style={styles.containerHeader}>
                 <View style={styles.telemetria}>
                     {/* <Icon source={''} size={14}></Icon> */}
-                    <Text style={styles.telemetriaTetxt}>Telemetria: {telemetria} </Text><Text style={styles.separacaoTelemetria}>|</Text><Text  style={styles.telemetriaTetxt}>Eventos: {eventos}</Text>
+                    <Text style={styles.telemetriaTetxt}>Telemetria: {telemetria} </Text><Text style={styles.separacaoTelemetria}>|</Text><Text style={styles.telemetriaTetxt}>Eventos: {eventos}</Text>
                 </View>
 
                 <Pressable onPress={() => setIsModalExitVisible(true)} style={styles.buttonSair}>
@@ -65,7 +65,24 @@ export default function JornadaAutomatica() {
                 </Pressable>
             </View>
             <View style={styles.containerBody}>
+                <View style={styles.containerEvento}>
+                    <View style={styles.elementosHeaderEvento}>
+                        <View style={[styles.contornoIcon, styles.eventoAtivoIcon]}>
+                            <Icon source={iconEventoAtivo} size={16} />
+                        </View>
+                        <View style={styles.textEvento}>
+                            <Text style={styles.textEventoSubTitulo}>Evento atual</Text>
+                            <Text style={styles.textoTituloEvento}>Carregamento</Text>
 
+                        </View>
+                        <View style={styles.iconSeta}>
+                            <Icon source="chevron-right" color="#625F7E" size={18} />
+                        </View>
+                    </View>
+                <View style={styles.elementosBodyEvento}>
+                <Text>oi</Text>
+                </View>
+                </View>
             </View>
             {/* Modal 1 - Ordem de Produção */}
             <Modal
@@ -241,12 +258,12 @@ export default function JornadaAutomatica() {
                     </View>
                 </View>
             </Modal>
-             {/* MODAL SAIR  */}
-                        <ModalExit 
-                            visible={isModalExitVisible}
-                            onDismiss={() => setIsModalExitVisible(false)}
-                        />
-            
+            {/* MODAL SAIR  */}
+            <ModalExit
+                visible={isModalExitVisible}
+                onDismiss={() => setIsModalExitVisible(false)}
+            />
+
         </View>
     );
 }

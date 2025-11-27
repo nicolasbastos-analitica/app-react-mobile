@@ -577,6 +577,7 @@ export default function Home() {
                                     style={[
                                         styles.ordemProducaoItem
                                     ]}
+                                    onPress={()=>{ setIsModalInterferenciaManutencaoVisible(true); setIsModalInterferenciaVisible(false)}}
                                 >
                                     <View style={styles.ordemProducaoInfo}>
                                         <View style={[styles.contornoIcon, styles.manutencao]}>
@@ -734,7 +735,7 @@ export default function Home() {
                 <View style={styles.modalContainer}>
                     <View style={[styles.modalHeader, styles.modalInterferenciaContainer]}>
                         <Text style={styles.tituloPaginaModal}>Iterferência</Text>
-                        <IconButton icon="close" mode="contained" onPress={() => { setIsModalInterferenciaVisible(false) }}
+                        <IconButton icon="close" mode="contained" onPress={() => { setIsModalInterferenciaManutencaoVisible(false) }}
                             containerColor={styles.botaoVoltar.backgroundColor}
                             iconColor={styles.botaoVoltarLabel.color}
                             style={[styles.botaoVoltar, styles.botaofecharModal]}
@@ -821,7 +822,7 @@ export default function Home() {
                             style={styles.CicloButton}
                             labelStyle={styles.CicloButtonLabel}
                             mode="contained"
-                            onPress={() => { router.replace('/(tabs)/jornada_automatica'); setIsModal2Visible(false) }}
+                            onPress={() => { router.replace('/(tabs)/jornada_automatica'); setIsModalInterferenciaManutencaoVisible(false) }}
 
                             // 1. Passe o ícone direto na propriedade (aceita o require)
                             icon={checkIcon}

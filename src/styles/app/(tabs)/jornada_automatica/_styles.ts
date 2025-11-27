@@ -14,38 +14,38 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingRight:24,
-    paddingLeft:24,
-    paddingTop:32,
-    paddingBottom:16,
-    backgroundColor:"#FAFBFD",
-    borderBottomColor:"#F5F4FF",
-    borderWidth:1
+    paddingRight: 24,
+    paddingLeft: 24,
+    paddingTop: 32,
+    paddingBottom: 16,
+    backgroundColor: "#FAFBFD",
+    borderBottomColor: "#F5F4FF",
+    borderWidth: 1
   },
 
   // --- Switch do Header ---
- telemetria:{
-  width:180,
-  height:'auto',
-  backgroundColor:'#050412',
-  borderRadius:8,
-  alignContent:'center',
-  alignItems:'center',
-  justifyContent:'center',
-  padding:8,
-  flexDirection:'row'
- },
- telemetriaTetxt:{
-  color:"#FFF",
-  fontFamily:"Montserrat",
-  fontSize:11,
+  telemetria: {
+    width: 180,
+    height: 'auto',
+    backgroundColor: '#050412',
+    borderRadius: 8,
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+    flexDirection: 'row'
+  },
+  telemetriaTetxt: {
+    color: "#FFF",
+    fontFamily: "Montserrat",
+    fontSize: 11,
 
- },
- separacaoTelemetria:{
-  color:"#625F7E",
-  marginRight:6,
-  marginLeft:6,
- },
+  },
+  separacaoTelemetria: {
+    color: "#625F7E",
+    marginRight: 6,
+    marginLeft: 6,
+  },
   containerBlueSwitchOFF: {
     backgroundColor: '#FAFBFD',
     width: 75,
@@ -80,13 +80,66 @@ export const styles = StyleSheet.create({
     fontSize: 12,
   },
 
-  containerBody:{
-    backgroundColor:"#FFF"
+  containerBody: {
+    backgroundColor: "#FFF",
+    flex: 1
+  },
+  containerEvento: {
+    marginTop: 16,
+    marginBottom: 16,
+    marginLeft: 24,
+    marginRight: 24,
+    backgroundColor: "#FFF",
+    width: 'auto',
+    height: 'auto',
+    borderWidth: 1,
+    borderColor: '#D4D3DF',
+    flex: 1,
+    borderRadius:8
+
+  },
+  elementosHeaderEvento: {
+    height: "auto",
+    borderBottomWidth: 1,
+    borderColor: '#D4D3DF',
+    flexDirection:'row',
+    alignItems:'center',
+    padding:12
+  },
+  textEvento:{
+    flexDirection:'column',
+    marginLeft:16
+  },
+  textEventoSubTitulo:{
+    fontFamily:'Montserrat',
+    fontSize:9,
+    color:'#625F7E'
+  },
+  textoTituloEvento:{
+    fontFamily:'Montserrat-Bold',
+    color:'#050412',
+    fontSize:14,
+  },
+  iconSeta: {
+    marginLeft: 'auto',
+  },elementosBodyEvento:{
+    backgroundColor:'#E6F8F1',
+    height:'auto'
+  },
+  contornoIcon: {
+    width: 28,
+    height: 28,
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  eventoAtivoIcon: {
+    backgroundColor: 'rgba(0, 177, 107, 0.10)'
   },
   // ==================================================
   // 2. ELEMENTOS COMPARTILHADOS (Lista, Textos)
   // ==================================================
-  ordemProducao: { 
+  ordemProducao: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 12,
     color: "#24C0DE",
@@ -94,11 +147,11 @@ export const styles = StyleSheet.create({
     height: 15,
   },
   checkposition: {
-    flexDirection: 'row',       
-    justifyContent: 'space-between', 
-    alignItems: 'center',        
-    flex: 1,                    
-    marginLeft: 12,              
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flex: 1,
+    marginLeft: 12,
   },
   zona: {
     color: "#050412",
