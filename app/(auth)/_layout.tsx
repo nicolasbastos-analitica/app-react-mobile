@@ -7,7 +7,7 @@ export default function AuthLayout() {
       <Stack.Screen name="index" options={{ title: "Login" }} />
       
       {/* Tela de Recuperar Senha */}
-      <Stack.Screen name="password" options={{ title: "Recuperar Senha" }} />
+      {/* <Stack.Screen name="password" options={{ title: "Recuperar Senha" }} /> */}
     </Stack>
   );
 }

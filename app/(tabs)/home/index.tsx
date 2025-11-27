@@ -1,11 +1,11 @@
 import CircularProgress from "@/components/CircularProgress";
 import ModalExit from "@/components/ModalExit";
+import { styles } from "@/src/styles/app/(tabs)/home/_styles";
 import { ImageBackground } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
-import { styles } from "./_styles";
 
 // Assets
 const colheitadeira = require("@/assets/images/colheitadeira.png");

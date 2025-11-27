@@ -3,7 +3,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import { Button, IconButton, Modal } from "react-native-paper";
 // ⚠️ Ajuste este caminho para onde está seu arquivo styles.ts
-import { styles } from "@/app/(tabs)/home/_styles";
+import { styles } from "@/src/styles/app/(tabs)/home/_styles";
 
 const iconExit = require("@/assets/images/icon_exit.png");
 

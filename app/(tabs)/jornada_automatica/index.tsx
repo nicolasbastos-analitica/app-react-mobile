@@ -1,8 +1,8 @@
 import ModalExit from "@/components/ModalExit";
+import { styles } from "@/src/styles/app/(tabs)/jornada_automatica/_styles";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
-import { styles } from "./_styles";
 
 // Assets
 const checkIcon = require('@/assets/images/check.png');
@@ -57,7 +57,7 @@ export default function JornadaAutomatica() {
             <View style={styles.containerHeader}>
                 <View style={styles.telemetria}>
                     {/* <Icon source={''} size={14}></Icon> */}
-                    <Text style={styles.telemetriaTetxt}>Telemetria: {telemetria} </Text> <Text style={styles.separacaoTelemetria}>|</Text> <Text  style={styles.telemetriaTetxt}>Eventos: {eventos}</Text>
+                    <Text style={styles.telemetriaTetxt}>Telemetria: {telemetria} </Text><Text style={styles.separacaoTelemetria}>|</Text><Text  style={styles.telemetriaTetxt}>Eventos: {eventos}</Text>
                 </View>
 
                 <Pressable onPress={() => setIsModalExitVisible(true)} style={styles.buttonSair}>

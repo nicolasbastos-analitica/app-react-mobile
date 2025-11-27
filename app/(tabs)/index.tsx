@@ -1,3 +1,4 @@
+import { styles } from '@/src/styles/app/style/_styles';
 import { Buffer } from 'buffer';
 import React, { useEffect, useRef, useState } from 'react';
 import {
@@ -15,7 +16,6 @@ import RNBluetoothClassic, {
   BluetoothDevice,
   BluetoothEventSubscription,
 } from 'react-native-bluetooth-classic';
-import { styles } from '../style/_styles';
 // No topo do App.tsx
 import { IBluechipDataDecoder, SensorData } from '../../src/decoder/bluechipDecoder.types'; // Importe a interface SensorData também
 import { getInstance as getDecoderInstance } from '../../src/decoder/decoderFactory'; // Ajuste o caminho

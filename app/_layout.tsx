@@ -7,8 +7,8 @@ import { PaperProvider } from 'react-native-paper';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import '@/src/styles/app/global.css';
 import { TelemetryProvider } from '../src/decoder/TelemetryContext';
-import './global.css';
 
 export const unstable_settings = {
   // Define a rota inicial padrão caso haja dúvida no deep linking

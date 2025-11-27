@@ -1,4 +1,5 @@
-import "@/app/global.css";
+import { styles } from "@/src/styles/app/(auth)/_styles";
+import "@/src/styles/app/global.css";
 import { router } from 'expo-router';
 import React, { useState } from "react";
 import {
@@ -12,7 +13,6 @@ import {
   View
 } from "react-native";
 import { Button, Dialog, MD3Colors, Modal, Portal, ProgressBar, TextInput } from 'react-native-paper';
-import { styles } from "./_styles";
 const backgroundImage = require("@/assets/images/background_img.png");
 const logoAnalitica = require("@/assets/images/logo_analitica2x.png");
 
