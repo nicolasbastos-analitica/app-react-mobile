@@ -407,6 +407,17 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     zIndex: 9999,
   },
+   modalInterferencia: {
+    flex: 1,
+    height: 'auto',
+    bottom: -34,
+    position: 'absolute',
+    backgroundColor: '#FFF',
+    borderRadius: 16,
+    width: '100%',
+    alignSelf: 'center',
+    zIndex: 9999,
+  },
   modalContainer: {
     flexDirection: 'column',
     flex: 1,
@@ -418,7 +429,11 @@ export const styles = StyleSheet.create({
   modalHeader: {
     flexDirection: 'row',
     alignContent: 'center',
+    alignItems:'center',
     height: 40,
+  },
+  modalInterferenciaContainer:{
+    marginBottom:24
   },
   tituloPaginaModal: {
     flex: 1,
@@ -437,6 +452,12 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     margin: 0,
   },
+  textExit:{
+    fontFamily:"Montserrat",
+    fontSize:18,
+    marginBottom:24,
+    marginTop:24
+  }, 
   botaoVoltarLabel: {
     fontFamily: "Font Awesome 6 Pro",
     fontSize: 14,
@@ -444,7 +465,7 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
   },
   botaofecharModal: {
-    marginBottom: 12,
+    // marginBottom: 12,
   },
   modalInput: {
     zIndex: 10,
@@ -459,7 +480,9 @@ export const styles = StyleSheet.create({
   // Lista de Ordens dentro do Modal
   containerOrdens: {
     zIndex: 1,
-    marginBottom: 8,
+    // marginBottom: 8,
+  },containerInterferencias:{
+    marginBottom:24
   },
   ordemProducaoItem: {
     backgroundColor: "#FAFBFD",
@@ -483,13 +506,37 @@ export const styles = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
   },
+  contornoIcon:{
+    width:28,
+    height:28,
+    borderRadius:6,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  manutencao:{
+    backgroundColor:'#EF4C51',
+  },
+  combustivel:{
+    backgroundColor:"#FFD300"
+  },
+  transbordo:{
+    backgroundColor:'#FF8845'
+  },
+  interferenciasOperacionais:{
+    backgroundColor:'#1C899E'
+  },
+  interferenciaMotorLigado:{
+    backgroundColor:'#050412'
+  },
   ordemProducaoTextSelected: {
     color: '#24C0DE',
   },
   zonaTextSelected: {
     color: '#FFFFFF',
   },
-
+ containerManutencao:{
+  marginBottom:10
+ },
   // Elementos dentro do Item da Lista
   posicaoCheckModal1: {
     position: 'absolute',
@@ -544,6 +591,9 @@ export const styles = StyleSheet.create({
     // height:4,
     // marginTop:24,
     // marginBottom:24
+  },
+  exitButtonModal:{
+    backgroundColor:'#EF4C51'
   },
   CicloButtonLabel: {
     fontSize: 18,

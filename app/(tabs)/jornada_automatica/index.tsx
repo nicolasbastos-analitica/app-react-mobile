@@ -1,8 +1,8 @@
-import { router } from "expo-router";
+import ModalExit from "@/components/ModalExit";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
-import { styles } from "./styles";
+import { styles } from "./_styles";
 
 // Assets
 const checkIcon = require('@/assets/images/check.png');
@@ -29,6 +29,7 @@ const eventos = 0;
 export default function JornadaAutomatica() {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModal2Visible, setIsModal2Visible] = useState(false);
+    const [isModalExitVisible, setIsModalExitVisible] = useState(false);
     const [modalText, setModalText] = useState('');
     const [modal2Text, setModal2Text] = useState('');
     const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -59,7 +60,7 @@ export default function JornadaAutomatica() {
                     <Text style={styles.telemetriaTetxt}>Telemetria: {telemetria} </Text> <Text style={styles.separacaoTelemetria}>|</Text> <Text  style={styles.telemetriaTetxt}>Eventos: {eventos}</Text>
                 </View>
 
-                <Pressable onPress={() => router.replace('/(auth)')} style={styles.buttonSair}>
+                <Pressable onPress={() => setIsModalExitVisible(true)} style={styles.buttonSair}>
                     <Text style={styles.buttonSairLabel}>Encerrar</Text>
                 </Pressable>
             </View>
@@ -240,6 +241,12 @@ export default function JornadaAutomatica() {
                     </View>
                 </View>
             </Modal>
+             {/* MODAL SAIR  */}
+                        <ModalExit 
+                            visible={isModalExitVisible}
+                            onDismiss={() => setIsModalExitVisible(false)}
+                        />
+            
         </View>
     );
 }

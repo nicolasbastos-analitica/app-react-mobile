@@ -2,7 +2,7 @@ import { useRouter } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
 import { Button, IconButton, TextInput } from "react-native-paper";
-import { styles } from './styles';
+import { styles } from './_styles';
 const sendEmailIcon = require('@/assets/images/send_email.png')
 
 export default function password() {

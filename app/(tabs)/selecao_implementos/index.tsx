@@ -3,7 +3,7 @@ import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
-import { styles } from './styles';
+import { styles } from './_styles';
 
 const iconImplemento = require("@/assets/images/implemento_icon.png");
 const colheitadeira = require("@/assets/images/colheitadeira.png")
@@ -369,6 +369,8 @@ export default function Implementos() {
                         )}
 
                     </View>
+
+                    
                     <View style={styles.modalScrollWrapper}>
                         <ScrollView style={styles.scrollViewTurnos}>
                             {turnos.map((item) => {

@@ -1,5 +1,5 @@
 import "@/app/global.css";
-import { Link } from 'expo-router';
+import { router } from 'expo-router';
 import React, { useState } from "react";
 import {
   ActivityIndicator,
@@ -7,13 +7,12 @@ import {
   ImageBackground,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
   ScrollView,
   Text,
   View
 } from "react-native";
-import { Avatar, Button, Dialog, Icon, IconButton, MD3Colors, Modal, Portal, ProgressBar, TextInput } from 'react-native-paper';
-import { styles } from "./styles";
+import { Button, Dialog, MD3Colors, Modal, Portal, ProgressBar, TextInput } from 'react-native-paper';
+import { styles } from "./_styles";
 const backgroundImage = require("@/assets/images/background_img.png");
 const logoAnalitica = require("@/assets/images/logo_analitica2x.png");
 
@@ -127,14 +126,14 @@ export default function Login() {
                 }
               />
               <View style={styles.paginationDots}>
-                <View style={[styles.dot, styles.dotActive]} />
-                <View style={styles.dot} />
+                {/* <View style={[styles.dot, styles.dotActive]} /> */}
+                {/* <View style={styles.dot} /> */}
               </View>
               <Button
                 style={styles.iniciarButton}
                 labelStyle={styles.iniciarButtonLabel}
                 mode="contained"
-                onPress={showPasswordPanel}
+                onPress={()=> router.replace('/(tabs)/selecao_equipamento') }
               >
                 Iniciar
               </Button>
@@ -143,7 +142,7 @@ export default function Login() {
         </KeyboardAvoidingView>
       </Modal>
 
-      {/* modal 2 : tela de senha */}
+      {/* modal 2 : tela de senha
 
       <Modal
         visible={isPasswordPanelVisible}
@@ -224,7 +223,7 @@ export default function Login() {
             </Link>
           </ScrollView>
         </KeyboardAvoidingView>
-      </Modal>
+      </Modal> */}
 
     </View>
   );

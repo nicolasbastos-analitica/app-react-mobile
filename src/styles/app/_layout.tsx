@@ -7,7 +7,7 @@ import { PaperProvider } from 'react-native-paper';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { TelemetryProvider } from '../src/decoder/TelemetryContext';
+import { TelemetryProvider } from '@/src/decoder/TelemetryContext';
 import './global.css';
 
 export const unstable_settings = {

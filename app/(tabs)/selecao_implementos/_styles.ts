@@ -393,7 +393,7 @@ export const styles = StyleSheet.create({
   },
   modalOrdemProducao2: {
     flex: 1,
-    height: 626,
+    height: 726,
     bottom: -34,
     position: 'absolute',
     backgroundColor: '#FFF',

@@ -1,10 +1,11 @@
 import CircularProgress from "@/components/CircularProgress";
+import ModalExit from "@/components/ModalExit";
 import { ImageBackground } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
-import { styles } from "./styles";
+import { styles } from "./_styles";
 
 // Assets
 const colheitadeira = require("@/assets/images/colheitadeira.png");
@@ -14,6 +15,12 @@ const nullUserIcon = require('@/assets/images/user_icon.png');
 const metaConcluida = require('@/assets/images/circle-check-regular-full.png');
 const metaInalcancada = require("@/assets/images/circle-xmark-regular-full.png");
 const checkIcon = require('@/assets/images/check.png')
+const iconAguardandoTransbordo = require('@/assets/images/icon_aguardando_transbordo.png')
+const iconCombustivel = require('@/assets/images/icon_combustivel.png')
+const iconInterferenciaMotorLigado = require("@/assets/images/icon_interferencia_motor_ligado.png")
+const iconInterferenciasOperacionais = require("@/assets/images/icon_interferencias_operacionais.png")
+const iconManutencao = require("@/assets/images/icon_manutencao.png")
+const iconExit = require("@/assets/images/icon_exit.png")
 // Constants
 const numEquip = 34531;
 const modeloEquip = 'New Holland Tc5090';
@@ -62,12 +69,23 @@ const cicloOperacional = [
     { id: '249', ciclo: 'Descarga', },
     { id: '201  ', ciclo: 'Deslocamento Descarga', },
 ];
+const interferencias = [
+    { interferencia: 'Manutenção Elétrica' },
+    { interferencia: 'Manutenção Mecânica' },
+    { interferencia: 'Manutenção Elevador' },
+    { interferencia: 'Reparos' },
+    { interferencia: 'Hidráulica' },
+    { interferencia: 'Outros' },
+]
 
 export default function Home() {
     // 1. Pega os dados do Contexto (Correto)
     // const { sensorData, connectedDevice } = useTelemetry();
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModal2Visible, setIsModal2Visible] = useState(false);
+    const [isModalExitVisible, setIsModalExitVisible] = useState(false);
+    const [isModalInterferenciaVisible, setIsModalInterferenciaVisible] = useState(false);
+    const [isModalInterferenciaManutencaoVisible, setIsModalInterferenciaManutencaoVisible] = useState(false);
     const [modalText, setModalText] = useState('');
     const [modal2Text, setModal2Text] = useState('');
     const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -105,9 +123,9 @@ export default function Home() {
         funcao: string;
     }
     const [ordemAtual, setOrdemAtual] = useState<OrdemProducao>({
-        id: params.ordemID || '999',
-        zona: params.ordemZona || 'A1',
-        funcao: params.ordemFuncao || 'Operador',
+        id: (params.ordemID as string) || '999',
+        zona: (params.ordemZona as string) || 'A1',
+        funcao: (params.ordemFuncao as string) || 'Operador',
     });
     return (
 
@@ -128,7 +146,7 @@ export default function Home() {
                     </Pressable>
                 </View>
 
-                <Pressable onPress={() => router.replace('/(auth)')} style={styles.buttonSair}>
+                <Pressable onPress={() => setIsModalExitVisible(true)} style={styles.buttonSair}>
                     <Text style={styles.buttonSairLabel}>Sair</Text>
                 </Pressable>
             </View>
@@ -309,7 +327,7 @@ export default function Home() {
                     <Button style={styles.nextButton} labelStyle={styles.nextButtonLabel} mode="contained" onPress={() => setIsModal2Visible(true)}>
                         Automática
                     </Button>
-                    <Button style={styles.nextButtonRed} labelStyle={styles.nextButtonLabel} mode="contained" onPress={() => router.replace('/(tabs)/selecao_implementos')}>
+                    <Button style={styles.nextButtonRed} labelStyle={styles.nextButtonLabel} mode="contained" onPress={() => setIsModalInterferenciaVisible(true)}>
                         Interferência
                     </Button>
                 </View>
@@ -514,7 +532,7 @@ export default function Home() {
                             style={styles.CicloButton}
                             labelStyle={styles.CicloButtonLabel}
                             mode="contained"
-                            onPress={() =>{ router.replace('/(tabs)/jornada_automatica'); setIsModal2Visible(false)} }
+                            onPress={() => { router.replace('/(tabs)/jornada_automatica'); setIsModal2Visible(false) }}
 
                             // 1. Passe o ícone direto na propriedade (aceita o require)
                             icon={checkIcon}
@@ -527,6 +545,304 @@ export default function Home() {
                     </View>
                 </View>
             </Modal>
+
+            {/* MODAIS INTERFERENCIA  */}
+            {/* MODAL INTERFERENCIAS */}
+
+            <Modal
+                visible={isModalInterferenciaVisible}
+
+                onDismiss={() => { setIsModalInterferenciaVisible(false) }}
+                contentContainerStyle={styles.modalInterferencia}
+            >
+                <View style={styles.modalContainer}>
+                    <View style={[styles.modalHeader, styles.modalInterferenciaContainer]}>
+                        <Text style={styles.tituloPaginaModal}>Iterferência</Text>
+                        <IconButton icon="close" mode="contained" onPress={() => { setIsModalInterferenciaVisible(false) }}
+                            containerColor={styles.botaoVoltar.backgroundColor}
+                            iconColor={styles.botaoVoltarLabel.color}
+                            style={[styles.botaoVoltar, styles.botaofecharModal]}
+                            size={14}>
+
+                        </IconButton>
+
+                    </View>
+                    <ScrollView>
+                        <View style={styles.containerInterferencias}>
+
+                            {/* COMECO ITEM MANUTENCAO  */}
+                            <View style={styles.containerOrdens}>
+
+                                <Pressable
+                                    style={[
+                                        styles.ordemProducaoItem
+                                    ]}
+                                >
+                                    <View style={styles.ordemProducaoInfo}>
+                                        <View style={[styles.contornoIcon, styles.manutencao]}>
+                                            <Icon source={iconManutencao} size={14} />
+                                        </View>
+                                        <View style={styles.checkposition}>
+                                            <Text style={styles.funcao}>
+                                                Manutenção
+                                            </Text>
+
+                                        </View>
+                                        {(
+                                            <Icon source={checkIcon} size={14} color="#FFF" />
+                                        )}
+                                    </View>
+
+
+                                </Pressable>
+
+                            </View>
+
+                            {/* FIM ITEM MANUTENCAO  */}
+                            <View style={styles.containerOrdens}>
+
+                                <Pressable
+                                    style={[
+                                        styles.ordemProducaoItem
+                                    ]}
+                                >
+                                    <View style={styles.ordemProducaoInfo}>
+                                        <View style={[styles.contornoIcon, styles.combustivel]}>
+                                            <Icon source={iconCombustivel} size={14} />
+                                        </View>
+                                        <View style={styles.checkposition}>
+                                            <Text style={styles.funcao}>
+                                                Combustível e Lubrificação
+                                            </Text>
+
+                                        </View>
+                                        {(
+                                            <Icon source="chevron-right" color="#625F7E" size={18} />
+                                        )}
+                                    </View>
+
+
+                                </Pressable>
+
+                            </View>
+
+                            {/* FIM ITEM MANUTENCAO  */}
+
+                            {/* FIM ITEM MANUTENCAO  */}
+                            <View style={styles.containerOrdens}>
+
+                                <Pressable
+                                    style={[
+                                        styles.ordemProducaoItem
+                                    ]}
+                                >
+                                    <View style={styles.ordemProducaoInfo}>
+                                        <View style={[styles.contornoIcon, styles.transbordo]}>
+                                            <Icon source={iconAguardandoTransbordo} size={14} />
+                                        </View>
+                                        <View style={styles.checkposition}>
+                                            <Text style={styles.funcao}>
+                                                Aguardando Transbordo
+                                            </Text>
+
+                                        </View>
+                                        {(
+                                            <Icon source={checkIcon} size={14} color="#FFF" />
+                                        )}
+                                    </View>
+
+
+                                </Pressable>
+
+                            </View>
+
+                            {/* FIM ITEM MANUTENCAO  */}
+
+                            {/* FIM ITEM MANUTENCAO  */}
+                            <View style={styles.containerOrdens}>
+
+                                <Pressable
+                                    style={[
+                                        styles.ordemProducaoItem
+                                    ]}
+                                >
+                                    <View style={styles.ordemProducaoInfo}>
+                                        <View style={[styles.contornoIcon, styles.interferenciasOperacionais]}>
+                                            <Icon source={iconInterferenciasOperacionais} size={14} />
+                                        </View>
+                                        <View style={styles.checkposition}>
+                                            <Text style={styles.funcao}>
+                                                Interferências Operacionais
+                                            </Text>
+
+                                        </View>
+                                        {(
+                                            <Icon source="chevron-right" color="#625F7E" size={18} />
+                                        )}
+                                    </View>
+
+
+                                </Pressable>
+
+                            </View>
+
+                            {/* FIM ITEM MANUTENCAO  */}
+                            {/* FIM ITEM MANUTENCAO  */}
+                            <View style={styles.containerOrdens}>
+
+                                <Pressable
+                                    style={[
+                                        styles.ordemProducaoItem
+                                    ]}
+                                >
+                                    <View style={styles.ordemProducaoInfo}>
+                                        <View style={[styles.contornoIcon, styles.interferenciaMotorLigado]}>
+                                            <Icon source={iconInterferenciaMotorLigado} size={14} />
+                                        </View>
+                                        <View style={styles.checkposition}>
+                                            <Text style={styles.funcao}>
+                                                Interferências Operacionais
+                                            </Text>
+
+                                        </View>
+                                        {(
+                                            <Icon source={checkIcon} size={14} color="#FFF" />
+                                        )}
+                                    </View>
+
+
+                                </Pressable>
+
+                            </View>
+
+                            {/* FIM ITEM MANUTENCAO  */}
+                        </View>
+
+                    </ScrollView>
+
+                </View>
+
+            </Modal>
+            {/* FIM MODAL  */}
+
+            <Modal
+                visible={isModalInterferenciaManutencaoVisible}
+
+                onDismiss={() => { setIsModalInterferenciaManutencaoVisible(false) }}
+                contentContainerStyle={styles.modalInterferencia}
+            >
+                <View style={styles.modalContainer}>
+                    <View style={[styles.modalHeader, styles.modalInterferenciaContainer]}>
+                        <Text style={styles.tituloPaginaModal}>Iterferência</Text>
+                        <IconButton icon="close" mode="contained" onPress={() => { setIsModalInterferenciaVisible(false) }}
+                            containerColor={styles.botaoVoltar.backgroundColor}
+                            iconColor={styles.botaoVoltarLabel.color}
+                            style={[styles.botaoVoltar, styles.botaofecharModal]}
+                            size={14}>
+
+                        </IconButton>
+
+                    </View>
+                    <ScrollView>
+                        <View style={styles.containerInterferencias}>
+
+                            {/* COMECO ITEM MANUTENCAO  */}
+                            <View style={styles.containerOrdens}>
+
+                                <Pressable
+                                    style={[
+                                        styles.ordemProducaoItem
+                                    ]}
+                                    onPress={()=> setIsModalInterferenciaManutencaoVisible(true)}
+
+                                >
+                                    <View style={styles.ordemProducaoInfo}>
+                                        <View style={[styles.contornoIcon, styles.manutencao]}>
+                                            <Icon source={iconManutencao} size={14} />
+                                        </View>
+                                        <View style={styles.checkposition}>
+                                            <Text style={styles.funcao}>
+                                                Manutenção
+                                            </Text>
+
+                                        </View>
+                                        {(
+                                            <Icon source={checkIcon} size={14} color="#FFF" />
+                                        )}
+                                    </View>
+
+
+                                </Pressable>
+
+                            </View>
+                        </View>
+
+                    </ScrollView>
+                    <ScrollView>
+                        <View style={[styles.containerOrdens, styles.containerManutencao]}>
+
+                            {interferencias.map((item) => {
+                                const isSelected = selectedId === item.interferencia;
+
+                                return (
+
+                                    <Pressable
+                                        key={item.interferencia}
+                                        onPress={() => handleSelect(isSelected ? null : item.interferencia)}
+                                        style={[
+                                            styles.ordemProducaoItem,
+                                            isSelected && styles.ordemProducaoItemSelected
+                                        ]}
+                                    >
+                                        <View style={styles.ordemProducaoInfo}>
+                                            <View style={styles.checkposition}>
+                                                <Text style={[styles.funcao, isSelected && styles.funcaoTextSelected]}>
+                                                    {item.interferencia}
+                                                </Text>
+
+                                            </View>
+                                            {isSelected && (
+                                                <Icon source={checkIcon} size={14} color="#FFF" />
+                                            )}
+                                        </View>
+
+
+                                    </Pressable>
+
+                                );
+                            })}
+                        </View>
+                    </ScrollView>
+
+                </View>
+                <View style={styles.iniciarCicloContainerBottom}>
+                    <View style={styles.botaoIniciarCiclo}>
+                        <Button
+                            style={styles.CicloButton}
+                            labelStyle={styles.CicloButtonLabel}
+                            mode="contained"
+                            onPress={() => { router.replace('/(tabs)/jornada_automatica'); setIsModal2Visible(false) }}
+
+                            // 1. Passe o ícone direto na propriedade (aceita o require)
+                            icon={checkIcon}
+
+                            // 2. Inverta a ordem (Texto <- Ícone)
+                            contentStyle={{ flexDirection: 'row-reverse' }}
+                        >
+                            Selecionar
+                        </Button>
+                    </View>
+                </View>
+            </Modal>
+            {/* FIM MODAL  */}
+            {/* MODAL SAIR  */}
+            <ModalExit
+                visible={isModalExitVisible}
+                onDismiss={() => setIsModalExitVisible(false)}
+            />
+
+
+
         </View>
     );
 }

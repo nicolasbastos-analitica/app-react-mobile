@@ -1,11 +1,13 @@
-// app/(auth)/_layout.tsx
-import { Stack } from 'expo-router';
+import { Stack } from "expo-router";
 
 export default function AuthLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Login" />
-      <Stack.Screen name="RecuperarSenha" />
+      {/* Tela de Login */}
+      <Stack.Screen name="index" options={{ title: "Login" }} />
+      
+      {/* Tela de Recuperar Senha */}
+      <Stack.Screen name="password" options={{ title: "Recuperar Senha" }} />
     </Stack>
   );
 }

@@ -3,7 +3,7 @@ import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { Avatar, Button, Icon, IconButton, TextInput } from "react-native-paper";
-import { styles } from "./styles";
+import { styles } from "./_styles";
 
 const colheitadeira = require("@/assets/images/colheitadeira.png")
 const iconColhedora = require("@/assets/images/colhedora4x.png");

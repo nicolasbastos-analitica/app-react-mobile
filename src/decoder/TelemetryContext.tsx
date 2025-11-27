@@ -1,5 +1,5 @@
-import { SensorData } from '@/app/decoder/bluechipDecoder.types';
-import { getInstance as getDecoderInstance } from '@/app/decoder/decoderFactory';
+import { SensorData } from '@/src/decoder/bluechipDecoder.types';
+import { getInstance as getDecoderInstance } from '@/src/decoder/decoderFactory';
 import { Buffer } from 'buffer';
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { PermissionsAndroid, Platform, ToastAndroid } from 'react-native';
@@ -23,11 +23,13 @@ interface TelemetryContextType {
   devices: BluetoothDevice[];
   listPairedDevices: () => Promise<void>;
   isScanning: boolean;
+  isConnecting: boolean; // Estado visual para loading
   authStep: AuthStep;
 }
 
 const TelemetryContext = createContext<TelemetryContextType>({} as TelemetryContextType);
 
+// --- FUNÇÃO DE CRIPTOGRAFIA (Key Calculation) ---
 const calculateAuthKey = (seedData: string): string => {
   const seedHex = seedData.replace('AT+BT_SEED=', '').replace(COMMAND_SUFFIX, '').trim();
   const seeds = Buffer.from(seedHex, 'hex');
@@ -49,19 +51,20 @@ const calculateAuthKey = (seedData: string): string => {
 };
 
 export function TelemetryProvider({ children }: { children: React.ReactNode }) {
+  // --- STATES (Para renderização da UI) ---
   const [sensorData, setSensorData] = useState<SensorData>({});
   const [devices, setDevices] = useState<BluetoothDevice[]>([]);
   const [connectedDevice, setConnectedDevice] = useState<BluetoothDevice | null>(null);
   const [isScanning, setIsScanning] = useState(false);
   const [authStep, setAuthStep] = useState<AuthStep>('disconnected');
-  
+  const [isConnecting, setIsConnecting] = useState(false); // Estado visual
+
+  // --- REFS (Para lógica interna e evitar re-renders desnecessários/loops) ---
   const authStepRef = useRef<AuthStep>('disconnected');
   const dataBuffer = useRef<string>('');
   const connectionRef = useRef<BluetoothDevice | null>(null);
   const dataSubscription = useRef<BluetoothEventSubscription | null>(null);
-  
-  // Trava de segurança
-  const isConnectingRef = useRef<boolean>(false);
+  const isConnectingRef = useRef<boolean>(false); // Trava lógica
 
   const updateAuthStep = (step: AuthStep) => {
     authStepRef.current = step;
@@ -69,17 +72,25 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
     console.log("🔐 PASSO AUTH:", step);
   };
 
-  // --- AUTO-CONNECT ---
+  // --- AUTO-CONNECT E PERMISSÕES ---
   useEffect(() => {
     let mounted = true;
 
     const initBluetooth = async () => {
+        // Permissões para Android 12+ (SDK 31+) e anteriores
         if (Platform.OS === 'android') {
-            await PermissionsAndroid.requestMultiple([
-                PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-                PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-                PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-            ]);
+            const version = Platform.Version;
+            if (typeof version === 'number' && version >= 31) {
+                 await PermissionsAndroid.requestMultiple([
+                    PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+                    PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+                    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+                 ]);
+            } else {
+                 await PermissionsAndroid.requestMultiple([
+                    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+                 ]);
+            }
         }
 
         try {
@@ -87,10 +98,12 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
             if (!mounted) return;
             setDevices(paired);
 
+            // Lógica de Auto-Conexão
             const targetDevice = paired.find(d => d.name && d.name.startsWith(DEVICE_NAME_PREFIX));
 
             if (targetDevice) {
                 console.log(`🔍 [Auto] Encontrado: ${targetDevice.name}.`);
+                // Só tenta conectar se não estiver conectando e não tiver conexão ativa
                 if (!isConnectingRef.current && !connectionRef.current) {
                     ToastAndroid.show(`Conectando a ${targetDevice.name}...`, ToastAndroid.SHORT);
                     await connectDevice(targetDevice);
@@ -99,35 +112,36 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
         } catch (err) { console.error("[Auto] Erro:", err); }
     };
 
+    // Pequeno delay para garantir que o sistema carregou
     const timer = setTimeout(() => { initBluetooth(); }, 1000);
     return () => { mounted = false; clearTimeout(timer); disconnectDevice(); };
   }, []);
 
+  // --- PROCESSAMENTO DE MENSAGENS (A Maquina de Estados) ---
   const processMessage = (message: string) => {
-      // CORREÇÃO: Limpa a mensagem e garante o sufixo \r\n
-      // Isso evita o erro "Dados inválidos"
       const msg = message.trim();
       const cleanMessage = msg + '\r\n'; 
       
       const currentStep = authStepRef.current;
 
-      // --- 1. PROCESSAMENTO DE DADOS (PRIORIDADE) ---
+      // 1. DADOS DE TELEMETRIA (PRIORIDADE ALTA)
       if (msg.startsWith('AT+BT_PRM=')) {
+          // Se começou a chegar dados mas o status ainda não atualizou, força conectado
           if (currentStep !== 'connected') {
-              console.log("⚠️ Dados recebidos. Forçando CONNECTED.");
+              console.log("⚠️ Dados recebidos. Forçando status CONNECTED.");
               updateAuthStep('connected');
               if (connectionRef.current) setConnectedDevice(connectionRef.current);
           }
 
           try {
-              // Passamos a mensagem limpa com o sufixo correto
               const decoder = getDecoderInstance(cleanMessage);
               
               const speed = decoder.decodeSpeed();
               const rpm = decoder.decodeRPM();
               const bat = decoder.decodeBattery();
-
-              console.log(`✅ Speed: ${speed} | RPM: ${rpm} | Bat: ${bat}`);
+              
+              // Log Opcional (pode comentar em produção)
+              // console.log(`✅ Speed: ${speed} | RPM: ${rpm} | Bat: ${bat}`);
 
               setSensorData(prev => ({
                   ...prev, 
@@ -137,7 +151,6 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
                   latitude: decoder.decodeLatitude(),
                   longitude: decoder.decodeLongitude(),
                   engineWaterTemperature: decoder.decodeEngineWaterTemperature(),
-                  // Adicione outros campos conforme necessário
               }));
           } catch (error) { 
               console.log("❌ Erro Decode:", error); 
@@ -145,7 +158,7 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
           return;
       }
 
-      // --- 2. PROCESSAMENTO DE HANDSHAKE ---
+      // 2. HANDSHAKE (AUTENTICAÇÃO)
       console.log(`📩 [Handshake] Msg: ${msg}`);
 
       switch (currentStep) {
@@ -173,6 +186,8 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
                 updateAuthStep('starting_telemetry');
                 console.log('📤 Start Telemetria...');
                 connectionRef.current?.write('AT_BT_PRM_START' + COMMAND_SUFFIX + '\n');
+                
+                // Desativa simulação (opcional, dependendo do hardware)
                 setTimeout(() => {
                     connectionRef.current?.write('AT+BT_SIMULATED_FRAME_OFF' + COMMAND_SUFFIX + '\n');
                 }, 200);
@@ -185,6 +200,7 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
       }
   };
 
+  // --- LISTENER DE DADOS ---
   const onDataReceived = (event: { data: string }) => {
      dataBuffer.current += event.data;
      let lastIndex = dataBuffer.current.lastIndexOf(COMMAND_SUFFIX);
@@ -207,18 +223,31 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
     } catch (err) { console.error(err); } finally { setIsScanning(false); }
   };
 
+  // --- CONECTAR (COM CORREÇÃO DE ERRO) ---
   const connectDevice = async (device: BluetoothDevice) => {
-     if (isConnectingRef.current) return;
-     if (connectionRef.current?.id === device.id && await device.isConnected()) return;
+     // 1. TRAVA LÓGICA
+     if (isConnectingRef.current) {
+         console.log("⚠️ Já existe uma conexão em andamento. Ignorando clique.");
+         return;
+     }
+
+     // 2. Verifica se já está conectado no mesmo
+     if (connectionRef.current?.id === device.id && await device.isConnected()) {
+         console.log("✅ Já está conectado neste dispositivo.");
+         return;
+     }
 
      try {
-        isConnectingRef.current = true;
+        isConnectingRef.current = true; // Trava
+        setIsConnecting(true);          // Visual
         updateAuthStep('connecting');
         console.log(`🔌 Conectando a ${device.name}...`);
         
+        // 3. Tenta conectar
         const connection = await RNBluetoothClassic.connectToDevice(device.id);
         connectionRef.current = connection;
         
+        // Limpa listener velho e adiciona novo
         if (dataSubscription.current) dataSubscription.current.remove();
         dataSubscription.current = connection.onDataReceived(onDataReceived);
         dataBuffer.current = '';
@@ -227,12 +256,25 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
         console.log("⏳ Aguardando Seed...");
 
      } catch (error: any) {
+         // 1. PRIMEIRO verificamos se é o erro de "Já conectando"
+         const errorMessage = error.message || error.toString();
+         
+         if (errorMessage.includes("Already attempting")) {
+             // Se for esse erro, a gente avisa em amarelo (log comum) e para por aqui.
+             console.log("ℹ️ Conexão já em andamento (Ignorando duplicidade).");
+             return; 
+         }
+
+         // 2. Se NÃO for aquele erro, aí sim é um erro real. Mostramos o vermelho.
          console.error("❌ Erro conexão:", error);
+
          updateAuthStep('failed');
          setConnectedDevice(null);
          connectionRef.current = null;
+         ToastAndroid.show("Falha ao conectar", ToastAndroid.SHORT);
      } finally {
          isConnectingRef.current = false;
+         setIsConnecting(false);
      }
   };
 
@@ -248,14 +290,26 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
          setSensorData({});
          updateAuthStep('disconnected');
          isConnectingRef.current = false;
+         setIsConnecting(false);
      }
   };
 
   return (
-    <TelemetryContext.Provider value={{ sensorData, connectedDevice, connectDevice, disconnectDevice, devices, listPairedDevices, isScanning, authStep }}>
+    <TelemetryContext.Provider value={{ 
+        sensorData, 
+        connectedDevice, 
+        connectDevice, 
+        disconnectDevice, 
+        devices, 
+        listPairedDevices, 
+        isScanning, 
+        isConnecting, // Exposto para usar no botão de connect
+        authStep 
+    }}>
       {children}
     </TelemetryContext.Provider>
   );
 }
 
+// Hook personalizado
 export const useTelemetry = () => useContext(TelemetryContext);
