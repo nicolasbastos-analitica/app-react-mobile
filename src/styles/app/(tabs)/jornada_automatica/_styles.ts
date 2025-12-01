@@ -46,21 +46,7 @@ export const styles = StyleSheet.create({
     marginRight: 6,
     marginLeft: 6,
   },
-  containerBlueSwitchOFF: {
-    backgroundColor: '#FAFBFD',
-    width: 75,
-    height: 40,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 24,
-    marginTop: 32,
-    marginRight: 24,
-    gap: 4,
-    borderWidth: 2,
-    borderColor: '#050412',
-  },
+  
 
   // --- Botão Sair ---
   buttonSair: {
@@ -91,10 +77,10 @@ export const styles = StyleSheet.create({
     marginRight: 24,
     backgroundColor: "#FFF",
     width: 'auto',
-    height: 'auto',
+    height: 456,
     borderWidth: 1,
     borderColor: '#D4D3DF',
-    flex: 1,
+    // flex: 1,
     borderRadius:8
 
   },
@@ -122,9 +108,88 @@ export const styles = StyleSheet.create({
   },
   iconSeta: {
     marginLeft: 'auto',
-  },elementosBodyEvento:{
+  },
+  elementosBodyEvento:{
     backgroundColor:'#E6F8F1',
-    height:'auto'
+    height:'auto',
+    alignItems:'center',
+    padding:16
+  },
+  // 3. SWITCH BLUE_350
+  containerBlueSwitchON: {
+    backgroundColor: '#00B16B',
+    width: 150,
+    height: 40,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent:'center',
+    borderRadius: 24,
+    // marginTop: 16,
+    // marginRight: ,
+    gap:4
+  },
+  containerBlueSwitchOFF: {
+    backgroundColor: '#EF4C51',
+    width: 150,
+    height: 40,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 24,
+    // marginTop: 16,
+    // marginRight: 24,
+    gap:4
+  },
+   // Adicione esta seção de estilo para o switch customizado
+  customSwitchTrack: {
+    width: 25,
+    height: 17, // Altura da barra
+    backgroundColor: '#050412', // Cor escura do trilho
+    borderRadius: 10,
+    padding: 3, // Espaçamento interno
+    justifyContent: 'center',
+  },
+  customSwitchTrackOFF: {
+    width: 25,
+    height: 17, // Altura da barra
+    backgroundColor: '#EF4C51', // Cor escura do trilho
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "050412",
+    padding: 3, // Espaçamento interno
+    justifyContent: 'center',
+  },
+  customSwitchThumb: {
+    width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
+    height: 9, // Altura da bolinha
+    borderRadius: 7,
+    backgroundColor: '#00B16B', // Cor verde da bolinha
+  },
+  customSwitchThumbOFF: {
+    width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
+    height: 9, // Altura da bolinha
+    borderRadius: 7,
+    backgroundColor: '#000',
+    position:'absolute',
+    left:1.7 // Cor verde da preta
+  },
+  customSwitchThumbActive: {
+    alignSelf: 'flex-end', // Posição direita (ON)
+  },
+  customSwitchThumbInactive: {
+    alignSelf: 'flex-start', // Posição esquerda (OFF)
+  },
+  textBlue: {
+    color: "#FFF",
+    fontFamily: 'Montserrat-Bold', // JÁ CORRETO
+    fontSize: 11,
+  },
+  styleActivation: {
+    fontFamily: 'Montserrat-Bold', // JÁ CORRETO
+    fontSize: 11,
   },
   contornoIcon: {
     width: 28,
@@ -135,6 +200,18 @@ export const styles = StyleSheet.create({
   },
   eventoAtivoIcon: {
     backgroundColor: 'rgba(0, 177, 107, 0.10)'
+  },
+  eventoAutomaticoContador:{
+    height:'auto',
+    justifyContent:"center",
+    alignContent:'center',
+    alignItems:'center'
+  },
+  eventoAutomaticoContadorTitulo:{
+    fontFamily:'Montserrat-Bold',
+    fontSize:12,
+    color:'#00B16B'
+
   },
   // ==================================================
   // 2. ELEMENTOS COMPARTILHADOS (Lista, Textos)

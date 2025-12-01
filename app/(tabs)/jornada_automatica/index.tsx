@@ -1,9 +1,9 @@
+import Cronometro from "@/components/Cronometro";
 import ModalExit from "@/components/ModalExit";
 import { styles } from "@/src/styles/app/(tabs)/jornada_automatica/_styles";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
-
 // Assets
 const checkIcon = require('@/assets/images/check.png');
 const iconEventoAtivo = require('@/assets/images/evento_ativo.png')
@@ -22,6 +22,7 @@ const cicloOperacional = [
     { id: '249', ciclo: 'Descarga', },
     { id: '201  ', ciclo: 'Deslocamento Descarga', },
 ];
+const Blue = 'BLUE_530';
 
 const telemetria = 0;
 const eventos = 0;
@@ -79,11 +80,48 @@ export default function JornadaAutomatica() {
                             <Icon source="chevron-right" color="#625F7E" size={18} />
                         </View>
                     </View>
-                <View style={styles.elementosBodyEvento}>
-                <Text>oi</Text>
-                </View>
+                    <View style={styles.elementosBodyEvento}>
+                        <View style={[styles.containerBlueSwitchON, IsActivate ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
+                            <Text style={styles.textBlue}>{Blue}</Text>
+                            <Pressable
+                                // Garante que o clique mude o estado
+                                onPress={() => setIsActivate(!IsActivate)}
+                            >
+                                <View style={[styles.customSwitchTrack,
+                                IsActivate ? styles.customSwitchTrack : styles.customSwitchTrackOFF
+                                ]}>
+                                    <View
+                                        // Aplica a bolinha e define a posição (esquerda/direita)
+                                        style={[
+                                            styles.customSwitchThumb,
+                                            IsActivate ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
+                                        ]}
+                                    />
+                                </View>
+                            </Pressable>
+                            <Text style={styles.styleActivation}>{IsActivate ? "ON" : "OFF"}</Text>
+                        </View>
+
+                        <View style={styles.eventoAutomaticoContador}>
+                                        <Text style={styles.eventoAutomaticoContadorTitulo}>Tempo de Evento Automático</Text>
+                                        <Cronometro></Cronometro>
+                        </View>
+                        
+                    </View>
                 </View>
             </View>
+
+
+
+
+
+
+
+
+
+
+
+
             {/* Modal 1 - Ordem de Produção */}
             <Modal
                 visible={isModalVisible}
