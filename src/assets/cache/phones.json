@@ -1,0 +1,3250 @@
+{
+    "data": [
+        {
+            "imei_01": "355470100166707",
+            "imei_02": "355470100166715",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353355105130612",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104460895",
+            "imei_02": "357155104460903",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105708615",
+            "imei_02": "357155105708623",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090876054",
+            "imei_02": "359611090876062",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100148747",
+            "imei_02": "355470100148754",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "35866808288883401",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916488",
+            "imei_02": "355470103916496",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916587",
+            "imei_02": "355470103916595",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881450",
+            "imei_02": "359611090881468",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353355102294932",
+            "imei_02": "353355102294940",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090882037",
+            "imei_02": "359611090882045",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831565",
+            "imei_02": "355470100831573",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046616",
+            "imei_02": "359611091046624",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917643",
+            "imei_02": "355470103917650",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046236",
+            "imei_02": "359611091046244",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359239090583874",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "35390133085407826",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353781102364815",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "356258100190226",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913840",
+            "imei_02": "355470103913857",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103918849",
+            "imei_02": "355470103918856",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "862471046750139",
+            "imei_02": "862471048230130",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "356499080796190",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353355105130299",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916421",
+            "imei_02": "355470103916439",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100150347",
+            "imei_02": "355470100150354",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353355102333078",
+            "imei_02": "353355102333086",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353355102291979",
+            "imei_02": "353355102291987",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100150685",
+            "imei_02": "355470100150693",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103918500",
+            "imei_02": "355470103918518",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091048158",
+            "imei_02": "359611091048166",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831904",
+            "imei_02": "355470100831912",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357289102085329",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916926",
+            "imei_02": "355470103916934",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104460812",
+            "imei_02": "357155104460820",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100830963",
+            "imei_02": "355470100830971",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "354068090314732",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100164462",
+            "imei_02": "355470100164470",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912289",
+            "imei_02": "355470103912297",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931727",
+            "imei_02": "355470103931735",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103923583",
+            "imei_02": "355470103923591",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103932741",
+            "imei_02": "355470103932758",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831508",
+            "imei_02": "355470100831516",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912149",
+            "imei_02": "355470103912156",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100139944",
+            "imei_02": "355470100139951",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915811",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "212073572445740",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100153341",
+            "imei_02": "355470100153358",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "335470103917148",
+            "imei_02": "355470103917155",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103923120",
+            "imei_02": "355470103923138",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359021105119443",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100158084",
+            "imei_02": "355470100158092",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352763102819916",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100143128",
+            "imei_02": "355470100143136",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831524",
+            "imei_02": "355470100831532",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831805",
+            "imei_02": "355470100831813",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100832928",
+            "imei_02": "355470100832936",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917122",
+            "imei_02": "355470103917130",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913444",
+            "imei_02": "355470103913451",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100830526",
+            "imei_02": "355470100830534",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359572902655344",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103936627",
+            "imei_02": "355470103936635",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100119540",
+            "imei_02": "355470100119557",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358240051111110",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100179403",
+            "imei_02": "355470100179411",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931321",
+            "imei_02": "355470103931339",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914962",
+            "imei_02": "355470103914970",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090808271",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "351944112403435",
+            "imei_02": "351944112403443",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352927093311288",
+            "imei_02": "352928093311286",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358152071602061",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100150842",
+            "imei_02": "355470100150859",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091025156",
+            "imei_02": "359611091025164",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090877813",
+            "imei_02": "359611090877821",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103930562",
+            "imei_02": "355470103930570",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047473",
+            "imei_02": "359611091047481",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045436",
+            "imei_02": "359611091045444",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090880973",
+            "imei_02": "359611090880981",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103922783",
+            "imei_02": "355470103922791",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100157326",
+            "imei_02": "355470100157334",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047770",
+            "imei_02": "359611091047788",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091048190",
+            "imei_02": "359611091048208",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913345",
+            "imei_02": "355470103913352",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100153549",
+            "imei_02": "355470100153556",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831029",
+            "imei_02": "355470100831037",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152186",
+            "imei_02": "355470100152194",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "354136075986913",
+            "imei_02": "354136075986921",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "860988036412976",
+            "imei_02": "860988036412984",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358682063052222",
+            "imei_02": "358682063048220",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353457103296898",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359590061544869",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "354708096559703",
+            "imei_02": "354708096559711",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353457103296898",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358473093768338",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "869804032410610",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914806",
+            "imei_02": "355470103914814",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090882078",
+            "imei_02": "359611090882086",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881153",
+            "imei_02": "359611090881161",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090921496",
+            "imei_02": "359611090921504",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100148648",
+            "imei_02": "355470100148655",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091038738",
+            "imei_02": "359611091038746",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103923864",
+            "imei_02": "355470103923872",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100160288",
+            "imei_02": "355470100160296",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045576",
+            "imei_02": "359611091045584",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104460770",
+            "imei_02": "357155104460788",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091025818",
+            "imei_02": "359611091025826",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100155304",
+            "imei_02": "355470100155312",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359572902655336",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "350920339623535",
+            "imei_02": "350920339623543",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917049",
+            "imei_02": "355470103917056",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104416392",
+            "imei_02": "357155104416400",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045238",
+            "imei_02": "359611091045246",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090913576",
+            "imei_02": "359611090913584",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046996",
+            "imei_02": "359611091047002",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090913790",
+            "imei_02": "359611090913808",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "351944110371493",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358135091063893",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359038643691071",
+            "imei_02": "359038643691089",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "864060045036174",
+            "imei_02": "864060045036182",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831482",
+            "imei_02": "355470100831490",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "351869097336054",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358760083283314",
+            "imei_02": "",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "356144080991355",
+            "imei_02": "",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355536090787353",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358866081170849",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090818403",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047515",
+            "imei_02": "359611091047523",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104428454",
+            "imei_02": "357155104428462",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090803157",
+            "imei_02": "359611090803165",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100182142",
+            "imei_02": "355470100182159",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100189485",
+            "imei_02": "355470100189493",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915225",
+            "imei_02": "355470103915233",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104662678",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "3528030908552",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104460739",
+            "imei_02": "357155104460747",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357289101402426",
+            "imei_02": "357290101402424",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919581",
+            "imei_02": "355470103919599",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047416",
+            "imei_02": "359611091047424",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931289",
+            "imei_02": "355470103931297",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090807638",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090880593",
+            "imei_02": "359611090880601",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090921595",
+            "imei_02": "359611090921603",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090807513",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090814485",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104467593",
+            "imei_02": "357155104467601",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104467833",
+            "imei_02": "357155104467841",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090811507",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104467759",
+            "imei_02": "357155104467767",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090809469",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105708599",
+            "imei_02": "357155105708607",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105706833",
+            "imei_02": "357155105706841",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105708557",
+            "imei_02": "357155105708565",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105708532",
+            "imei_02": "357155105708540",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105708516",
+            "imei_02": "357155105708524",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105708474",
+            "imei_02": "357155105708482",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105708177",
+            "imei_02": "357155105708185",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104460713",
+            "imei_02": "357155104460721",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104460630",
+            "imei_02": "357155104460648",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103937708",
+            "imei_02": "355470103937716",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104410031",
+            "imei_02": "357155104410049",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104460572",
+            "imei_02": "357155104460580",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104460374",
+            "imei_02": "357155104460382",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104424016",
+            "imei_02": "357155104424024",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104432571",
+            "imei_02": "357155104432589",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103910606",
+            "imei_02": "355470103910614",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "354116096291774",
+            "imei_02": "354116096291782",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045816",
+            "imei_02": "359611091045824",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104432514",
+            "imei_02": "357155104432522",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104454476",
+            "imei_02": "357155104454484",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104454195",
+            "imei_02": "357155104454203",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104454435",
+            "imei_02": "357155104454443",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104424255",
+            "imei_02": "357155104424263",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104424099",
+            "imei_02": "357155104424107",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104424438",
+            "imei_02": "357155104424440",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155104429791",
+            "imei_02": "357155104429809",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105706718",
+            "imei_02": "357155105706726",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917387",
+            "imei_02": "355470103917395",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919748",
+            "imei_02": "355470103919755",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100162169",
+            "imei_02": "355470100162177",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931743",
+            "imei_02": "355470103931750",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046715",
+            "imei_02": "359611091046723",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917346",
+            "imei_02": "355470103917353",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090880254",
+            "imei_02": "359611090880262",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100154026",
+            "imei_02": "355470100154034",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958105109992",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090803132",
+            "imei_02": "359611090803140",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911588",
+            "imei_02": "355470103911596",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "351869097334893",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358778080379323",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881054",
+            "imei_02": "359611090881062",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100830146",
+            "imei_02": "355470100830153",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913089",
+            "imei_02": "355470103913097",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913261",
+            "imei_02": "355470103913279",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911505",
+            "imei_02": "355470103911513",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353355105125398",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353312090598402",
+            "imei_02": "353313090598400",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912008",
+            "imei_02": "355470103912016",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358760083319555",
+            "imei_02": "358760083319563",
+            "bluetooth_lora": "Wolk2",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104308355",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353312090694383",
+            "imei_02": "353313090694381",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090876757",
+            "imei_02": "359611090876765",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047333",
+            "imei_02": "359611091047341",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916389",
+            "imei_02": "355470103916397",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100155346",
+            "imei_02": "355470100155353",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103918609",
+            "imei_02": "355470103918617",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100840707",
+            "imei_02": "355470100840715",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090875999",
+            "imei_02": "359611090876005",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "354068090321463",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103918187",
+            "imei_02": "355470103918195",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104303950",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104648461",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913808",
+            "imei_02": "355470103913816",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104650368",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104642324",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104640559",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104659328",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100834767",
+            "imei_02": "355470100834775",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912925",
+            "imei_02": "355470103912933",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100157060",
+            "imei_02": "355470100157078",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091025958",
+            "imei_02": "359611091025966",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358506072037934",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358692101755744",
+            "imei_02": "358693101755742",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "351869097327673",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103907503",
+            "imei_02": "355470103907511",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913246",
+            "imei_02": "355470103913253",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045899",
+            "imei_02": "359611091045907",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352763102818611",
+            "imei_02": "352763102818629",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100217021",
+            "imei_02": "355470100217039",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090875510",
+            "imei_02": "359611090875528",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045956",
+            "imei_02": "359611091045964",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091044991",
+            "imei_02": "359611091045006",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047291",
+            "imei_02": "359611091047309",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091024415",
+            "imei_02": "359611091024423",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047739",
+            "imei_02": "359611091047747",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914707",
+            "imei_02": "355470103914715",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357070094567353",
+            "imei_02": "357071094567351",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091025594",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881716",
+            "imei_02": "359611090881724",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352399090875170",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103923922",
+            "imei_02": "355470103923930",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045675",
+            "imei_02": "359611091045683",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100168646",
+            "imei_02": "355470100168653",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152764",
+            "imei_02": "355470100152772",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100253000",
+            "imei_02": "355470100253018",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100193289",
+            "imei_02": "355470100193297",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100122429",
+            "imei_02": "355470100122437",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100201785",
+            "imei_02": "355470100201793",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046798",
+            "imei_02": "359611091046806",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090921454",
+            "imei_02": "359611090921462",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090835936",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091038753",
+            "imei_02": "359611091038761",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090921538",
+            "imei_02": "359611090921546",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090875957",
+            "imei_02": "359611090875965",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047853",
+            "imei_02": "359611091047861",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091024456",
+            "imei_02": "359611091024464",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100830245",
+            "imei_02": "355470100830252",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091026055",
+            "imei_02": "359611091026063",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100253687",
+            "imei_02": "355470100253695",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100200167",
+            "imei_02": "355470100200175",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090920738",
+            "imei_02": "359611090920746",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914145",
+            "imei_02": "355470103914152",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913600",
+            "imei_02": "355470103913618",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100827068",
+            "imei_02": "355470100827076",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912164",
+            "imei_02": "355470103912172",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931628",
+            "imei_02": "355470103931636",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091025792",
+            "imei_02": "359611091025800",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915266",
+            "imei_02": "355470103915274",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090814766",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090810806",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090808990",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103920365",
+            "imei_02": "355470103920373",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091047556",
+            "imei_02": "359611091047564",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831680",
+            "imei_02": "355470100831698",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916744",
+            "imei_02": "355470103916751",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911364",
+            "imei_02": "355470103911372",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881294",
+            "imei_02": "359611090881302",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916801",
+            "imei_02": "355470103916819",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103918328",
+            "imei_02": "355470103918336",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103923989",
+            "imei_02": "355470103923997",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103932444",
+            "imei_02": "355470103932451",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100153143",
+            "imei_02": "355470100153150",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917528",
+            "imei_02": "355470103917536",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103918203",
+            "imei_02": "355470103918211",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091024175",
+            "imei_02": "359611091024183",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100121603",
+            "imei_02": "355470100121611",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045873",
+            "imei_02": "359611091045881",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881211",
+            "imei_02": "359611090881229",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919482",
+            "imei_02": "355470103919490",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914343",
+            "imei_02": "355470103914350",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919425",
+            "imei_02": "355470103919433",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100171681",
+            "imei_02": "355470100171699",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100188321",
+            "imei_02": "355470100188339",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090921330",
+            "imei_02": "359611090921348",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100203104",
+            "imei_02": "355470100203112",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100188289",
+            "imei_02": "355470100188297",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912123",
+            "imei_02": "355470103912131",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916629",
+            "imei_02": "355470103916637",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100162045",
+            "imei_02": "355470100162052",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915308",
+            "imei_02": "355470103915316",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912800",
+            "imei_02": "355470103912818",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045311",
+            "imei_02": "359611091045329",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100155049",
+            "imei_02": "355470100155056",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916702",
+            "imei_02": "355470103916710",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911885",
+            "imei_02": "355470103911893",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045774",
+            "imei_02": "359611091045782",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911547",
+            "imei_02": "355470103911554",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100193222",
+            "imei_02": "355470100193230",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152525",
+            "imei_02": "355470100152533",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090913758",
+            "imei_02": "359611090913766",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911166",
+            "imei_02": "355470103911174",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100834882",
+            "imei_02": "355470100834890",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931644",
+            "imei_02": "355470103931651",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100826524",
+            "imei_02": "355470100826532",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912081",
+            "imei_02": "355470103912099",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917064",
+            "imei_02": "355470103917072",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911828",
+            "imei_02": "355470103911836",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911901",
+            "imei_02": "355470103911919",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881252",
+            "imei_02": "359611090881260",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916348",
+            "imei_02": "355470103916355",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912446",
+            "imei_02": "355470103912453",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100150503",
+            "imei_02": "355470100150511",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912644",
+            "imei_02": "355470103912651",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100829163",
+            "imei_02": "355470100829171",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103922742",
+            "imei_02": "355470103922759",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103932147",
+            "imei_02": "355470103932154",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916306",
+            "imei_02": "355470103916314",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100157144",
+            "imei_02": "355470100157151",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103937641",
+            "imei_02": "355470103937658",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912529",
+            "imei_02": "355470103912537",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914780",
+            "imei_02": "355470103914798",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100211685",
+            "imei_02": "355470100211693",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100829122",
+            "imei_02": "355470100829130",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100830948",
+            "imei_02": "355470100830955",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103922726",
+            "imei_02": "355470103922734",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917106",
+            "imei_02": "355470103917114",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100841424",
+            "imei_02": "355470100841432",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046079",
+            "imei_02": "359611091046087",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100211628",
+            "imei_02": "355470100211636",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100150420",
+            "imei_02": "355470100150438",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100181920",
+            "imei_02": "355470100181938",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100158423",
+            "imei_02": "355470100158431",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916280",
+            "imei_02": "355470103916298",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100150024",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914004",
+            "imei_02": "355470103914012",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916207",
+            "imei_02": "355470103916215",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090921611",
+            "imei_02": "359611090921629",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100140306",
+            "imei_02": "355470100140314",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912321",
+            "imei_02": "355470103912339",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915522",
+            "imei_02": "355470103915530",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912727",
+            "imei_02": "355470103912735",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045394",
+            "imei_02": "359611091045402",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103923567",
+            "imei_02": "355470103923575",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916520",
+            "imei_02": "355470103916538",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100114764",
+            "imei_02": "355470100114772",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100188123",
+            "imei_02": "355470100188131",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090921751",
+            "imei_02": "359611090921769",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100172788",
+            "imei_02": "355470100172796",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100108600",
+            "imei_02": "355470100108618",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917668",
+            "imei_02": "355470103917676",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919623",
+            "imei_02": "355470103919631",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100148465",
+            "imei_02": "355470100148473",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103922684",
+            "imei_02": "355470103922692",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911620",
+            "imei_02": "355470103911638",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090802753",
+            "imei_02": "359611090802761",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045535",
+            "imei_02": "359611091045543",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152681",
+            "imei_02": "355470100152699",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914186",
+            "imei_02": "355470103914194",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103937526",
+            "imei_02": "355470103937534",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152004",
+            "imei_02": "355470100152012",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914129",
+            "imei_02": "355470103914137",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100824321",
+            "imei_02": "355470100824339",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103918062",
+            "imei_02": "355470103918070",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104649303",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104644106",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104656894",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090811754",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090808552",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090809196",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352803090809360",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104664682",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104656456",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104658213",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104631806",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104664237",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104660169",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104660441",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104656498",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104308124",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914285",
+            "imei_02": "355470103914293",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104307415",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104330409",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104330805",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104307621",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104330680",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104345985",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104308041",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104344541",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104312944",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104300402",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104330250",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104346207",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104316549",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104330920",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104345787",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104330979",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104641375",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104632952",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104658403",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104644122",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104344012",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "358958104658981",
+            "imei_02": null,
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100151022",
+            "imei_02": "355470100151030",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913626",
+            "imei_02": "355470103913634",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100218367",
+            "imei_02": "355470100218375",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915845",
+            "imei_02": "355470103915852",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045279",
+            "imei_02": "359611091045287",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916405",
+            "imei_02": "355470103916413",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046574",
+            "imei_02": "359611091046582",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100251285",
+            "imei_02": "355470100251293",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "357155105708656",
+            "imei_02": "357155105708664",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916900",
+            "imei_02": "355470103916918",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091024431",
+            "imei_02": "359611091024449",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353114091945487",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470106102540",
+            "imei_02": "355470106102557",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100154661",
+            "imei_02": "355470100154679",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914160",
+            "imei_02": "355470103914178",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913907",
+            "imei_02": "355470103913915",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100164801",
+            "imei_02": "355470100164819",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919607",
+            "imei_02": "355470103919615",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931164",
+            "imei_02": "355470103931172",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100150248",
+            "imei_02": "355470100150255",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090802639",
+            "imei_02": "359611090802647",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919243",
+            "imei_02": "355470103919250",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046392",
+            "imei_02": "359611091046400",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912222",
+            "imei_02": "355470103912230",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100172267",
+            "imei_02": "355470100172275",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917080",
+            "imei_02": "355470103917098",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100829080",
+            "imei_02": "355470100829098",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103907420",
+            "imei_02": "355470103907438",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090882011",
+            "imei_02": "359611090882029",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100251467",
+            "imei_02": "355470100251475",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913782",
+            "imei_02": "355470103913790",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100829148",
+            "imei_02": "355470100829155",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090921819",
+            "imei_02": "359611090921827",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152905",
+            "imei_02": "355470100152913",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919680",
+            "imei_02": "355470103919698",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091025610",
+            "imei_02": "359611091025628",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915209",
+            "imei_02": "355470103915217",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912842",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916447",
+            "imei_02": "355470103916454",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913402",
+            "imei_02": "355470103913410",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913741",
+            "imei_02": "355470103913758",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913980",
+            "imei_02": "355470103913998",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881179",
+            "imei_02": "359611090881187",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045717",
+            "imei_02": "359611091045725",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100156401",
+            "imei_02": "355470100156419",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100151527",
+            "imei_02": "355470100151535",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090880759",
+            "imei_02": "359611090880767",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919961",
+            "imei_02": "355470103919979",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915324",
+            "imei_02": "355470103915332",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045493",
+            "imei_02": "359611091045501",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046517",
+            "imei_02": "359611091046525",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091025917",
+            "imei_02": "359611091025925",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100829106",
+            "imei_02": "355470100829114",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103920902",
+            "imei_02": "355470103920910",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103933509",
+            "imei_02": "355470103933517",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046475",
+            "imei_02": "359611091046483",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046434",
+            "imei_02": "359611091046442",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881013",
+            "imei_02": "359611090881021",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100829403",
+            "imei_02": "355470100829411",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091048372",
+            "imei_02": "359611091048380",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100150586",
+            "imei_02": "355470100150594",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100200720",
+            "imei_02": "355470100200738",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931206",
+            "imei_02": "355470103931214",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100172226",
+            "imei_02": "355470100172234",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917601",
+            "imei_02": "355470103917619",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091046756",
+            "imei_02": "359611091046764",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831045",
+            "imei_02": "355470100831052",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100216767",
+            "imei_02": "355470100216775",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103919664",
+            "imei_02": "355470103919672",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045352",
+            "imei_02": "359611091045360",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913766",
+            "imei_02": "355470103913774",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103937823",
+            "imei_02": "355470103937831",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103937625",
+            "imei_02": "355470103937633",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914749",
+            "imei_02": "355470103914756",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100153689",
+            "imei_02": "355470100153697",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470106128388",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611091045857",
+            "imei_02": "359611091045865",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911984",
+            "imei_02": "355470103911992",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912065",
+            "imei_02": "355470103912073",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914368",
+            "imei_02": "355470103914376",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100153580",
+            "imei_02": "355470100183898",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912305",
+            "imei_02": "355470103912313",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103937724",
+            "imei_02": "355470103937732",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914228",
+            "imei_02": "355470103914236",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152301",
+            "imei_02": "355470100152319",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100835582",
+            "imei_02": "355470100835590",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931545",
+            "imei_02": "355470103931552",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913709",
+            "imei_02": "355470103913717",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913501",
+            "imei_02": "355470103913519",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914541",
+            "imei_02": "355470103914558",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103914988",
+            "imei_02": "355470103914996",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100831649",
+            "imei_02": "355470100831656",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100120605",
+            "imei_02": "355470100120613",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100151808",
+            "imei_02": "355470100151816",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103911661",
+            "imei_02": "355470103911679",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103932527",
+            "imei_02": "355470103932535",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931529",
+            "imei_02": "355470103931537",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090881674",
+            "imei_02": "359611090881682",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912487",
+            "imei_02": "355470103912495",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100151584",
+            "imei_02": "355470100151592",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100825120",
+            "imei_02": "335470100825138",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103912784",
+            "imei_02": "355470103912792",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103913881",
+            "imei_02": "355470103913899",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100180302",
+            "imei_02": "355470100180310",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915365",
+            "imei_02": "355470103915373",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103907289",
+            "imei_02": "355470103907297",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916660",
+            "imei_02": "355470103916678",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103916868",
+            "imei_02": "355470103916876",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103931123",
+            "imei_02": "355470103931131",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100156062",
+            "imei_02": "355470100156070",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917148",
+            "imei_02": "355470103917155",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152400",
+            "imei_02": "355470100152418",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100242904",
+            "imei_02": "355470100242912",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103930661",
+            "imei_02": "355470103930679",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103937807",
+            "imei_02": "355470103937815",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103920126",
+            "imei_02": "355470103920134",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "352763102819924",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103907149",
+            "imei_02": "355470103907156",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "123123123123",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100212444",
+            "imei_02": "355470100212541",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103917221",
+            "imei_02": "355470103917239",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100162326",
+            "imei_02": "355470100162334",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103915241",
+            "imei_02": "355470103915258",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470100152665",
+            "imei_02": "355470100152673",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103923906",
+            "imei_02": "355470103923914",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "359611090880833",
+            "imei_02": "359611090880841",
+            "bluetooth_lora": "Wolk1",
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "355470103920720",
+            "imei_02": "355470103920738",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353313090598574",
+            "imei_02": "353313090598574",
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        },
+        {
+            "imei_01": "353312090598576",
+            "imei_02": null,
+            "bluetooth_lora": null,
+            "status_embedded": 1
+        }
+    ]
+}

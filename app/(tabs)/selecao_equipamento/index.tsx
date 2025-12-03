@@ -1,10 +1,10 @@
+import { useTelemetry } from "@/src/decoder/TelemetryContext";
 import { styles } from "@/src/styles/app/(tabs)/selecao_equipamento/_styles";
 import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { Avatar, Button, Icon, IconButton, TextInput } from "react-native-paper";
-
 const colheitadeira = require("@/assets/images/colheitadeira.png")
 const iconColhedora = require("@/assets/images/colhedora4x.png");
 const iconTrator = require("@/assets/images/trator.png");
@@ -18,9 +18,10 @@ const numRegistro = '000000001';
 const haveIcon = false;
 const userIcon = require('@/assets/images/react-logo.png');
 const nullUserIcon = require('@/assets/images/user_icon.png');
-const Blue = 'BLUE_530';
 
 export default function SelecaoEquipamento() {
+    const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
+
     const [selectedEquip, setSelectedEquip] = useState("colhedora");
     const [IsActivate, setIsActivate] = useState(true);
     const [implemento1Text, setImplemento1Text] = useState('');
@@ -37,25 +38,25 @@ export default function SelecaoEquipamento() {
                     size={14}>
 
                 </IconButton>
-                <View style={[styles.containerBlueSwitchON, IsActivate ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
-                    <Text style={styles.textBlue}>{Blue}</Text>
+                <View style={[styles.containerBlueSwitchON, isConnected ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
+                    <Text style={styles.textBlue}>{deviceName}</Text>
                     <Pressable
                         // Garante que o clique mude o estado
-                        onPress={() => setIsActivate(!IsActivate)}
+                        onPress={() => setIsActivate(!isConnected)}
                     >
                         <View style={[styles.customSwitchTrack,
-                        IsActivate ? styles.customSwitchTrack : styles.customSwitchTrackOFF
+                        isConnected ? styles.customSwitchTrack : styles.customSwitchTrackOFF
                         ]}>
                             <View
                                 // Aplica a bolinha e define a posição (esquerda/direita)
                                 style={[
                                     styles.customSwitchThumb,
-                                    IsActivate ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
+                                    isConnected ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
                                 ]}
                             />
                         </View>
                     </Pressable>
-                    <Text style={styles.styleActivation}>{IsActivate ? "ON" : "OFF"}</Text>
+                    <Text style={styles.styleActivation}>{isConnected ? "ON" : "OFF"}</Text>
                 </View>
             </View>
 
@@ -132,7 +133,7 @@ export default function SelecaoEquipamento() {
                     Próximo
                 </Button>
             </View>
-          
+
         </View>
     );
 }

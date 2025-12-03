@@ -16,10 +16,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
-  // --- Switch do Header ---
+
+  // 3. SWITCH BLUE_350
   containerBlueSwitchON: {
-    backgroundColor: '#3B82F6',
-    width: 75,
+    backgroundColor: '#00B16B',
+    width: 150,
     height: 40,
     display: 'flex',
     flexDirection: 'row',
@@ -28,12 +29,14 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     marginTop: 32,
     marginRight: 24,
-    gap: 4,
+    gap:4,
     marginLeft: 24,
   },
   containerBlueSwitchOFF: {
-    backgroundColor: '#FAFBFD',
-    width: 75,
+    backgroundColor: '#EF4C51',
+    width: 150,
+    marginLeft: 24,
+
     height: 40,
     display: 'flex',
     flexDirection: 'row',
@@ -42,9 +45,56 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     marginTop: 32,
     marginRight: 24,
-    gap: 4,
-    borderWidth: 2,
-    borderColor: '#050412',
+    gap:4
+  },
+  textBlue: {
+    color: "#FFF",
+    fontFamily: 'Montserrat-Bold', // JÁ CORRETO
+    fontSize: 11,
+  },
+  // Adicione esta seção de estilo para o switch customizado
+  customSwitchTrack: {
+    width: 25,
+    height: 17, // Altura da barra
+    backgroundColor: '#050412', // Cor escura do trilho
+    borderRadius: 10,
+    padding: 3, // Espaçamento interno
+    justifyContent: 'center',
+  },
+  customSwitchTrackOFF: {
+    width: 25,
+    height: 17, // Altura da barra
+    backgroundColor: '#EF4C51', // Cor escura do trilho
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "050412",
+    padding: 3, // Espaçamento interno
+    justifyContent: 'center',
+  },
+  customSwitchThumb: {
+    width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
+    height: 9, // Altura da bolinha
+    borderRadius: 7,
+    backgroundColor: '#00B16B', // Cor verde da bolinha
+  },
+  customSwitchThumbOFF: {
+    width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
+    height: 9, // Altura da bolinha
+    borderRadius: 7,
+    backgroundColor: '#000',
+    position: 'absolute',
+    left: 1.7 // Cor verde da preta
+  },
+  customSwitchThumbActive: {
+    alignSelf: 'flex-end', // Posição direita (ON)
+  },
+  customSwitchThumbInactive: {
+    alignSelf: 'flex-start', // Posição esquerda (OFF)
+  },
+
+ styleActivation: {
+    fontFamily: 'Montserrat-Bold', // JÁ CORRETO
+    fontSize: 11,
   },
 
   // --- Botão Sair ---
@@ -407,7 +457,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     zIndex: 9999,
   },
-   modalInterferencia: {
+  modalInterferencia: {
     flex: 1,
     height: 'auto',
     bottom: -34,
@@ -429,11 +479,11 @@ export const styles = StyleSheet.create({
   modalHeader: {
     flexDirection: 'row',
     alignContent: 'center',
-    alignItems:'center',
+    alignItems: 'center',
     height: 40,
   },
-  modalInterferenciaContainer:{
-    marginBottom:24
+  modalInterferenciaContainer: {
+    marginBottom: 24
   },
   tituloPaginaModal: {
     flex: 1,
@@ -452,12 +502,12 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     margin: 0,
   },
-  textExit:{
-    fontFamily:"Montserrat",
-    fontSize:18,
-    marginBottom:24,
-    marginTop:24
-  }, 
+  textExit: {
+    fontFamily: "Montserrat",
+    fontSize: 18,
+    marginBottom: 24,
+    marginTop: 24
+  },
   botaoVoltarLabel: {
     fontFamily: "Font Awesome 6 Pro",
     fontSize: 14,
@@ -481,8 +531,8 @@ export const styles = StyleSheet.create({
   containerOrdens: {
     zIndex: 1,
     // marginBottom: 8,
-  },containerInterferencias:{
-    marginBottom:24
+  }, containerInterferencias: {
+    marginBottom: 24
   },
   ordemProducaoItem: {
     backgroundColor: "#FAFBFD",
@@ -506,27 +556,27 @@ export const styles = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
   },
-  contornoIcon:{
-    width:28,
-    height:28,
-    borderRadius:6,
-    alignItems:'center',
-    justifyContent:'center'
+  contornoIcon: {
+    width: 28,
+    height: 28,
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-  manutencao:{
-    backgroundColor:'#EF4C51',
+  manutencao: {
+    backgroundColor: '#EF4C51',
   },
-  combustivel:{
-    backgroundColor:"#FFD300"
+  combustivel: {
+    backgroundColor: "#FFD300"
   },
-  transbordo:{
-    backgroundColor:'#FF8845'
+  transbordo: {
+    backgroundColor: '#FF8845'
   },
-  interferenciasOperacionais:{
-    backgroundColor:'#1C899E'
+  interferenciasOperacionais: {
+    backgroundColor: '#1C899E'
   },
-  interferenciaMotorLigado:{
-    backgroundColor:'#050412'
+  interferenciaMotorLigado: {
+    backgroundColor: '#050412'
   },
   ordemProducaoTextSelected: {
     color: '#24C0DE',
@@ -534,9 +584,9 @@ export const styles = StyleSheet.create({
   zonaTextSelected: {
     color: '#FFFFFF',
   },
- containerManutencao:{
-  marginBottom:10
- },
+  containerManutencao: {
+    marginBottom: 10
+  },
   // Elementos dentro do Item da Lista
   posicaoCheckModal1: {
     position: 'absolute',
@@ -592,8 +642,8 @@ export const styles = StyleSheet.create({
     // marginTop:24,
     // marginBottom:24
   },
-  exitButtonModal:{
-    backgroundColor:'#EF4C51'
+  exitButtonModal: {
+    backgroundColor: '#EF4C51'
   },
   CicloButtonLabel: {
     fontSize: 18,

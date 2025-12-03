@@ -1,6 +1,8 @@
 import Cronometro from "@/components/Cronometro";
 import ModalExit from "@/components/ModalExit";
+import { useTelemetry } from "@/src/decoder/TelemetryContext";
 import { styles } from "@/src/styles/app/(tabs)/jornada_automatica/_styles";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
@@ -28,6 +30,8 @@ const telemetria = 0;
 const eventos = 0;
 
 export default function JornadaAutomatica() {
+        const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
+    
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModal2Visible, setIsModal2Visible] = useState(false);
     const [isModalExitVisible, setIsModalExitVisible] = useState(false);
@@ -61,7 +65,7 @@ export default function JornadaAutomatica() {
                     <Text style={styles.telemetriaTetxt}>Telemetria: {telemetria} </Text><Text style={styles.separacaoTelemetria}>|</Text><Text style={styles.telemetriaTetxt}>Eventos: {eventos}</Text>
                 </View>
 
-                <Pressable onPress={() => setIsModalExitVisible(true)} style={styles.buttonSair}>
+                <Pressable onPress={() => router.replace('/(tabs)/home')} style={styles.buttonSair}>
                     <Text style={styles.buttonSairLabel}>Encerrar</Text>
                 </Pressable>
             </View>
@@ -81,25 +85,25 @@ export default function JornadaAutomatica() {
                         </View>
                     </View>
                     <View style={styles.elementosBodyEvento}>
-                        <View style={[styles.containerBlueSwitchON, IsActivate ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
-                            <Text style={styles.textBlue}>{Blue}</Text>
+                        <View style={[styles.containerBlueSwitchON, isConnected ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
+                            <Text style={styles.textBlue}>{deviceName}</Text>
                             <Pressable
                                 // Garante que o clique mude o estado
-                                onPress={() => setIsActivate(!IsActivate)}
+                                onPress={() => setIsActivate(!isConnected)}
                             >
                                 <View style={[styles.customSwitchTrack,
-                                IsActivate ? styles.customSwitchTrack : styles.customSwitchTrackOFF
+                                isConnected ? styles.customSwitchTrack : styles.customSwitchTrackOFF
                                 ]}>
                                     <View
                                         // Aplica a bolinha e define a posição (esquerda/direita)
                                         style={[
                                             styles.customSwitchThumb,
-                                            IsActivate ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
+                                            isConnected ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
                                         ]}
                                     />
                                 </View>
                             </Pressable>
-                            <Text style={styles.styleActivation}>{IsActivate ? "ON" : "OFF"}</Text>
+                            <Text style={styles.styleActivation}>{isConnected ? "ON" : "OFF"}</Text>
                         </View>
 
                         <View style={styles.eventoAutomaticoContador}>

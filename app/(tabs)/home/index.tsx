@@ -44,6 +44,7 @@ const metaVelocidadeMedia = 40;
 const velocidadeMedia = 40;
 const mediaTransbordo = 999;
 const metaMediaTransbordo = 2;
+const Blue = 'BLUE_530';
 
 const metaVelocidadeAlcancada = metaVelocidadeMedia >= velocidadeMedia;
 const metaMediaTransbordoAlcancada = mediaTransbordo <= metaMediaTransbordo;
@@ -78,7 +79,7 @@ const interferencias = [
     { interferencia: 'Outros' },
 ]
 
-export default function Home() {
+export default async function Home() {
     // 1. Pega os dados do Contexto (Correto)
     // const { sensorData, connectedDevice } = useTelemetry();
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -122,6 +123,8 @@ export default function Home() {
         zona: string;
         funcao: string;
     }
+    
+
     const [ordemAtual, setOrdemAtual] = useState<OrdemProducao>({
         id: (params.ordemID as string) || '999',
         zona: (params.ordemZona as string) || 'A1',
@@ -134,18 +137,25 @@ export default function Home() {
             {/* --- HEADER --- */}
             <View style={styles.containerHeader}>
                 <View style={[styles.containerBlueSwitchON, IsActivate ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
-                    <Pressable onPress={() => setIsActivate(!IsActivate)}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 10 }}>
-                            <Icon
-                                source="bluetooth"
-                                // Muda a cor se estiver conectado de verdade
-                                // color={connectedDevice ? "#00B16B" : (IsActivate ? "#fff" : "#050412")}
-                                size={24}
+                    <Text style={styles.textBlue}>{Blue}</Text>
+                    <Pressable
+                        // Garante que o clique mude o estado
+                        onPress={() => setIsActivate(!IsActivate)}
+                    >
+                        <View style={[styles.customSwitchTrack,
+                        IsActivate ? styles.customSwitchTrack : styles.customSwitchTrackOFF
+                        ]}>
+                            <View
+                                // Aplica a bolinha e define a posição (esquerda/direita)
+                                style={[
+                                    styles.customSwitchThumb,
+                                    IsActivate ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
+                                ]}
                             />
                         </View>
                     </Pressable>
+                    <Text style={styles.styleActivation}>{IsActivate ? "ON" : "OFF"}</Text>
                 </View>
-
                 <Pressable onPress={() => setIsModalExitVisible(true)} style={styles.buttonSair}>
                     <Text style={styles.buttonSairLabel}>Sair</Text>
                 </Pressable>
@@ -169,28 +179,31 @@ export default function Home() {
 
                     {/* INFO DA MÁQUINA */}
                     <View style={styles.maquinaInfo}>
-                        <ImageBackground source={colheitadeira} style={styles.maquinaImg}>
-                            <View style={[styles.tituloMaquina, styles.tituloMargin]}>
-                                <Icon source={iconColhedora} color="#FFF" size={37} />
-                                <Text style={styles.nmMaquina}>Colhedora</Text>
-                                <View style={styles.iconSeta}>
-                                    <Icon source="chevron-right" color="#FFF" size={18} />
-                                </View>
-                            </View>
+                        <Pressable onPress={() => router.replace('/(tabs)/selecao_equipamento')}>
 
-                            <View style={styles.numMAquinaContainer}>
-                                <Text style={styles.numMaquina}>Nº</Text><Text style={styles.numEquip}>{numEquip}</Text>
-                            </View>
-                            <View style={styles.modeloMAquinaContainer}>
-                                <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Modelo</Text><Text style={styles.numEquip}>{modeloEquip}</Text>
-                            </View>
-                            <View style={styles.modeloMAquinaContainer}>
-                                <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Implemento 1</Text><Text style={styles.numEquip}>{implemento1}</Text>
-                            </View>
-                            <View style={styles.modeloMAquinaContainer}>
-                                <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Implemento 2</Text><Text style={styles.numEquip}>{implemento2}</Text>
-                            </View>
-                        </ImageBackground>
+                            <ImageBackground source={colheitadeira} style={styles.maquinaImg}>
+                                <View style={[styles.tituloMaquina, styles.tituloMargin]}>
+                                    <Icon source={iconColhedora} color="#FFF" size={37} />
+                                    <Text style={styles.nmMaquina}>Colhedora</Text>
+                                    <View style={styles.iconSeta}>
+                                        <Icon source="chevron-right" color="#FFF" size={18} />
+                                    </View>
+                                </View>
+
+                                <View style={styles.numMAquinaContainer}>
+                                    <Text style={styles.numMaquina}>Nº</Text><Text style={styles.numEquip}>{numEquip}</Text>
+                                </View>
+                                <View style={styles.modeloMAquinaContainer}>
+                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Modelo</Text><Text style={styles.numEquip}>{modeloEquip}</Text>
+                                </View>
+                                <View style={styles.modeloMAquinaContainer}>
+                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Implemento 1</Text><Text style={styles.numEquip}>{implemento1}</Text>
+                                </View>
+                                <View style={styles.modeloMAquinaContainer}>
+                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Implemento 2</Text><Text style={styles.numEquip}>{implemento2}</Text>
+                                </View>
+                            </ImageBackground>
+                        </Pressable>
 
                         <Pressable style={styles.ordemProducaoItemTurno} onPress={() => setIsModalVisible(true)}>
                             <View style={styles.ordemProducaoHeader}>
@@ -577,7 +590,7 @@ export default function Home() {
                                     style={[
                                         styles.ordemProducaoItem
                                     ]}
-                                    onPress={()=>{ setIsModalInterferenciaManutencaoVisible(true); setIsModalInterferenciaVisible(false)}}
+                                    onPress={() => { setIsModalInterferenciaManutencaoVisible(true); setIsModalInterferenciaVisible(false) }}
                                 >
                                     <View style={styles.ordemProducaoInfo}>
                                         <View style={[styles.contornoIcon, styles.manutencao]}>
@@ -754,7 +767,7 @@ export default function Home() {
                                     style={[
                                         styles.ordemProducaoItem
                                     ]}
-                                    onPress={()=> setIsModalInterferenciaManutencaoVisible(true)}
+                                    onPress={() => setIsModalInterferenciaManutencaoVisible(true)}
 
                                 >
                                     <View style={styles.ordemProducaoInfo}>

@@ -1,3 +1,4 @@
+import { useTelemetry } from '@/src/decoder/TelemetryContext';
 import { styles } from '@/src/styles/app/(tabs)/selecao_implementos/_styles';
 import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
@@ -37,6 +38,8 @@ const turnos = [
 
 
 export default function Implementos() {
+    const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
+
     const [selectedEquip, setSelectedEquip] = useState("colhedora");
     const [isActivate, setIsActivate] = useState(true);
     const [implemento1Text, setImplemento1Text] = useState('');
@@ -82,20 +85,20 @@ export default function Implementos() {
                     size={14}>
 
                 </IconButton>
-                <View style={[styles.containerBlueSwitchON, isActivate ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
-                    <Text style={styles.textBlue}>{Blue}</Text>
+                <View style={[styles.containerBlueSwitchON, isConnected ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
+                    <Text style={styles.textBlue}>{deviceName}</Text>
                     <Pressable
                         // Garante que o clique mude o estado
-                        onPress={() => setIsActivate(!isActivate)}
+                        onPress={() => setIsActivate(!isConnected)}
                     >
                         <View style={[styles.customSwitchTrack,
-                        isActivate ? styles.customSwitchTrack : styles.customSwitchTrackOFF
+                        isConnected ? styles.customSwitchTrack : styles.customSwitchTrackOFF
                         ]}>
                             <View
                                 // Aplica a bolinha e define a posição (esquerda/direita)
                                 style={[
                                     styles.customSwitchThumb,
-                                    isActivate ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
+                                    isConnected ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
                                 ]}
                             />
                         </View>
@@ -361,7 +364,7 @@ export default function Implementos() {
                                     <Text style={[styles.zona]}>Zona: </Text>
                                     <Text style={[styles.zona]}>{selectedOrder.zona}</Text>
                                 </View>
-                                
+
 
                             </Pressable>
                         ) : (
@@ -370,7 +373,7 @@ export default function Implementos() {
 
                     </View>
 
-                    
+
                     <View style={styles.modalScrollWrapper}>
                         <ScrollView style={styles.scrollViewTurnos}>
                             {turnos.map((item) => {
@@ -395,7 +398,7 @@ export default function Implementos() {
                                                 <Icon source={checkIcon} size={14} color="#FFF" />
                                             )}
                                         </View>
-                                        
+
                                     </Pressable>
                                 );
                             })}

@@ -1,0 +1,2181 @@
+{
+    "data": [
+        {
+            "group_name": "Caminhões",
+            "group_id": 10,
+            "type_equipment": null,
+            "interferences": [
+                {
+                    "id": 1001,
+                    "name": "INTERFERÊNCIAS OPERACIONAIS",
+                    "color": "#008080",
+                    "icon": "ic_maintenance_tool_booth",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1394,
+                            "code": 622,
+                            "name": "Aferição - Controle Lavoura",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1393,
+                            "code": 621,
+                            "name": "Aferição - Controle Qualidade",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1482,
+                            "code": 3027,
+                            "name": "Aguardando carregamento",
+                            "color": "#FFC311",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1293,
+                            "code": 201,
+                            "name": "Aguardando Convergir o sinal -",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1473,
+                            "code": 3025,
+                            "name": "Aguardando OP",
+                            "color": "#22BDA7",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1419,
+                            "code": 950,
+                            "name": "Aguardando Prancha",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1052,
+                            "code": 3017,
+                            "name": "Bater Pneu",
+                            "color": "#008080",
+                            "icon": "ic_maintenance_rubber",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1158,
+                            "code": 66,
+                            "name": "CALIBRAÇÃO / BORRACHARIA",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1292,
+                            "code": 200,
+                            "name": "Calibração de TCM/Compensação",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1422,
+                            "code": 953,
+                            "name": "Check List Operador",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 609,
+                            "code": 609,
+                            "name": "Cintilação Ionosférica GPS/RS",
+                            "color": "#3BBD94",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 600,
+                            "code": 600,
+                            "name": "Clima (chuva/vento/solo/neblina)",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1054,
+                            "code": 3019,
+                            "name": "Desenlonando",
+                            "color": "#008080",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 610,
+                            "code": 610,
+                            "name": "Encalhado",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1053,
+                            "code": 3018,
+                            "name": "Enlonando",
+                            "color": "#008080",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 608,
+                            "code": 608,
+                            "name": "Falta de Operador",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 605,
+                            "code": 605,
+                            "name": "Falta de Produto/Muda",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 613,
+                            "code": 613,
+                            "name": "GPS - Arquivos/Calibração",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1387,
+                            "code": 615,
+                            "name": "Horas Refeição",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 604,
+                            "code": 604,
+                            "name": "Incendiou (Frente/Lavoura)",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1478,
+                            "code": 623,
+                            "name": "Instalação Elétrica - AG4",
+                            "color": "#008080",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1386,
+                            "code": 614,
+                            "name": "Manutenção Operador",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1423,
+                            "code": 954,
+                            "name": "OUTROS MOTIVOS / PARALISAÇÃO",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1390,
+                            "code": 618,
+                            "name": "Parada falta Julieta/Impl/equi",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1418,
+                            "code": 949,
+                            "name": "Translado Meios Próprios",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1420,
+                            "code": 951,
+                            "name": "Transporte Prancha",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1421,
+                            "code": 952,
+                            "name": "Troca Turno",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 611,
+                            "code": 611,
+                            "name": "Usina Parada - Quebra",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1000,
+                    "name": "Combustível E Lubrificação",
+                    "color": "#FF0000",
+                    "icon": "ic_maintenance_hydraulic",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 400,
+                            "code": 400,
+                            "name": "Abastecimento",
+                            "color": "#FF0000",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 401,
+                            "code": 401,
+                            "name": "Lubrificação",
+                            "color": "#FF0000",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 999,
+                    "name": "Manutenção",
+                    "color": "#FF8C00",
+                    "icon": "ic_maintenance_mechanical",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1377,
+                            "code": 530,
+                            "name": "Aguardando Comboio",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1486,
+                            "code": 3030,
+                            "name": "AGUARDANDO MANUTENÇÃO",
+                            "color": "#FFFFFF",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 420,
+                            "code": 420,
+                            "name": "Manutenção BORRACHEIRO",
+                            "color": "#EF6C00",
+                            "icon": "ic_rubber",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1222,
+                            "code": 130,
+                            "name": "MANUTENÇÃO COMPUTADOR BORDO",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1366,
+                            "code": 294,
+                            "name": "MANUTENÇÃO CORRETIVA",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 402,
+                            "code": 402,
+                            "name": "Manutenção do Comboio",
+                            "color": "#ef6c00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1370,
+                            "code": 497,
+                            "name": "Manutenção Preditiva",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 496,
+                            "code": 496,
+                            "name": "Manutenção Preventiva",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1395,
+                            "code": 799,
+                            "name": "Mini Reforma",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1048,
+                    "name": "Interferência Motor Ligado",
+                    "color": "#0000CD",
+                    "icon": "ic_services",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1472,
+                            "code": 3024,
+                            "name": "Batendo Calda",
+                            "color": "#0000CD",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1048,
+                            "code": 3013,
+                            "name": "Interferência Motor Ligado",
+                            "color": "#0000CD",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1484,
+                    "name": "ENGATE/DESENGATE",
+                    "color": "#FFA70E",
+                    "icon": null,
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1484,
+                            "code": 3029,
+                            "name": "ENGATE/DESENGATE",
+                            "color": "#FFA70E",
+                            "icon": null,
+                            "motor_on": false
+                        }
+                    ]
+                }
+            ],
+            "operations": [
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 226,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando Carregamento",
+                    "operation_id": 199,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando Descarga",
+                    "operation_id": 203,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando Despacho",
+                    "operation_id": 180,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando OP",
+                    "operation_id": 202,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Bater Pneu",
+                    "operation_id": 175,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Carregando",
+                    "operation_id": 200,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Descarga",
+                    "operation_id": 204,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento",
+                    "operation_id": 239,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento Carregamento",
+                    "operation_id": 198,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento Descarga",
+                    "operation_id": 201,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento  Operação",
+                    "operation_id": 222,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento para Descarga",
+                    "operation_id": 215,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Despacho aceito",
+                    "operation_id": 243,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Levant - Pisoteio",
+                    "operation_id": 155,
+                    "is_cargo_transfer": null,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Operação",
+                    "operation_id": 205,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Perda por agente natural",
+                    "operation_id": 157,
+                    "is_cargo_transfer": null,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                }
+            ]
+        },
+        {
+            "group_name": "Tratores",
+            "group_id": 12,
+            "type_equipment": null,
+            "interferences": [
+                {
+                    "id": 1000,
+                    "name": "Combustível E Lubrificação",
+                    "color": "#FF0000",
+                    "icon": "ic_maintenance_hydraulic",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 400,
+                            "code": 400,
+                            "name": "Abastecimento",
+                            "color": "#FF0000",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 401,
+                            "code": 401,
+                            "name": "Lubrificação",
+                            "color": "#FF0000",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 999,
+                    "name": "Manutenção",
+                    "color": "#FF8C00",
+                    "icon": "ic_maintenance_mechanical",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1376,
+                            "code": 529,
+                            "name": "Aguardando Borracheiro",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1377,
+                            "code": 530,
+                            "name": "Aguardando Comboio",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1486,
+                            "code": 3030,
+                            "name": "AGUARDANDO MANUTENÇÃO",
+                            "color": "#FFFFFF",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 420,
+                            "code": 420,
+                            "name": "Manutenção BORRACHEIRO",
+                            "color": "#EF6C00",
+                            "icon": "ic_rubber",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1222,
+                            "code": 130,
+                            "name": "MANUTENÇÃO COMPUTADOR BORDO",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1366,
+                            "code": 294,
+                            "name": "MANUTENÇÃO CORRETIVA",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 402,
+                            "code": 402,
+                            "name": "Manutenção do Comboio",
+                            "color": "#ef6c00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1370,
+                            "code": 497,
+                            "name": "Manutenção Preditiva",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 496,
+                            "code": 496,
+                            "name": "Manutenção Preventiva",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1395,
+                            "code": 799,
+                            "name": "Mini Reforma",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1048,
+                    "name": "Interferência Motor Ligado",
+                    "color": "#0000CD",
+                    "icon": "ic_services",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1048,
+                            "code": 3013,
+                            "name": "Interferência Motor Ligado",
+                            "color": "#0000CD",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1001,
+                    "name": "INTERFERÊNCIAS OPERACIONAIS",
+                    "color": "#008080",
+                    "icon": "ic_maintenance_tool_booth",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1033,
+                            "code": 2037,
+                            "name": "Abastecendo Adubo e Defensivo",
+                            "color": "#22BDA7",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1394,
+                            "code": 622,
+                            "name": "Aferição - Controle Lavoura",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1393,
+                            "code": 621,
+                            "name": "Aferição - Controle Qualidade",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1487,
+                            "code": 3031,
+                            "name": "Aguardando Carregamento",
+                            "color": "#FFFFFF",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1293,
+                            "code": 201,
+                            "name": "Aguardando Convergir o sinal -",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1488,
+                            "code": 3032,
+                            "name": "Aguardando Descarga",
+                            "color": "#FFFFFF",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1419,
+                            "code": 950,
+                            "name": "Aguardando Prancha",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1158,
+                            "code": 66,
+                            "name": "CALIBRAÇÃO / BORRACHARIA",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1292,
+                            "code": 200,
+                            "name": "Calibração de TCM/Compensação",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1483,
+                            "code": 3028,
+                            "name": "Carregando",
+                            "color": "#FFA60B",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1422,
+                            "code": 953,
+                            "name": "Check List Operador",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 609,
+                            "code": 609,
+                            "name": "Cintilação Ionosférica GPS/RS",
+                            "color": "#3BBD94",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 600,
+                            "code": 600,
+                            "name": "Clima (chuva/vento/solo/neblina)",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1049,
+                            "code": 3014,
+                            "name": "Coletando Cana do Chão",
+                            "color": "#008080",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 610,
+                            "code": 610,
+                            "name": "Encalhado",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1328,
+                            "code": 237,
+                            "name": "FALTA CAMINHÃO",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 608,
+                            "code": 608,
+                            "name": "Falta de Operador",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 605,
+                            "code": 605,
+                            "name": "Falta de Produto/Muda",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 613,
+                            "code": 613,
+                            "name": "GPS - Arquivos/Calibração",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1387,
+                            "code": 615,
+                            "name": "Horas Refeição",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 604,
+                            "code": 604,
+                            "name": "Incendiou (Frente/Lavoura)",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1478,
+                            "code": 623,
+                            "name": "Instalação Elétrica - AG4",
+                            "color": "#008080",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1386,
+                            "code": 614,
+                            "name": "Manutenção Operador",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1423,
+                            "code": 954,
+                            "name": "OUTROS MOTIVOS / PARALISAÇÃO",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1418,
+                            "code": 949,
+                            "name": "Translado Meios Próprios",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1420,
+                            "code": 951,
+                            "name": "Transporte Prancha",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1421,
+                            "code": 952,
+                            "name": "Troca Turno",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 611,
+                            "code": 611,
+                            "name": "Usina Parada - Quebra",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        }
+                    ]
+                }
+            ],
+            "operations": [
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 226,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 254,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 253,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando Carregamento",
+                    "operation_id": 199,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando Descarga",
+                    "operation_id": 203,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando Insumos",
+                    "operation_id": 213,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando OP",
+                    "operation_id": 202,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando Operação",
+                    "operation_id": 225,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Carregando",
+                    "operation_id": 200,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Carregando",
+                    "operation_id": 248,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "CARREGANDO CDC",
+                    "operation_id": 227,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": true,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Custo de Entressafra",
+                    "operation_id": 166,
+                    "is_cargo_transfer": null,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Descarga",
+                    "operation_id": 249,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Descarga",
+                    "operation_id": 204,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "DESCARGA CDC",
+                    "operation_id": 228,
+                    "is_cargo_transfer": true,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento",
+                    "operation_id": 239,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento carregamento",
+                    "operation_id": 251,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento Carregamento",
+                    "operation_id": 198,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento descarga",
+                    "operation_id": 250,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento Descarga",
+                    "operation_id": 201,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento operação",
+                    "operation_id": 252,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento  Operação",
+                    "operation_id": 222,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Manobra",
+                    "operation_id": 229,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Motor Desligado (Sem apontamento)",
+                    "operation_id": 256,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Operação",
+                    "operation_id": 247,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Operação",
+                    "operation_id": 205,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Operação Pátio",
+                    "operation_id": 224,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Perda por agente natural",
+                    "operation_id": 157,
+                    "is_cargo_transfer": null,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                }
+            ]
+        },
+        {
+            "group_name": "Colhedoras",
+            "group_id": 18,
+            "type_equipment": null,
+            "interferences": [
+                {
+                    "id": 1001,
+                    "name": "INTERFERÊNCIAS OPERACIONAIS",
+                    "color": "#008080",
+                    "icon": "ic_maintenance_tool_booth",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1293,
+                            "code": 201,
+                            "name": "Aguardando Convergir o sinal -",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1419,
+                            "code": 950,
+                            "name": "Aguardando Prancha",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1481,
+                            "code": 3026,
+                            "name": "Aguardando Transbordo",
+                            "color": "#3633FF",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1292,
+                            "code": 200,
+                            "name": "Calibração de TCM/Compensação",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1422,
+                            "code": 953,
+                            "name": "Check List Operador",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 609,
+                            "code": 609,
+                            "name": "Cintilação Ionosférica GPS/RS",
+                            "color": "#3BBD94",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 600,
+                            "code": 600,
+                            "name": "Clima (chuva/vento/solo/neblina)",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 608,
+                            "code": 608,
+                            "name": "Falta de Operador",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1387,
+                            "code": 615,
+                            "name": "Horas Refeição",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 604,
+                            "code": 604,
+                            "name": "Incendiou (Frente/Lavoura)",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1478,
+                            "code": 623,
+                            "name": "Instalação Elétrica - AG4",
+                            "color": "#008080",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1386,
+                            "code": 614,
+                            "name": "Manutenção Operador",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1420,
+                            "code": 951,
+                            "name": "Transporte Prancha",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1421,
+                            "code": 952,
+                            "name": "Troca Turno",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 611,
+                            "code": 611,
+                            "name": "Usina Parada - Quebra",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1000,
+                    "name": "Combustível E Lubrificação",
+                    "color": "#FF0000",
+                    "icon": "ic_maintenance_hydraulic",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 400,
+                            "code": 400,
+                            "name": "Abastecimento",
+                            "color": "#FF0000",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 401,
+                            "code": 401,
+                            "name": "Lubrificação",
+                            "color": "#FF0000",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 999,
+                    "name": "Manutenção",
+                    "color": "#FF8C00",
+                    "icon": "ic_maintenance_mechanical",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1377,
+                            "code": 530,
+                            "name": "Aguardando Comboio",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1222,
+                            "code": 130,
+                            "name": "MANUTENÇÃO COMPUTADOR BORDO",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1366,
+                            "code": 294,
+                            "name": "MANUTENÇÃO CORRETIVA",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 402,
+                            "code": 402,
+                            "name": "Manutenção do Comboio",
+                            "color": "#ef6c00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1370,
+                            "code": 497,
+                            "name": "Manutenção Preditiva",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 8,
+                            "code": 8,
+                            "name": "Manutenção Preventiva",
+                            "color": "#62DFCD",
+                            "icon": "ic_maintenance_preventive",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1395,
+                            "code": 799,
+                            "name": "Mini Reforma",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1479,
+                            "code": 543,
+                            "name": "Trocar faquinhas",
+                            "color": "#EF6C00",
+                            "icon": null,
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1048,
+                    "name": "Interferência Motor Ligado",
+                    "color": "#0000CD",
+                    "icon": "ic_services",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1048,
+                            "code": 3013,
+                            "name": "Interferência Motor Ligado",
+                            "color": "#0000CD",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        }
+                    ]
+                }
+            ],
+            "operations": [
+                {
+                    "operation_name": "Aguardando Transbordo",
+                    "operation_id": 168,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "ALERTA DE ALTO RPM",
+                    "operation_id": 233,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento  Operação",
+                    "operation_id": 222,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Manobra",
+                    "operation_id": 229,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Operação",
+                    "operation_id": 205,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                }
+            ]
+        },
+        {
+            "group_name": "Pulverizadores",
+            "group_id": 31,
+            "type_equipment": null,
+            "interferences": [
+                {
+                    "id": 999,
+                    "name": "Manutenção",
+                    "color": "#FF8C00",
+                    "icon": "ic_maintenance_mechanical",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1376,
+                            "code": 529,
+                            "name": "Aguardando Borracheiro",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1377,
+                            "code": 530,
+                            "name": "Aguardando Comboio",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1486,
+                            "code": 3030,
+                            "name": "AGUARDANDO MANUTENÇÃO",
+                            "color": "#FFFFFF",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 420,
+                            "code": 420,
+                            "name": "Manutenção BORRACHEIRO",
+                            "color": "#EF6C00",
+                            "icon": "ic_rubber",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1222,
+                            "code": 130,
+                            "name": "MANUTENÇÃO COMPUTADOR BORDO",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1366,
+                            "code": 294,
+                            "name": "MANUTENÇÃO CORRETIVA",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 402,
+                            "code": 402,
+                            "name": "Manutenção do Comboio",
+                            "color": "#ef6c00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1370,
+                            "code": 497,
+                            "name": "Manutenção Preditiva",
+                            "color": "#CCCCCC",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 496,
+                            "code": 496,
+                            "name": "Manutenção Preventiva",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1001,
+                    "name": "INTERFERÊNCIAS OPERACIONAIS",
+                    "color": "#008080",
+                    "icon": "ic_maintenance_tool_booth",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1394,
+                            "code": 622,
+                            "name": "Aferição - Controle Lavoura",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 606,
+                            "code": 606,
+                            "name": "Aguardando Área/Operação (Liberação)",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1487,
+                            "code": 3031,
+                            "name": "Aguardando Carregamento",
+                            "color": "#FFFFFF",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1483,
+                            "code": 3028,
+                            "name": "Carregando",
+                            "color": "#FFA60B",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 600,
+                            "code": 600,
+                            "name": "Clima (chuva/vento/solo/neblina)",
+                            "color": "#008080",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 605,
+                            "code": 605,
+                            "name": "Falta de Produto/Muda",
+                            "color": "#22BDA7",
+                            "icon": "ic_climate",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 613,
+                            "code": 613,
+                            "name": "GPS - Arquivos/Calibração",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1387,
+                            "code": 615,
+                            "name": "Horas Refeição",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1478,
+                            "code": 623,
+                            "name": "Instalação Elétrica - AG4",
+                            "color": "#008080",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1386,
+                            "code": 614,
+                            "name": "Manutenção Operador",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1491,
+                            "code": 607,
+                            "name": "Transporte/Translado Prancha",
+                            "color": "#FFFFFF",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1421,
+                            "code": 952,
+                            "name": "Troca Turno",
+                            "color": "#008080",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1475,
+                            "code": 601,
+                            "name": "Vento",
+                            "color": "#008080",
+                            "icon": null,
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1000,
+                    "name": "Combustível E Lubrificação",
+                    "color": "#FF0000",
+                    "icon": "ic_maintenance_hydraulic",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 400,
+                            "code": 400,
+                            "name": "Abastecimento",
+                            "color": "#FF0000",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 401,
+                            "code": 401,
+                            "name": "Lubrificação",
+                            "color": "#FF0000",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        }
+                    ]
+                },
+                {
+                    "id": 1048,
+                    "name": "Interferência Motor Ligado",
+                    "color": "#0000CD",
+                    "icon": "ic_services",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1048,
+                            "code": 3013,
+                            "name": "Interferência Motor Ligado",
+                            "color": "#0000CD",
+                            "icon": "ic_services",
+                            "motor_on": false
+                        }
+                    ]
+                }
+            ],
+            "operations": [
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 246,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 226,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento  Operação",
+                    "operation_id": 222,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Manobra",
+                    "operation_id": 229,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Motor Desligado (Sem apontamento)",
+                    "operation_id": 256,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Operação",
+                    "operation_id": 205,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                }
+            ]
+        },
+        {
+            "group_name": "Pás Carregadeiras",
+            "group_id": 33,
+            "type_equipment": null,
+            "interferences": [
+                {
+                    "id": 999,
+                    "name": "Manutenção",
+                    "color": "#FF8C00",
+                    "icon": "ic_maintenance_mechanical",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1141,
+                            "code": 49,
+                            "name": "MANUTENCAO COMBOIO",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1480,
+                            "code": 2,
+                            "name": "Manutenção mecânica / elétrica",
+                            "color": "#EF6C00",
+                            "icon": null,
+                            "motor_on": false
+                        },
+                        {
+                            "id": 8,
+                            "code": 8,
+                            "name": "Manutenção Preventiva",
+                            "color": "#62DFCD",
+                            "icon": "ic_maintenance_preventive",
+                            "motor_on": false
+                        }
+                    ]
+                }
+            ],
+            "operations": [
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 226,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento  Operação",
+                    "operation_id": 222,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Motor Desligado (Sem apontamento)",
+                    "operation_id": 256,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": null,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Operação",
+                    "operation_id": 205,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                }
+            ]
+        },
+        {
+            "group_name": "Motoniveladoras",
+            "group_id": 34,
+            "type_equipment": null,
+            "interferences": [
+                {
+                    "id": 999,
+                    "name": "Manutenção",
+                    "color": "#FF8C00",
+                    "icon": "ic_maintenance_mechanical",
+                    "motor_on": false,
+                    "interferences": [
+                        {
+                            "id": 1141,
+                            "code": 49,
+                            "name": "MANUTENCAO COMBOIO",
+                            "color": "#cccccc",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 8,
+                            "code": 8,
+                            "name": "Manutenção Preventiva",
+                            "color": "#62DFCD",
+                            "icon": "ic_maintenance_preventive",
+                            "motor_on": false
+                        },
+                        {
+                            "id": 1106,
+                            "code": 1,
+                            "name": "SEDE - MANUTENÇÃO",
+                            "color": "#EF6C00",
+                            "icon": "ic_maintenance",
+                            "motor_on": false
+                        }
+                    ]
+                }
+            ],
+            "operations": [
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 226,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Aguardando",
+                    "operation_id": 246,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": true,
+                    "engine_idle_sec": 120,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Deslocamento  Operação",
+                    "operation_id": 222,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                },
+                {
+                    "operation_name": "Operação",
+                    "operation_id": 205,
+                    "is_cargo_transfer": false,
+                    "is_follow_harverster": false,
+                    "is_go_industry": false,
+                    "is_elevator": false,
+                    "is_planter": false,
+                    "measurement_unit": null,
+                    "has_engine_idle": false,
+                    "engine_idle_sec": 0,
+                    "interferences": []
+                }
+            ]
+        }
+    ]
+}

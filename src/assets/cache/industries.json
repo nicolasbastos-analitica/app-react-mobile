@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "id": 2,
+            "code": 4,
+            "name": "Raízen - Maracaí  ",
+            "company_unit_code": 115
+        },
+        {
+            "id": 3,
+            "code": 7,
+            "name": "Cocal - Parag Pta",
+            "company_unit_code": 115
+        },
+        {
+            "id": 4,
+            "code": 18,
+            "name": "Odebrecht - Deodápolis",
+            "company_unit_code": 116
+        },
+        {
+            "id": 1,
+            "code": 3,
+            "name": "Raízen - Parag Pta",
+            "company_unit_code": 112
+        }
+    ]
+}
