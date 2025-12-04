@@ -1,9 +1,12 @@
+import userData from "@/src/assets/cache/users.json";
+import { useAuth } from "@/src/login/AuthContext";
 import { styles } from "@/src/styles/app/(auth)/_styles";
 import "@/src/styles/app/global.css";
-import { router } from 'expo-router';
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   ActivityIndicator,
+  Alert,
   Image,
   ImageBackground,
   KeyboardAvoidingView,
@@ -13,6 +16,25 @@ import {
   View
 } from "react-native";
 import { Button, Dialog, MD3Colors, Modal, Portal, ProgressBar, TextInput } from 'react-native-paper';
+
+interface UserData {
+  login: string;
+  name: string;
+  company_code: number;
+  user_id: number;
+  password: string;
+  company_id: number;
+  company_unit_code: number;
+  company_unit_id: number;
+  employee_code: number;
+  status_embedded: number;
+}
+interface UserDataFile {
+  data: UserData[];
+}
+
+const SampleUserData = (userData as unknown as UserDataFile).data; // Tipagem forçada para o JSON
+
 const backgroundImage = require("@/assets/images/background_img.png");
 const logoAnalitica = require("@/assets/images/logo_analitica2x.png");
 
@@ -22,6 +44,9 @@ export default function Login() {
   const [isPasswordPanelVisible, setIsPasswordPanelVisible] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isDialogVisible, setDialogVisible] = useState(false);
+  const [registrationInput, setRegistrationInput] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  // const [foundUser, setFoundUser] = useState<UserData | null>(null);
 
   const showPanel = () => setIsPanelVisible(true);
   const hidePanel = () => setIsPanelVisible(false);
@@ -29,6 +54,7 @@ export default function Login() {
   const hidePasswordPanel = () => setIsPasswordPanelVisible(false);
   const showDialog = () => setDialogVisible(true);
   const hideDialog = () => setDialogVisible(false);
+  // const [loggedInUser, setLoggedInUser] = useState<UserData | null>(null);
 
   const user = 'José da Silva Machado';
   const numRegistro = '000000001';
@@ -36,12 +62,36 @@ export default function Login() {
   const userIcon = require('@/assets/images/react-logo.png');
   const nullUserIcon = require('@/assets/images/user_icon.png');
   const lockIcon = require('@/assets/images/lock_icon.png')
-
+  const login = SampleUserData[0].login;
   const appVersion = '1.0'
+  const { setLogin } = useAuth();
+
+  function validateUser(login: string): UserData | null {
+    const users = SampleUserData;
+
+    const foundUser = users.find((user: UserData) =>
+      user.login === login
+    );
+    return foundUser || null;
+  }
 
 
+  const handleLogin = () => {
+    setErrorMessage('');
 
+    const foundUser = validateUser(registrationInput);
 
+    if (foundUser) {
+      setLogin(foundUser.login); // Salva o login no contexto global
+      console.log(`Usuário encontrado: ${foundUser.name}`);
+      hidePanel();
+      router.replace('/(tabs)/selecao_equipamento');
+    } else {
+      const message = "Usuário inválido. Verifique o número de registro.";
+      setErrorMessage(message);
+      Alert.alert("Erro de Login", message);
+    }
+  }
   return (
     <View style={{ flex: 1 }}>
       {/* ... (ImageBackground e Botão "Iniciar" não mudam) ... */}
@@ -114,17 +164,26 @@ export default function Login() {
                     onSurfaceVariant: "#8F8CB5" // Cor do label (inativo)
                   }
                 }}
+                value={registrationInput}
+                onChangeText={setRegistrationInput}
                 label="Número do registro"
                 keyboardType="numeric"
                 mode="outlined"
                 style={styles.input}
                 left={
+
                   <TextInput.Icon
                     icon="account-circle-outline"
                     color="#42405F"
                   />
+
                 }
               />
+              {errorMessage ? (
+                <Text style={{ color: 'red', marginBottom: 16 }}>
+                  {errorMessage}
+                </Text>
+              ) : null}
               <View style={styles.paginationDots}>
                 {/* <View style={[styles.dot, styles.dotActive]} /> */}
                 {/* <View style={styles.dot} /> */}
@@ -133,7 +192,7 @@ export default function Login() {
                 style={styles.iniciarButton}
                 labelStyle={styles.iniciarButtonLabel}
                 mode="contained"
-                onPress={()=> router.replace('/(tabs)/selecao_equipamento') }
+                onPress={handleLogin}
               >
                 Iniciar
               </Button>

@@ -1,4 +1,6 @@
+import userData from '@/src/assets/cache/users.json';
 import { useTelemetry } from '@/src/decoder/TelemetryContext';
+import { useAuth } from '@/src/login/AuthContext';
 import { styles } from '@/src/styles/app/(tabs)/selecao_implementos/_styles';
 import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
@@ -6,6 +8,21 @@ import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
 
+interface UserData {
+    login: string;
+    name: string;
+    company_code: number;
+    user_id: number;
+    password: string;
+    company_id: number;
+    company_unit_code: number;
+    company_unit_id: number;
+    employee_code: number;
+    status_embedded: number;
+}
+interface UserDataFile {
+    data: UserData[];
+}
 const iconImplemento = require("@/assets/images/implemento_icon.png");
 const colheitadeira = require("@/assets/images/colheitadeira.png")
 const iconColhedora = require("@/assets/images/colhedora4x.png");
@@ -16,9 +33,8 @@ const checkIcon = require('@/assets/images/check.png')
 const numEquip = 34531;
 const modeloEquip = 'New Holland Tc5090';
 
-//User 
-const user = 'José da Silva Machado';
-const numRegistro = '000000001';
+const fallbackUser = "Usuário não identificado";
+const fallbacknumRegistro = '000000001';
 const haveIcon = false;
 const userIcon = require('@/assets/images/react-logo.png');
 const nullUserIcon = require('@/assets/images/user_icon.png');
@@ -38,7 +54,14 @@ const turnos = [
 
 
 export default function Implementos() {
+    const SampleUserData = (userData as unknown as UserDataFile).data; // Tipagem forçada para o JSON
     const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
+    const { userLogin, signOut } = useAuth();
+    const loggedInUserData = userLogin
+        ? SampleUserData.find(user => user.login === userLogin)
+        : null;
+    const displayUserName = loggedInUserData ? loggedInUserData.name : fallbackUser;
+    const displayUserLogin = userLogin ? userLogin : fallbacknumRegistro;
 
     const [selectedEquip, setSelectedEquip] = useState("colhedora");
     const [isActivate, setIsActivate] = useState(true);
@@ -88,8 +111,8 @@ export default function Implementos() {
                 <View style={[styles.containerBlueSwitchON, isConnected ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
                     <Text style={styles.textBlue}>{deviceName}</Text>
                     <Pressable
-                        // Garante que o clique mude o estado
-                        onPress={() => setIsActivate(!isConnected)}
+                    // Garante que o clique mude o estado
+                    // onPress={() => setIsActivate(!isConnected)}
                     >
                         <View style={[styles.customSwitchTrack,
                         isConnected ? styles.customSwitchTrack : styles.customSwitchTrackOFF
@@ -112,10 +135,10 @@ export default function Implementos() {
                     <Avatar.Image size={36} source={haveIcon == false ? nullUserIcon : userIcon} />
                     <View style={styles.userTextContainer} >
                         <Text style={styles.panelUser}>
-                            {user}
+                            {displayUserName}
                         </Text>
                         <Text style={styles.panelDescription}>
-                            Registro <Text style={[styles.numRegistro]}>{numRegistro}</Text>
+                            Registro <Text style={[styles.numRegistro]}>{displayUserLogin}</Text>
                         </Text>
                     </View>
                 </View>

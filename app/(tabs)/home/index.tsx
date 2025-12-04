@@ -1,5 +1,8 @@
 import CircularProgress from "@/components/CircularProgress";
 import ModalExit from "@/components/ModalExit";
+import userData from '@/src/assets/cache/users.json';
+import { useTelemetry } from "@/src/decoder/TelemetryContext";
+import { useAuth } from "@/src/login/AuthContext";
 import { styles } from "@/src/styles/app/(tabs)/home/_styles";
 import { ImageBackground } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
@@ -7,6 +10,22 @@ import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
 
+
+interface UserData {
+    login: string;
+    name: string;
+    company_code: number;
+    user_id: number;
+    password: string;
+    company_id: number;
+    company_unit_code: number;
+    company_unit_id: number;
+    employee_code: number;
+    status_embedded: number;
+}
+interface UserDataFile {
+    data: UserData[];
+}
 // Assets
 const colheitadeira = require("@/assets/images/colheitadeira.png");
 const iconColhedora = require("@/assets/images/colhedora4x.png");
@@ -24,7 +43,9 @@ const iconExit = require("@/assets/images/icon_exit.png")
 // Constants
 const numEquip = 34531;
 const modeloEquip = 'New Holland Tc5090';
-const user = 'José da Silva Machado';
+
+const fallbackUser = "Usuário não identificado";
+const fallbacknumRegistro = '000000001';
 const implemento1 = '00001';
 const implemento2 = '00002';
 
@@ -44,7 +65,6 @@ const metaVelocidadeMedia = 40;
 const velocidadeMedia = 40;
 const mediaTransbordo = 999;
 const metaMediaTransbordo = 2;
-const Blue = 'BLUE_530';
 
 const metaVelocidadeAlcancada = metaVelocidadeMedia >= velocidadeMedia;
 const metaMediaTransbordoAlcancada = mediaTransbordo <= metaMediaTransbordo;
@@ -79,9 +99,17 @@ const interferencias = [
     { interferencia: 'Outros' },
 ]
 
-export default async function Home() {
+export default function Home() {
+    const SampleUserData = (userData as unknown as UserDataFile).data; // Tipagem forçada para o JSON
+    const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
+    const { userLogin, signOut } = useAuth();
+    const loggedInUserData = userLogin
+        ? SampleUserData.find(user => user.login === userLogin)
+        : null;
+    const displayUserName = loggedInUserData ? loggedInUserData.name : fallbackUser;
+    const displayUserLogin = userLogin ? userLogin : fallbacknumRegistro;
+
     // 1. Pega os dados do Contexto (Correto)
-    // const { sensorData, connectedDevice } = useTelemetry();
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModal2Visible, setIsModal2Visible] = useState(false);
     const [isModalExitVisible, setIsModalExitVisible] = useState(false);
@@ -123,7 +151,7 @@ export default async function Home() {
         zona: string;
         funcao: string;
     }
-    
+
 
     const [ordemAtual, setOrdemAtual] = useState<OrdemProducao>({
         id: (params.ordemID as string) || '999',
@@ -136,25 +164,25 @@ export default async function Home() {
 
             {/* --- HEADER --- */}
             <View style={styles.containerHeader}>
-                <View style={[styles.containerBlueSwitchON, IsActivate ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
-                    <Text style={styles.textBlue}>{Blue}</Text>
+                <View style={[styles.containerBlueSwitchON, isConnected ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
+                    <Text style={styles.textBlue}>{deviceName}</Text>
                     <Pressable
-                        // Garante que o clique mude o estado
-                        onPress={() => setIsActivate(!IsActivate)}
+                    // Garante que o clique mude o estado
+                    // onPress={() => setIsActivate(!isConnected)}
                     >
                         <View style={[styles.customSwitchTrack,
-                        IsActivate ? styles.customSwitchTrack : styles.customSwitchTrackOFF
+                        isConnected ? styles.customSwitchTrack : styles.customSwitchTrackOFF
                         ]}>
                             <View
                                 // Aplica a bolinha e define a posição (esquerda/direita)
                                 style={[
                                     styles.customSwitchThumb,
-                                    IsActivate ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
+                                    isConnected ? styles.customSwitchThumbActive : styles.customSwitchThumbInactive && styles.customSwitchThumbOFF
                                 ]}
                             />
                         </View>
                     </Pressable>
-                    <Text style={styles.styleActivation}>{IsActivate ? "ON" : "OFF"}</Text>
+                    <Text style={styles.styleActivation}>{isConnected ? "ON" : "OFF"}</Text>
                 </View>
                 <Pressable onPress={() => setIsModalExitVisible(true)} style={styles.buttonSair}>
                     <Text style={styles.buttonSairLabel}>Sair</Text>
@@ -169,7 +197,7 @@ export default async function Home() {
                     <View style={styles.containerUser} >
                         <Avatar.Image size={36} source={haveIcon ? userIcon : nullUserIcon} />
                         <View style={styles.userTextContainer} >
-                            <Text style={styles.panelUser}>{user}</Text>
+                            <Text style={styles.panelUser}>{displayUserName}</Text>
                             <View style={styles.turnoInfo}>
                                 <Text style={[styles.turno]}>Turno {turnoID} </Text>
                                 <Text style={[styles.ordemProducao]}>{turnoHora} </Text>

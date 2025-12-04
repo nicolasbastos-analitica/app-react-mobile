@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     marginTop: 32,
     marginRight: 24,
-    gap:4
+    gap: 4
   },
   containerBlueSwitchOFF: {
     backgroundColor: '#EF4C51',
@@ -62,7 +62,7 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     marginTop: 32,
     marginRight: 24,
-    gap:4
+    gap: 4
   },
   textBlue: {
     color: "#FFF",
@@ -125,77 +125,100 @@ export const styles = StyleSheet.create({
 
   // 4.4. CARD DA MÁQUINA (ImageBackground)
   maquinaInfo: {
-    height: 240,
-    marginBottom: '25%'
+    // height: 240,
+    // marginBottom: '25%'
   },
   maquinaImg: {
-    backgroundColor: '#000',
+    backgroundColor: '#000', 
     height: 240,
     borderRadius: 12,
+    margin: 0,
   },
-
+  blurIMG: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.65)', // Preto com 55% de opacidade (ajuste 0.90 para o que você precisa)
+    borderRadius: 12,
+    height: '100%',
+    width: '100%',
+  },
   // 4.4.1. TÍTULO MÁQUINA (COLHEDORA)
   tituloMaquina: {
-    height: 32,
-    width: 135,
-    backgroundColor: 'rgba(5, 4, 18, 0.70)',
+    // height: 32,
+    fontFamily: 'Montserrat-Bold', // ADICIONADO
+    fontSize: 18,
+    width: 'auto',
+    // backgroundColor: 'rgba(0, 0, 0, 0.9)', // Corrigido para o formato padrão
     display: 'flex',
+    borderRadius: 8,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    margin: 8,
-    padding: 8,
-    marginTop: 16,
-    marginLeft: 16,
+    justifyContent: 'flex-start',
+    marginTop: 8,
+    // marginBottom:8,
+    paddingLeft: 8,
+    // marginTop: 16,
+    // marginLeft: 16,
   },
   nmMaquina: {
     color: '#FFF',
-    fontFamily: 'Montserrat', // ADICIONADO
-    fontSize: 14,
+    fontFamily: 'Montserrat-Bold', // ADICIONADO
+    fontSize: 18,
     marginLeft: 8,
-  },
-  tituloMargin: {
-    marginBottom: 82
+    width: 'auto'
   },
 
+  infoMaquinaContainer: {
+    width: 'auto',
+    height: 'auto',
+    backgroundColor: 'rgba(0, 0, 0, 0.9)', // Corrigido para o formato padrão
+    borderRadius: 8,
+    marginBottom: 12,
+    // paddingBottom: 12,
+  },
   // 4.4.2. NÚMERO MÁQUINA
   numMAquinaContainer: {
     height: 32,
-    width: 82,
-    backgroundColor: 'rgba(5, 4, 18, 0.70)',
+    width: 'auto',
+    maxWidth: 'auto',
+
+    // backgroundColor: 'rgba(5, 4, 18, 0.70)',
+    // marginTop:8,
     // display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     marginLeft: 16,
-    marginBottom: 8
+    // marginBottom: 8
   },
   numMaquina: {
     fontFamily: 'Montserrat', // ADICIONADO
     fontSize: 14,
     color: '#FFF',
-    height:17
-
+    // height: 17,
+    width: 'auto',
   },
   numEquip: {
     color: '#FFF',
     fontFamily: 'Montserrat-Bold', // JÁ CORRETO
     fontSize: 14,
     fontStyle: 'normal',
-    marginLeft: 8,
-    height:17
-    
+    // marginLeft: 8,
+    height: 20,
+
+  },
+  alinhamentoModeloMarca:{
+    marginLeft: 4,
   },
 
   // 4.4.3. MODELO MÁQUINA
   modeloMAquinaContainer: {
     height: 32,
-    backgroundColor: 'rgba(5, 4, 18, 0.70)',
+    // backgroundColor: 'rgba(5, 4, 18, 0.70)',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginLeft: 16,
+    marginLeft: 8,
     marginBottom: 8,
   },
   alinhamentoModelo: {
@@ -213,7 +236,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#00B16B",
     justifyContent: 'center',
-    margin:24,
+    margin: 24,
   },
   nextButtonLabel: {
     fontSize: 18,
@@ -253,8 +276,8 @@ export const styles = StyleSheet.create({
     height: 9, // Altura da bolinha
     borderRadius: 7,
     backgroundColor: '#000',
-    position:'absolute',
-    left:1.7 // Cor verde da preta
+    position: 'absolute',
+    left: 1.7 // Cor verde da preta
   },
   customSwitchThumbActive: {
     alignSelf: 'flex-end', // Posição direita (ON)

@@ -6,13 +6,13 @@ import { PermissionsAndroid, Platform, ToastAndroid } from 'react-native';
 import RNBluetoothClassic, { BluetoothDevice, BluetoothEventSubscription } from 'react-native-bluetooth-classic';
 
 // --- CONFIGURAÇÃO ---
-const DEVICE_NAME_PREFIX = "BLUE_"; 
+const DEVICE_NAME_PREFIX = "BLUE_";
 const COMPANY_KEY = Buffer.from("8E12B960", 'hex');
-const COMMAND_SUFFIX = '\r'; 
+const COMMAND_SUFFIX = '\r';
 
-type AuthStep = 
-  | 'disconnected' | 'connecting' | 'waiting_for_seed' 
-  | 'sending_auth' | 'waiting_for_auth_ok' | 'sending_user_code' 
+type AuthStep =
+  | 'disconnected' | 'connecting' | 'waiting_for_seed'
+  | 'sending_auth' | 'waiting_for_auth_ok' | 'sending_user_code'
   | 'waiting_for_user_ok' | 'starting_telemetry' | 'connected' | 'failed';
 
 interface TelemetryContextType {
@@ -83,118 +83,182 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
     let mounted = true;
 
     const initBluetooth = async () => {
-        if (Platform.OS === 'android') {
-            const version = Platform.Version;
-            if (typeof version === 'number' && version >= 31) {
-                 await PermissionsAndroid.requestMultiple([
-                    PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-                    PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-                    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-                 ]);
-            } else {
-                 await PermissionsAndroid.requestMultiple([
-                    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-                 ]);
-            }
+      if (Platform.OS === 'android') {
+        const version = Platform.Version;
+        if (typeof version === 'number' && version >= 31) {
+          await PermissionsAndroid.requestMultiple([
+            // Localização
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+            PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
+
+            // Chamadas
+            PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE,
+            PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+
+            // Câmera e Gravação
+            PermissionsAndroid.PERMISSIONS.CAMERA,
+            PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+            PermissionsAndroid.PERMISSIONS.READ_MEDIA_VIDEO,
+
+            // Atividade Física
+            PermissionsAndroid.PERMISSIONS.ACTIVITY_RECOGNITION,
+
+            // Bluetooth/Dispositivos Próximos
+            PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+            PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+          ]);
+        } else {
+          await PermissionsAndroid.requestMultiple([
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+            PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
+
+            // Chamadas
+            PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE,
+            PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+
+            // Câmera e Gravação
+            PermissionsAndroid.PERMISSIONS.CAMERA,
+            PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+            PermissionsAndroid.PERMISSIONS.READ_MEDIA_VIDEO,
+
+            // Atividade Física
+            PermissionsAndroid.PERMISSIONS.ACTIVITY_RECOGNITION,
+
+            // Bluetooth/Dispositivos Próximos
+            PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+            PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+          ]);
         }
+      }
 
-        try {
-            const paired = await RNBluetoothClassic.getBondedDevices();
-            if (!mounted) return;
-            setDevices(paired);
+      try {
+        const paired = await RNBluetoothClassic.getBondedDevices();
+        if (!mounted) return;
+        setDevices(paired);
 
-            const targetDevice = paired.find(d => d.name && d.name.startsWith(DEVICE_NAME_PREFIX));
+        const targetDevice = paired.find(d => d.name && d.name.startsWith(DEVICE_NAME_PREFIX));
 
-            if (targetDevice) {
-                console.log(`🔍 [Auto] Encontrado: ${targetDevice.name}.`);
-                if (!isConnectingRef.current && !connectionRef.current) {
-                    ToastAndroid.show(`Conectando a ${targetDevice.name}...`, ToastAndroid.SHORT);
-                    await connectDevice(targetDevice);
-                }
-            }
-        } catch (err) { console.error("[Auto] Erro:", err); }
+        if (targetDevice) {
+          console.log(`🔍 [Auto] Encontrado: ${targetDevice.name}.`);
+          if (!isConnectingRef.current && !connectionRef.current) {
+            ToastAndroid.show(`Conectando a ${targetDevice.name}...`, ToastAndroid.SHORT);
+            await connectDevice(targetDevice);
+          }
+        }
+      } catch (err) { console.error("[Auto] Erro:", err); }
     };
 
     const timer = setTimeout(() => { initBluetooth(); }, 1000);
     return () => { mounted = false; clearTimeout(timer); disconnectDevice(); };
   }, []);
+  // --- WATCHDOG: VERIFICAÇÃO DE CONEXÃO E NOME (1s) ---
+  useEffect(() => {
+    const watchdog = setInterval(async () => {
+      if (connectionRef.current) {
+        try {
+          const isPhysicallyConnected = await connectionRef.current.isConnected();
+
+          if (!isPhysicallyConnected) {
+            console.log("⚠️ Watchdog: Detectou desconexão física.");
+            disconnectDevice();
+          } else {
+            // Sincroniza o nome se estiver diferente
+            if (connectedDevice?.name !== connectionRef.current.name) {
+              setConnectedDevice(connectionRef.current);
+            }
+          }
+        } catch (error) {
+          disconnectDevice();
+        }
+      } else {
+        // Se não tem conexão física, mas o estado diz que tem
+        if (connectedDevice !== null) {
+          disconnectDevice();
+        }
+      }
+    }, 1000); // Roda a cada 1 segundo
+
+    return () => clearInterval(watchdog);
+  }, [connectedDevice]);
 
   // --- HANDSHAKE / TELEMETRIA ---
   const processMessage = (message: string) => {
-      const msg = message.trim();
-      const cleanMessage = msg + '\r\n';
-      const currentStep = authStepRef.current;
+    const msg = message.trim();
+    const cleanMessage = msg + '\r\n';
+    const currentStep = authStepRef.current;
 
-      if (msg.startsWith('AT+BT_PRM=')) {
-          if (currentStep !== 'connected') {
-              updateAuthStep('connected');
-              if (connectionRef.current) setConnectedDevice(connectionRef.current);
-          }
-
-          try {
-              const decoder = getDecoderInstance(cleanMessage);
-              setSensorData(prev => ({
-                  ...prev,
-                  speed: decoder.decodeSpeed(),
-                  rpm: decoder.decodeRPM(),
-                  battery: decoder.decodeBattery(),
-                  latitude: decoder.decodeLatitude(),
-                  longitude: decoder.decodeLongitude(),
-                  engineWaterTemperature: decoder.decodeEngineWaterTemperature(),
-              }));
-          } catch (error) { console.log("❌ Erro Decode:", error); }
-          return;
+    if (msg.startsWith('AT+BT_PRM=')) {
+      if (currentStep !== 'connected') {
+        updateAuthStep('connected');
+        if (connectionRef.current) setConnectedDevice(connectionRef.current);
       }
 
-      console.log(`📩 [Handshake] Msg: ${msg}`);
+      try {
+        const decoder = getDecoderInstance(cleanMessage);
+        setSensorData(prev => ({
+          ...prev,
+          speed: decoder.decodeSpeed(),
+          rpm: decoder.decodeRPM(),
+          battery: decoder.decodeBattery(),
+          latitude: decoder.decodeLatitude(),
+          longitude: decoder.decodeLongitude(),
+          engineWaterTemperature: decoder.decodeEngineWaterTemperature(),
+        }));
+      } catch (error) { console.log("❌ Erro Decode:", error); }
+      return;
+    }
 
-      switch (currentStep) {
-        case 'waiting_for_seed':
-            if (msg.startsWith('AT+BT_SEED=')) {
-                updateAuthStep('sending_auth');
-                const authCommand = calculateAuthKey(cleanMessage);
-                connectionRef.current?.write(authCommand);
-                updateAuthStep('waiting_for_auth_ok');
-            }
-            break;
+    console.log(`📩 [Handshake] Msg: ${msg}`);
 
-        case 'waiting_for_auth_ok':
-            if (msg.includes('AT+BT_AUTH_OK')) {
-                updateAuthStep('sending_user_code');
-                connectionRef.current?.write('AT+BT_COD_USER=0000000000000001' + COMMAND_SUFFIX + '\n');
-                updateAuthStep('waiting_for_user_ok');
-            }
-            break;
+    switch (currentStep) {
+      case 'waiting_for_seed':
+        if (msg.startsWith('AT+BT_SEED=')) {
+          updateAuthStep('sending_auth');
+          const authCommand = calculateAuthKey(cleanMessage);
+          connectionRef.current?.write(authCommand);
+          updateAuthStep('waiting_for_auth_ok');
+        }
+        break;
 
-        case 'waiting_for_user_ok':
-            if (msg.includes('AT+BT_COD_USER_OK')) {
-                updateAuthStep('starting_telemetry');
-                connectionRef.current?.write('AT_BT_PRM_START' + COMMAND_SUFFIX + '\n');
+      case 'waiting_for_auth_ok':
+        if (msg.includes('AT+BT_AUTH_OK')) {
+          updateAuthStep('sending_user_code');
+          connectionRef.current?.write('AT+BT_COD_USER=0000000000000001' + COMMAND_SUFFIX + '\n');
+          updateAuthStep('waiting_for_user_ok');
+        }
+        break;
 
-                setTimeout(() => {
-                    connectionRef.current?.write('AT+BT_SIMULATED_FRAME_OFF' + COMMAND_SUFFIX + '\n');
-                }, 200);
+      case 'waiting_for_user_ok':
+        if (msg.includes('AT+BT_COD_USER_OK')) {
+          updateAuthStep('starting_telemetry');
+          connectionRef.current?.write('AT_BT_PRM_START' + COMMAND_SUFFIX + '\n');
 
-                updateAuthStep('connected');
-                if (connectionRef.current) setConnectedDevice(connectionRef.current);
-                ToastAndroid.show("Conectado!", ToastAndroid.SHORT);
-            }
-            break;
-      }
+          setTimeout(() => {
+            connectionRef.current?.write('AT+BT_SIMULATED_FRAME_OFF' + COMMAND_SUFFIX + '\n');
+          }, 200);
+
+          updateAuthStep('connected');
+          if (connectionRef.current) setConnectedDevice(connectionRef.current);
+          ToastAndroid.show("Conectado!", ToastAndroid.SHORT);
+        }
+        break;
+    }
   };
 
   const onDataReceived = (event: { data: string }) => {
-     dataBuffer.current += event.data;
-     let lastIndex = dataBuffer.current.lastIndexOf(COMMAND_SUFFIX);
-     if (lastIndex === -1) return;
+    dataBuffer.current += event.data;
+    let lastIndex = dataBuffer.current.lastIndexOf(COMMAND_SUFFIX);
+    if (lastIndex === -1) return;
 
-     const completeMessages = dataBuffer.current.substring(0, lastIndex + COMMAND_SUFFIX.length);
-     dataBuffer.current = dataBuffer.current.substring(lastIndex + COMMAND_SUFFIX.length);
+    const completeMessages = dataBuffer.current.substring(0, lastIndex + COMMAND_SUFFIX.length);
+    dataBuffer.current = dataBuffer.current.substring(lastIndex + COMMAND_SUFFIX.length);
 
-     const messages = completeMessages.split(COMMAND_SUFFIX).filter(msg => msg.length > 0);
-     for (const msg of messages) {
-       processMessage(msg + COMMAND_SUFFIX);
-     }
+    const messages = completeMessages.split(COMMAND_SUFFIX).filter(msg => msg.length > 0);
+    for (const msg of messages) {
+      processMessage(msg + COMMAND_SUFFIX);
+    }
   };
 
   const listPairedDevices = async () => {
@@ -202,81 +266,81 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
       setIsScanning(true);
       const paired = await RNBluetoothClassic.getBondedDevices();
       setDevices(paired);
-    } catch (err) { console.error(err); } 
+    } catch (err) { console.error(err); }
     finally { setIsScanning(false); }
   };
 
   const connectDevice = async (device: BluetoothDevice) => {
-     if (isConnectingRef.current) return;
+    if (isConnectingRef.current) return;
 
-     if (connectionRef.current?.id === device.id && await device.isConnected()) {
-         console.log("✅ Já conectado.");
-         return;
-     }
+    if (connectionRef.current?.id === device.id && await device.isConnected()) {
+      console.log("✅ Já conectado.");
+      return;
+    }
 
-     try {
-        isConnectingRef.current = true;
-        setIsConnecting(true);
-        updateAuthStep('connecting');
+    try {
+      isConnectingRef.current = true;
+      setIsConnecting(true);
+      updateAuthStep('connecting');
 
-        const connection = await RNBluetoothClassic.connectToDevice(device.id);
-        connectionRef.current = connection;
+      const connection = await RNBluetoothClassic.connectToDevice(device.id);
+      connectionRef.current = connection;
 
-        if (dataSubscription.current) dataSubscription.current.remove();
-        dataSubscription.current = connection.onDataReceived(onDataReceived);
-        dataBuffer.current = '';
+      if (dataSubscription.current) dataSubscription.current.remove();
+      dataSubscription.current = connection.onDataReceived(onDataReceived);
+      dataBuffer.current = '';
 
-        updateAuthStep('waiting_for_seed');
+      updateAuthStep('waiting_for_seed');
 
-     } catch (error: any) {
-         const errorMessage = error.message || error.toString();
-         if (errorMessage.includes("Already attempting")) {
-             console.log("ℹ️ Conexão já em andamento.");
-             return;
-         }
+    } catch (error: any) {
+      const errorMessage = error.message || error.toString();
+      if (errorMessage.includes("Already attempting")) {
+        console.log("ℹ️ Conexão já em andamento.");
+        return;
+      }
 
-         console.error("❌ Erro conexão:", error);
-         updateAuthStep('failed');
-         setConnectedDevice(null);
-         connectionRef.current = null;
-         ToastAndroid.show("Falha ao conectar", ToastAndroid.SHORT);
-     } 
-     finally {
-         isConnectingRef.current = false;
-         setIsConnecting(false);
-     }
+      console.error("❌ Erro conexão:", error);
+      updateAuthStep('failed');
+      setConnectedDevice(null);
+      connectionRef.current = null;
+      ToastAndroid.show("Falha ao conectar", ToastAndroid.SHORT);
+    }
+    finally {
+      isConnectingRef.current = false;
+      setIsConnecting(false);
+    }
   };
 
   const disconnectDevice = async () => {
-     try {
-        if (dataSubscription.current) dataSubscription.current.remove();
-        if (connectionRef.current) await connectionRef.current.disconnect();
-     } catch (e) { console.error(e); } 
-     finally {
-         setConnectedDevice(null);
-         connectionRef.current = null;
-         setSensorData({});
-         updateAuthStep('disconnected');
-         isConnectingRef.current = false;
-         setIsConnecting(false);
-     }
+    try {
+      if (dataSubscription.current) dataSubscription.current.remove();
+      if (connectionRef.current) await connectionRef.current.disconnect();
+    } catch (e) { console.error(e); }
+    finally {
+      setConnectedDevice(null);
+      connectionRef.current = null;
+      setSensorData({});
+      updateAuthStep('disconnected');
+      isConnectingRef.current = false;
+      setIsConnecting(false);
+    }
   };
 
   return (
-    <TelemetryContext.Provider value={{ 
-        sensorData, 
-        connectedDevice, 
-        connectDevice, 
-        disconnectDevice, 
-        devices, 
-        listPairedDevices, 
-        isScanning, 
-        isConnecting,
-        authStep,
+    <TelemetryContext.Provider value={{
+      sensorData,
+      connectedDevice,
+      connectDevice,
+      disconnectDevice,
+      devices,
+      listPairedDevices,
+      isScanning,
+      isConnecting,
+      authStep,
 
-        // 🔵 Exposto globalmente
-        isConnected,
-        deviceName
+      // 🔵 Exposto globalmente
+      isConnected,
+      deviceName
     }}>
       {children}
     </TelemetryContext.Provider>

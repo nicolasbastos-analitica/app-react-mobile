@@ -10,28 +10,29 @@ import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
 const checkIcon = require('@/assets/images/check.png');
 const iconEventoAtivo = require('@/assets/images/evento_ativo.png')
 // Constants
-const mockOrdens = [
+const mockOrders = [ // mockOrdens -> mockOrders
     { id: '000143', zona: '47588', funcao: 'Colheita Mecânica 2 linhas' },
     { id: '000144', zona: '47589', funcao: 'Corte, Transbordo e Transporte (CTT)' },
     { id: '000145', zona: '47590', funcao: 'Fertirrigação' },
     { id: '000146', zona: '47591', funcao: 'Preparo e correção de solo' },
 ];
 
-const cicloOperacional = [
+const operationalCycle = [ // cicloOperacional -> operationalCycle
     { id: '200', ciclo: 'Carregando', },
     { id: '251', ciclo: 'Deslocamento Carregando', },
     { id: '256', ciclo: 'Motor Desligado (sem apontamento)', },
     { id: '249', ciclo: 'Descarga', },
-    { id: '201  ', ciclo: 'Deslocamento Descarga', },
+    { id: '201  ', ciclo: 'Deslocamento Descarga', },
 ];
 const Blue = 'BLUE_530';
 
-const telemetria = 0;
-const eventos = 0;
+const telemetry = 0; // telemetria -> telemetry
+const events = 0;    // eventos -> events
 
 export default function JornadaAutomatica() {
-        const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
+    const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
     
+    // States
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModal2Visible, setIsModal2Visible] = useState(false);
     const [isModalExitVisible, setIsModalExitVisible] = useState(false);
@@ -40,18 +41,20 @@ export default function JornadaAutomatica() {
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [IsActivate, setIsActivate] = useState(true);
 
-    const handleClearModal = () => {
+    // Handlers
+    const handleClearModal = () => { // handleClearModal
         setModalText('');
     };
-    const handleClearModal2 = () => {
+    const handleClearModal2 = () => { // handleClearModal2
         setModal2Text('');
     };
 
-    const ordensFiltradas = mockOrdens.filter(item =>
+    // Filtered data
+    const filteredOrders = mockOrders.filter(item => // ordensFiltradas -> filteredOrders
         item.id.includes(modalText)
     );
 
-    const handleSelect = (id: string | null) => {
+    const handleSelect = (id: string | null) => { // handleSelect
         setSelectedId(id);
     };
 
@@ -62,7 +65,7 @@ export default function JornadaAutomatica() {
             <View style={styles.containerHeader}>
                 <View style={styles.telemetria}>
                     {/* <Icon source={''} size={14}></Icon> */}
-                    <Text style={styles.telemetriaTetxt}>Telemetria: {telemetria} </Text><Text style={styles.separacaoTelemetria}>|</Text><Text style={styles.telemetriaTetxt}>Eventos: {eventos}</Text>
+                    <Text style={styles.telemetriaTetxt}>Telemetria: {telemetry} </Text><Text style={styles.separacaoTelemetria}>|</Text><Text style={styles.telemetriaTetxt}>Eventos: {events}</Text>
                 </View>
 
                 <Pressable onPress={() => router.replace('/(tabs)/home')} style={styles.buttonSair}>
@@ -89,9 +92,10 @@ export default function JornadaAutomatica() {
                             <Text style={styles.textBlue}>{deviceName}</Text>
                             <Pressable
                                 // Garante que o clique mude o estado
-                                onPress={() => setIsActivate(!isConnected)}
+                                // onPress={() => setIsActivate(!isConnected)}
                             >
                                 <View style={[styles.customSwitchTrack,
+                                styles.customSwitchTrack,
                                 isConnected ? styles.customSwitchTrack : styles.customSwitchTrackOFF
                                 ]}>
                                     <View
@@ -107,10 +111,10 @@ export default function JornadaAutomatica() {
                         </View>
 
                         <View style={styles.eventoAutomaticoContador}>
-                                        <Text style={styles.eventoAutomaticoContadorTitulo}>Tempo de Evento Automático</Text>
-                                        <Cronometro></Cronometro>
+                            <Text style={styles.eventoAutomaticoContadorTitulo}>Tempo de Evento Automático</Text>
+                            <Cronometro></Cronometro>
                         </View>
-                        
+
                     </View>
                 </View>
             </View>
@@ -171,7 +175,7 @@ export default function JornadaAutomatica() {
                     </View>
                     <ScrollView>
                         <View style={styles.containerOrdens}>
-                            {ordensFiltradas.map((item) => {
+                            {filteredOrders.map((item) => { // ordensFiltradas -> filteredOrders
                                 const isSelected = selectedId === item.id;
                                 return (
                                     <Pressable
@@ -258,7 +262,7 @@ export default function JornadaAutomatica() {
                     </View>
                     <ScrollView>
                         <View style={styles.containerOrdens}>
-                            {cicloOperacional.map((item) => {
+                            {operationalCycle.map((item) => { // cicloOperacional -> operationalCycle
                                 const isSelected = selectedId === item.id;
                                 return (
                                     <Pressable
@@ -300,7 +304,7 @@ export default function JornadaAutomatica() {
                     </View>
                 </View>
             </Modal>
-            {/* MODAL SAIR  */}
+            {/* MODAL SAIR  */}
             <ModalExit
                 visible={isModalExitVisible}
                 onDismiss={() => setIsModalExitVisible(false)}
