@@ -6,6 +6,7 @@ import React, { createContext, ReactNode, useContext, useState } from 'react';
 interface AuthContextType {
     // Armazena o login (número de registro) ou null
     userLogin: string | null;
+  
     
     // Função para fazer login e salvar o número de registro
     setLogin: (login: string) => void;

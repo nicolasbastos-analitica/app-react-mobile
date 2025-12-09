@@ -69,6 +69,9 @@ export const styles = StyleSheet.create({
     width: '100%',
     maxHeight: '80%',
   },
+  upModal:{
+    marginBottom:'40%',
+  },
   panelContent: {
     padding: 24,
     paddingBottom: 40,

@@ -1,62 +1,79 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Slot, useRouter, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { PaperProvider } from 'react-native-paper';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { EquipmentProvider } from '@/src/context/EquipmentContext';
+import { GlobalStateProvider } from '@/src/context/GlobalStateContext';
+import { OPProvider } from '@/src/context/OPContext'; // 👈 IMPORTA (Ordem de Produção)
+import { OpProvider } from '@/src/context/OperationContext';
+import { UserProvider } from '@/src/context/UserContext';
 import '@/src/styles/app/global.css';
+import { AuthProvider, useAuth } from '../src/context/AuthContext';
 import { TelemetryProvider } from '../src/decoder/TelemetryContext';
-// ⭐️ IMPORTAÇÃO CORRIGIDA: Importa o provedor de autenticação
-import { AuthProvider } from '../src/login/AuthContext';
 
 export const unstable_settings = {
-  // Define a rota inicial padrão caso haja dúvida no deep linking
-  initialRouteName: '(tabs)',
+    initialRouteName: '(auth)',
 };
 
+function NavigationController() {
+    const { userLogin } = useAuth();
+    const segments = useSegments();
+    const router = useRouter();
+
+    useEffect(() => {
+        const inAuthGroup = segments[0] === '(auth)';
+
+        if (!userLogin && !inAuthGroup) {
+            router.replace('/(auth)');
+        } else if (userLogin && inAuthGroup) {
+            router.replace('/(tabs)/selecao_equipamento');
+        }
+    }, [userLogin, segments]);
+
+    return <Slot />;
+}
+
 export default function RootLayout() {
-  const [fontsLoaded, fontError] = useFonts({
-    'Montserrat-Regular': require('../assets/fonts/Montserrat-Regular.ttf'),
-    'Montserrat-Bold': require('../assets/fonts/Montserrat-Bold.ttf'),
-  });
+    const [fontsLoaded, fontError] = useFonts({
+        'Montserrat-Regular': require('../assets/fonts/Montserrat-Regular.ttf'),
+        'Montserrat-Bold': require('../assets/fonts/Montserrat-Bold.ttf'),
+    });
 
-  const colorScheme = useColorScheme();
+    const colorScheme = useColorScheme();
 
-  // Garante que erros no carregamento da fonte sejam tratados
-  useEffect(() => {
-    if (fontError) throw fontError;
-  }, [fontError]);
+    useEffect(() => {
+        if (fontError) throw fontError;
+    }, [fontError]);
 
-  // Enquanto a fonte não carrega, não renderiza nada (ou poderia ser um Splash)
-  if (!fontsLoaded) {
-    return null;
-  }
+    if (!fontsLoaded) {
+        return null;
+    }
 
-  return (
-    <TelemetryProvider>
-    {/* ⭐️ ADICIONADO: O AuthProvider precisa envolver o Stack e o PaperProvider */}
-    <AuthProvider>
-    <PaperProvider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack screenOptions={{ headerShown: false }}>
-          
-          {/* Rota para o fluxo de Autenticação (Login, Recuperar Senha) */}
-          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-
-          {/* Rota para o fluxo Principal do App (Abas) */}
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-
-          {/* Modal global (opcional, mantive do seu código original) */}
-          <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-          
-        </Stack>
-        <StatusBar style="auto" />
-      </ThemeProvider>
-    </PaperProvider>
-    </AuthProvider>
-    </TelemetryProvider>
-  );
+    return (
+        <TelemetryProvider>
+            <AuthProvider>
+                <UserProvider>
+                    <GlobalStateProvider>
+                        <OpProvider> {/* Operações */}
+                            <OPProvider> {/* 👈 Ordem de Produção */}
+                                <EquipmentProvider>
+                                    <PaperProvider>
+                                        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+                                            <NavigationController />
+                                            <StatusBar style="auto" />
+                                        </ThemeProvider>
+                                    </PaperProvider>
+                                </EquipmentProvider>
+                            </OPProvider>
+                        </OpProvider>
+                    </GlobalStateProvider>
+                </UserProvider>
+            </AuthProvider>
+        </TelemetryProvider>
+    );
 }

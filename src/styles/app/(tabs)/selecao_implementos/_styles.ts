@@ -51,9 +51,10 @@ export const styles = StyleSheet.create({
     marginRight: 24,
     gap: 4
   },
-  containerBlueSwitchOFF: {
+containerBlueSwitchOFF: {
     backgroundColor: '#EF4C51',
     width: 150,
+    marginLeft: 24,
     height: 40,
     display: 'flex',
     flexDirection: 'row',
@@ -63,6 +64,30 @@ export const styles = StyleSheet.create({
     marginTop: 32,
     marginRight: 24,
     gap: 4
+  },
+
+  customSwitchTrackOFF: {
+    width: 25,
+    height: 17, // Altura da barra
+    backgroundColor: '#EF4C51', // Cor escura do trilho
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "#050412",
+    padding: 3, // Espaçamento interno
+    justifyContent: 'center',
+  },
+
+  customSwitchThumbOFF: {
+    width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
+    height: 9, // Altura da bolinha
+    borderRadius: 7,
+    backgroundColor: '#000',
+    position: 'absolute',
+    left: 1.7 // Cor verde da preta
+  },
+
+  customSwitchThumbInactive: {
+    alignSelf: 'flex-start', // Posição esquerda (OFF)
   },
   textBlue: {
     color: "#FFF",
@@ -140,42 +165,57 @@ export const styles = StyleSheet.create({
     // height: 126,
     borderRadius: 12,
   },
-
+  blurIMG: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.65)', // Preto com 55% de opacidade (ajuste 0.90 para o que você precisa)
+    borderRadius: 12,
+    height: '100%',
+    width: '100%',
+  },
   // 4.4.1. TÍTULO MÁQUINA (COLHEDORA)
   tituloMaquina: {
-    height: 32,
-    width: 135,
+    // height: 32,
+    // width: 135,
+    alignSelf: 'flex-start', // <--- ADICIONE ISSO: Faz o container ter a largura do conteúdo
+    // padding:8,
     backgroundColor: 'rgba(5, 4, 18, 0.70)',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    margin: 8,
-    padding: 8,
+    justifyContent: 'flex-start',
+    // marginBottom: 8,
+    // padding: 8,
     marginTop: 16,
     marginLeft: 16,
+    // width:'auto',
+    borderRadius: 4, // Opcional
   },
   nmMaquina: {
     color: '#FFF',
-    fontFamily: 'Montserrat', // ADICIONADO
-    fontSize: 14,
-    marginLeft: 8,
+    fontFamily: 'Montserrat-Bold', // ADICIONADO
+    fontSize: 16,
+    // flex:1
+    // marginLeft: 8,
+    padding:8
   },
   tituloMargin: {
-    marginBottom: 8
+    // marginBottom: 8
   },
 
   // 4.4.2. NÚMERO MÁQUINA
   numMAquinaContainer: {
     height: 32,
-    width: 82,
+    // width: 82,
     backgroundColor: 'rgba(5, 4, 18, 0.70)',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     marginLeft: 16,
-    marginBottom: 8
+    marginBottom: 8,
+    paddingHorizontal: 8, // <--- ADICIONE ISSO: Dá um respiro lateral para o texto não colar na borda
+    alignSelf: 'flex-start', // <--- ADICIONE ISSO
+    borderRadius: 4, // Opcional
   },
   numMaquina: {
     fontFamily: 'Montserrat', // ADICIONADO
@@ -200,11 +240,29 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     marginLeft: 16,
     marginBottom: 8,
+    paddingHorizontal: 8, // <--- ADICIONE ISSO
+    alignSelf: 'flex-start', // <--- ADICIONE ISSO
+    borderRadius: 4, // Opcional
   },
   alinhamentoModelo: {
     marginLeft: 8
   },
-
+emptyContainer: {
+    flex: 1,
+    padding: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#F5F5F5',
+    borderRadius: 12,
+    marginVertical: 20,
+},
+emptyText: {
+    fontSize: 16,
+    color: '#999',
+    textAlign: 'center',
+    fontStyle: 'italic',
+    lineHeight: 24,
+},
   // 5. BOTÃO PRÓXIMO E SEPARADOR (RODAPÉ)
   botaoProximo: {
     // marginTop: 'auto',
@@ -236,36 +294,18 @@ export const styles = StyleSheet.create({
     padding: 3, // Espaçamento interno
     justifyContent: 'center',
   },
-  customSwitchTrackOFF: {
-    width: 25,
-    height: 17, // Altura da barra
-    backgroundColor: '#EF4C51', // Cor escura do trilho
-    borderRadius: 10,
-    borderWidth: 3,
-    borderColor: "050412",
-    padding: 3, // Espaçamento interno
-    justifyContent: 'center',
-  },
+
   customSwitchThumb: {
     width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
     height: 9, // Altura da bolinha
     borderRadius: 7,
     backgroundColor: '#00B16B', // Cor verde da bolinha
   },
-  customSwitchThumbOFF: {
-    width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
-    height: 9, // Altura da bolinha
-    borderRadius: 7,
-    backgroundColor: '#000',
-    position: 'absolute',
-    left: 1.7 // Cor verde da preta
-  },
+
   customSwitchThumbActive: {
     alignSelf: 'flex-end', // Posição direita (ON)
   },
-  customSwitchThumbInactive: {
-    alignSelf: 'flex-start', // Posição esquerda (OFF)
-  },
+ 
   panelContent: {
     padding: 24,
     paddingBottom: 40,

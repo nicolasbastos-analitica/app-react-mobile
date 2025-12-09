@@ -1,31 +1,18 @@
 import CircularProgress from "@/components/CircularProgress";
 import ModalExit from "@/components/ModalExit";
-import userData from '@/src/assets/cache/users.json';
+import { useGlobalState } from "@/src/context/GlobalStateContext";
+import { useOP } from "@/src/context/OPContext";
+import { useOperations } from "@/src/context/OperationContext";
+import { useUser } from "@/src/context/UserContext";
 import { useTelemetry } from "@/src/decoder/TelemetryContext";
-import { useAuth } from "@/src/login/AuthContext";
 import { styles } from "@/src/styles/app/(tabs)/home/_styles";
 import { ImageBackground } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
 
 
-interface UserData {
-    login: string;
-    name: string;
-    company_code: number;
-    user_id: number;
-    password: string;
-    company_id: number;
-    company_unit_code: number;
-    company_unit_id: number;
-    employee_code: number;
-    status_embedded: number;
-}
-interface UserDataFile {
-    data: UserData[];
-}
 // Assets
 const colheitadeira = require("@/assets/images/colheitadeira.png");
 const iconColhedora = require("@/assets/images/colhedora4x.png");
@@ -100,14 +87,37 @@ const interferencias = [
 ]
 
 export default function Home() {
-    const SampleUserData = (userData as unknown as UserDataFile).data; // Tipagem forçada para o JSON
+    const { setEquipmentGroupId } = useOperations();
+    const { setCompanyUnitId } = useOperations();
+    const { setEquipmentNumber } = useGlobalState();
+    const { selectedGroup } = useOperations();
     const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
-    const { userLogin, signOut } = useAuth();
-    const loggedInUserData = userLogin
-        ? SampleUserData.find(user => user.login === userLogin)
-        : null;
-    const displayUserName = loggedInUserData ? loggedInUserData.name : fallbackUser;
-    const displayUserLogin = userLogin ? userLogin : fallbacknumRegistro;
+    const { opByEquipmentGroup, setSelectedOPNumber, selectedOPNumber } = useOP();
+    const {
+        displayUserName,
+        displayUserLogin,
+        loggedInUserData,
+        equipmentNumber
+    } = useUser();
+
+    const companyUnitId = loggedInUserData?.company_unit_id || 0;
+
+    const maquina = 20;
+    // Carrega o grupo da máquina
+    useEffect(() => {
+        const loadGroup = async () => {
+            await setEquipmentGroupId(maquina); // Atualize para o valor correto da máquina
+            await setCompanyUnitId(companyUnitId); // Atualize para a unidade da empresa correta
+        };
+        loadGroup();
+    }, []);
+    // Handlers
+    const handleSelectOP = (id: number | null) => {
+        setSelectedOPId(id);
+        if (id) {
+            setSelectedOPNumber(id);
+        }
+    };
 
     // 1. Pega os dados do Contexto (Correto)
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -119,6 +129,7 @@ export default function Home() {
     const [modal2Text, setModal2Text] = useState('');
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [selectedOrder, setSelectedOrder] = useState<OrdemProducao | null>(null);
+    const [selectedOPId, setSelectedOPId] = useState<number | null>(null);
 
     const [IsActivate, setIsActivate] = useState(true);
 
@@ -131,6 +142,23 @@ export default function Home() {
         setModal2Text('');
     };
     const params = useLocalSearchParams();
+    
+    
+
+    const ordensFiltradas = opByEquipmentGroup.filter(
+        (op) =>
+            op.company_unit_id === companyUnitId && // Filtra pela unidade da empresa
+            op.equipment_group === maquina && // Filtra pela máquina/grupo
+            (modalText.length === 0 || // Filtros adicionais
+                op.name.toLowerCase().includes(modalText.toLowerCase()) ||
+                op.os_number.toString().includes(modalText))
+    );
+    const uniqueOrdens = ordensFiltradas.filter(
+        (op, index, self) =>
+            index === self.findIndex(
+                (t) => t.os_number === op.os_number && t.company_unit_id === op.company_unit_id
+            )
+    );
 
     const turnoID = params.turnoID || 'T1';
     const turnoHora = params.turnoHora || '08:00';
@@ -138,10 +166,6 @@ export default function Home() {
     const funcao = params.ordemFuncao || 'Operador';
     const ordemID = params.ordemID || '999';
 
-
-    const ordensFiltradas = mockOrdens.filter(item =>
-        item.id.includes(modalText)
-    );
     const handleSelect = (id: string | null) => {
         setSelectedId(id);
     };
@@ -199,8 +223,8 @@ export default function Home() {
                         <View style={styles.userTextContainer} >
                             <Text style={styles.panelUser}>{displayUserName}</Text>
                             <View style={styles.turnoInfo}>
-                                <Text style={[styles.turno]}>Turno {turnoID} </Text>
-                                <Text style={[styles.ordemProducao]}>{turnoHora} </Text>
+                                <Text style={[styles.turno]}>Registro </Text>
+                                <Text style={[styles.ordemProducao]}>{displayUserLogin}</Text>
                             </View>
                         </View>
                     </View>
@@ -430,45 +454,65 @@ export default function Home() {
                     </View>
                     <ScrollView>
                         <View style={styles.containerOrdens}>
-
-                            {ordensFiltradas.map((item) => {
-                                const isSelected = selectedId === item.id;
+                            {/* 👈 USA AS ORDENS DE PRODUÇÃO DO CONTEXT */}
+                            {uniqueOrdens.map((op, index) => {
+                                const isSelected = selectedOPId === op.os_number;
 
                                 return (
-
                                     <Pressable
-                                        key={item.id}
-                                        onPress={() => handleSelect(isSelected ? null : item.id)}
+                                        key={`op-${op.os_number}-${op.company_unit_id}-${index}`}
+                                        onPress={() => handleSelectOP(isSelected ? null : op.os_number)}
                                         style={[
                                             styles.ordemProducaoItem,
-                                            isSelected && styles.ordemProducaoItemSelected
+                                            isSelected && styles.ordemProducaoItemSelected,
                                         ]}
                                     >
                                         <View style={styles.ordemProducaoInfo}>
-                                            <Text style={[styles.ordemProducao, isSelected && styles.ordemProducaoTextSelected]}>{item.id}</Text>
-                                            <Text style={[styles.zona, isSelected && styles.zonaTextSelected]}>Zona: </Text>
-                                            <Text style={[styles.zona, isSelected && styles.zonaTextSelected]}>{item.zona}</Text>
-
+                                            <Text
+                                                style={[
+                                                    styles.ordemProducao,
+                                                    isSelected && styles.ordemProducaoTextSelected,
+                                                ]}
+                                            >
+                                                {op.os_number}
+                                            </Text>
+                                            <Text
+                                                style={[
+                                                    styles.zona,
+                                                    isSelected && styles.zonaTextSelected,
+                                                ]}
+                                            >
+                                                Zona: {op.region_01}
+                                            </Text>
                                         </View>
                                         <View style={styles.posicaoCheckModal1}>
-
-                                            {isSelected && (
-                                                <Icon source={checkIcon} size={14} color="#FFF" />
-                                            )}
+                                            {isSelected && <Icon source={checkIcon} size={14} color="#FFF" />}
                                         </View>
-                                        <Text style={[styles.funcao, isSelected && styles.funcaoTextSelected]}>
-                                            {item.funcao}
-
+                                        <Text
+                                            style={[
+                                                styles.funcao,
+                                                isSelected && styles.funcaoTextSelected,
+                                            ]}
+                                        >
+                                            {op.name}
                                         </Text>
                                     </Pressable>
-
                                 );
                             })}
+
+                            {/* Mensagem quando não há resultados */}
+                            {ordensFiltradas.length === 0 && (
+                                <View style={styles.emptyContainer}>
+                                    <Text style={styles.emptyText}>
+                                        Nenhuma ordem de produção encontrada
+                                    </Text>
+                                </View>
+                            )}
                         </View>
                     </ScrollView>
 
                 </View>
-                <View style={styles.botaoProximo}>
+                <View style={styles.botaoSelect}>
                     <Button
                         style={styles.nextButtonModal}
                         labelStyle={styles.nextButtonLabel}

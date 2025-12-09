@@ -51,9 +51,10 @@ export const styles = StyleSheet.create({
     marginRight: 24,
     gap: 4
   },
-  containerBlueSwitchOFF: {
+containerBlueSwitchOFF: {
     backgroundColor: '#EF4C51',
     width: 150,
+    marginLeft: 24,
     height: 40,
     display: 'flex',
     flexDirection: 'row',
@@ -63,6 +64,30 @@ export const styles = StyleSheet.create({
     marginTop: 32,
     marginRight: 24,
     gap: 4
+  },
+
+  customSwitchTrackOFF: {
+    width: 25,
+    height: 17, // Altura da barra
+    backgroundColor: '#EF4C51', // Cor escura do trilho
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "#050412",
+    padding: 3, // Espaçamento interno
+    justifyContent: 'center',
+  },
+
+  customSwitchThumbOFF: {
+    width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
+    height: 9, // Altura da bolinha
+    borderRadius: 7,
+    backgroundColor: '#000',
+    position: 'absolute',
+    left: 1.7 // Cor verde da preta
+  },
+
+  customSwitchThumbInactive: {
+    alignSelf: 'flex-start', // Posição esquerda (OFF)
   },
   textBlue: {
     color: "#FFF",
@@ -122,14 +147,30 @@ export const styles = StyleSheet.create({
     marginBottom: 24,
     marginTop: 24,
   },
-
+  containerList: {
+    flexDirection: 'row',
+    // justifyContent: 'space-between',
+    alignContent: 'center',
+    gap: 4,
+    alignItems: 'center',
+  },
+  codeList: {
+    fontFamily: 'Montserrat', // ADICIONADO
+    fontSize: 14,
+    color: '#42405F',
+  },
+  nameList: {
+    fontFamily: 'Montserrat-Bold', // ADICIONADO
+    fontSize: 14,
+    color: '#625F7E',
+  },
   // 4.4. CARD DA MÁQUINA (ImageBackground)
   maquinaInfo: {
     // height: 240,
     // marginBottom: '25%'
   },
   maquinaImg: {
-    backgroundColor: '#000', 
+    backgroundColor: '#000',
     height: 240,
     borderRadius: 12,
     margin: 0,
@@ -206,7 +247,7 @@ export const styles = StyleSheet.create({
     height: 20,
 
   },
-  alinhamentoModeloMarca:{
+  alinhamentoModeloMarca: {
     marginLeft: 4,
   },
 
@@ -255,34 +296,16 @@ export const styles = StyleSheet.create({
     padding: 3, // Espaçamento interno
     justifyContent: 'center',
   },
-  customSwitchTrackOFF: {
-    width: 25,
-    height: 17, // Altura da barra
-    backgroundColor: '#EF4C51', // Cor escura do trilho
-    borderRadius: 10,
-    borderWidth: 3,
-    borderColor: "050412",
-    padding: 3, // Espaçamento interno
-    justifyContent: 'center',
-  },
+
   customSwitchThumb: {
     width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
     height: 9, // Altura da bolinha
     borderRadius: 7,
     backgroundColor: '#00B16B', // Cor verde da bolinha
   },
-  customSwitchThumbOFF: {
-    width: 9, // Largura da bolinha (MENOR que a altura da barra: 20)
-    height: 9, // Altura da bolinha
-    borderRadius: 7,
-    backgroundColor: '#000',
-    position: 'absolute',
-    left: 1.7 // Cor verde da preta
-  },
+
   customSwitchThumbActive: {
     alignSelf: 'flex-end', // Posição direita (ON)
   },
-  customSwitchThumbInactive: {
-    alignSelf: 'flex-start', // Posição esquerda (OFF)
-  },
+
 });

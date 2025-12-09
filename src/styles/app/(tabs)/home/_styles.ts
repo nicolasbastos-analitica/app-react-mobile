@@ -419,6 +419,22 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     marginLeft: 24,
   },
+  emptyContainer: {
+    flex: 1,
+    padding: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#F5F5F5',
+    borderRadius: 12,
+    marginVertical: 20,
+},
+emptyText: {
+    fontSize: 16,
+    color: '#999',
+    textAlign: 'center',
+    fontStyle: 'italic',
+    lineHeight: 24,
+},
   nextButton: {
     height: 56,
     borderRadius: 8,
@@ -613,6 +629,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#00B16B",
     justifyContent: 'center',
     margin: 24,
+    width: '90%',
   },
   iniciarCicloContainerBottom: {
     borderTopWidth: 1,
@@ -630,6 +647,17 @@ export const styles = StyleSheet.create({
     height: 118,
     // margin:24,
     // marginBottom:24
+  },
+     botaoSelect: {
+    flexDirection: 'row',
+    // marginLeft: 24,
+    borderTopColor: '#D4D3DF',
+    borderTopWidth: 1,
+    alignContent:'center',
+    alignItems: 'center',
+    justifyContent:'center'
+    // borderStyle: 'solid',
+    
   },
   CicloButton: {
     borderRadius: 8,

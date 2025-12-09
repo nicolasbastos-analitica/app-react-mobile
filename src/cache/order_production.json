@@ -20009,12 +20009,12 @@
             "region_01": 8186
         },
         {
-            "os_number": 50961,
+            "os_number": 50961, 
             "name": "Aleiramento mecânico de palha",
             "equipment_group": 1,
             "company_unit_id": 5,
             "operation_code": 13,
-            "region_01": 8734
+            "region_01": 8734 
         },
         {
             "os_number": 50961,
