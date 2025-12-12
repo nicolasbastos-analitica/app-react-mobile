@@ -6,11 +6,14 @@ import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
+import { useOperations } from "@/src/context/OperationContext";
+import { useCycle } from "@/src/context/CycleContext";
+import { useAuth } from "@/src/context/AuthContext";
 // Assets
 const checkIcon = require('@/assets/images/check.png');
 const iconEventoAtivo = require('@/assets/images/evento_ativo.png')
 // Constants
-
+}
 const mockOrders = [ // mockOrdens -> mockOrders
     { id: '000143', zona: '47588', funcao: 'Colheita Mecânica 2 linhas' },
     { id: '000144', zona: '47589', funcao: 'Corte, Transbordo e Transporte (CTT)' },
@@ -54,8 +57,17 @@ export default function JornadaAutomatica() {
     const filteredOrders = mockOrders.filter(item => // ordensFiltradas -> filteredOrders
         item.id.includes(modalText)
     );
-    // const { companyUnitId, equipmentGroupId } = useAuth(); // Assumindo que você tem esses IDs
+    // const { ui } = useAuth(); // Assumindo que você tem esses IDs
     
+    const handleSelect = (id: string | null) => { // handleSelect
+        setSelectedId(id);
+    };
+    const handleSelectOP = (id: number | null) => {
+        setSelectedId(id ? String(id) : null);
+        if (id) {
+            setSelectedOPNumber(id);
+        }
+    };
 
 
     return (
@@ -312,4 +324,8 @@ export default function JornadaAutomatica() {
 
         </View>
     );
+}
+
+function setSelectedOPNumber(id: number) {
+    throw new Error("Function not implemented.");
 }
