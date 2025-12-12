@@ -10,6 +10,7 @@ import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
 const checkIcon = require('@/assets/images/check.png');
 const iconEventoAtivo = require('@/assets/images/evento_ativo.png')
 // Constants
+
 const mockOrders = [ // mockOrdens -> mockOrders
     { id: '000143', zona: '47588', funcao: 'Colheita Mecânica 2 linhas' },
     { id: '000144', zona: '47589', funcao: 'Corte, Transbordo e Transporte (CTT)' },
@@ -38,7 +39,7 @@ export default function JornadaAutomatica() {
     const [isModalExitVisible, setIsModalExitVisible] = useState(false);
     const [modalText, setModalText] = useState('');
     const [modal2Text, setModal2Text] = useState('');
-    const [selectedId, setSelectedId] = useState<string | number | null>(null);
+    const [selectedId, setSelectedId] = useState<string | null>(null);
     const [IsActivate, setIsActivate] = useState(true);
 
     // Handlers
@@ -53,16 +54,8 @@ export default function JornadaAutomatica() {
     const filteredOrders = mockOrders.filter(item => // ordensFiltradas -> filteredOrders
         item.id.includes(modalText)
     );
+    // const { companyUnitId, equipmentGroupId } = useAuth(); // Assumindo que você tem esses IDs
     
-    const handleSelect = (id: string | null) => { // handleSelect
-        setSelectedId(id);
-    };
-        const handleSelectOP = (id: number | null) => {
-        setSelectedId(id);
-        if (id) {
-            setSelectedOPNumber(id);
-        }
-    };
 
 
     return (
@@ -319,8 +312,4 @@ export default function JornadaAutomatica() {
 
         </View>
     );
-}
-
-function setSelectedOPNumber(id: number) {
-    throw new Error("Function not implemented.");
 }
