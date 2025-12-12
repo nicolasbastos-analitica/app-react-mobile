@@ -10,6 +10,7 @@ import { Button, Icon, IconButton, Modal, TextInput } from "react-native-paper";
 const checkIcon = require('@/assets/images/check.png');
 const iconEventoAtivo = require('@/assets/images/evento_ativo.png')
 // Constants
+
 const mockOrders = [ // mockOrdens -> mockOrders
     { id: '000143', zona: '47588', funcao: 'Colheita Mecânica 2 linhas' },
     { id: '000144', zona: '47589', funcao: 'Corte, Transbordo e Transporte (CTT)' },
@@ -22,7 +23,7 @@ const operationalCycle = [ // cicloOperacional -> operationalCycle
     { id: '251', ciclo: 'Deslocamento Carregando', },
     { id: '256', ciclo: 'Motor Desligado (sem apontamento)', },
     { id: '249', ciclo: 'Descarga', },
-    { id: '201  ', ciclo: 'Deslocamento Descarga', },
+    { id: '201', ciclo: 'Deslocamento Descarga', },
 ];
 const Blue = 'BLUE_530';
 
@@ -31,7 +32,7 @@ const events = 0;    // eventos -> events
 
 export default function JornadaAutomatica() {
     const { deviceName, isConnected } = useTelemetry();  // <-- AGORA ESTÁ CERTO
-    
+
     // States
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModal2Visible, setIsModal2Visible] = useState(false);
@@ -53,10 +54,9 @@ export default function JornadaAutomatica() {
     const filteredOrders = mockOrders.filter(item => // ordensFiltradas -> filteredOrders
         item.id.includes(modalText)
     );
+    // const { companyUnitId, equipmentGroupId } = useAuth(); // Assumindo que você tem esses IDs
+    
 
-    const handleSelect = (id: string | null) => { // handleSelect
-        setSelectedId(id);
-    };
 
     return (
         <View style={styles.containerGeral}>
@@ -91,8 +91,8 @@ export default function JornadaAutomatica() {
                         <View style={[styles.containerBlueSwitchON, isConnected ? styles.containerBlueSwitchON : styles.containerBlueSwitchOFF]}>
                             <Text style={styles.textBlue}>{deviceName}</Text>
                             <Pressable
-                                // Garante que o clique mude o estado
-                                // onPress={() => setIsActivate(!isConnected)}
+                            // Garante que o clique mude o estado
+                            // onPress={() => setIsActivate(!isConnected)}
                             >
                                 <View style={[styles.customSwitchTrack,
                                 styles.customSwitchTrack,

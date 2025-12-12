@@ -6,7 +6,7 @@ import { styles } from "@/src/styles/app/(tabs)/selecao_equipamento/_styles";
 import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
 import React, { useMemo, useState } from "react";
-import { FlatList, Keyboard, Pressable, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Keyboard, Pressable, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { Avatar, Button, IconButton, TextInput } from "react-native-paper";
 
 const colheitadeira = require("@/assets/images/colheitadeira.png")
@@ -70,8 +70,13 @@ export default function SelecaoEquipamento() {
     const fallbackUser = "Usuário não identificado";
     const pickTheGroup = selectedEquipment ?  selectedEquipment.operation_group_id : '---';
     const haveIcon = false;
-
+    const handleDimissOutside = () => {
+        setShowList(false);
+        Keyboard.dismiss();
+    }
     return (
+                <TouchableWithoutFeedback onPress={handleDimissOutside}>
+        
         <View style={styles.containerGeral}>
             <View style={styles.containerHeader}>
                 <IconButton icon="chevron-left" mode="contained" onPress={() => { router.replace('/(auth)'); signOut(); }}
@@ -110,7 +115,6 @@ export default function SelecaoEquipamento() {
                 <Text style={styles.tituloPagina}>Seleção de Máquina</Text>
 
                 {/* --- ÁREA DE PESQUISA (Dropdown) --- */}
-                <View style={{ zIndex: 100 }}>
                     <TextInput
                         theme={{ roundness: 8, colors: { primary: "#8F8CB5", outline: "#8F8CB5", onSurfaceVariant: "#8F8CB5" } }}
                         label="Buscar máquina"
@@ -131,7 +135,7 @@ export default function SelecaoEquipamento() {
                         <View
                             style={{
                                 position: 'absolute',
-                                top: 80,
+                                top: 200,
                                 left: 0,
                                 right: 0,
                                 backgroundColor: 'white',
@@ -174,7 +178,6 @@ export default function SelecaoEquipamento() {
                             />
                         </View>
                     )}
-                </View>
 
                 {/* --- CARD DA MÁQUINA --- */}
                 <View style={styles.maquinaInfo}>
@@ -210,5 +213,6 @@ export default function SelecaoEquipamento() {
                 </Button>
             </View>
         </View>
+        </TouchableWithoutFeedback>
     );
 }

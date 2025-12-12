@@ -356,6 +356,23 @@ emptyText: {
     zIndex: 1,
     marginBottom: 8,
   },
+  containerList: {
+    flexDirection: 'row',
+    // justifyContent: 'space-between',
+    alignContent: 'center',
+    gap: 4,
+    alignItems: 'center',
+  },
+  codeList: {
+    fontFamily: 'Montserrat', // ADICIONADO
+    fontSize: 14,
+    color: '#42405F',
+  },
+  nameList: {
+    fontFamily: 'Montserrat-Bold', // ADICIONADO
+    fontSize: 14,
+    color: '#625F7E',
+  },
   ordemProducaoItem: {
     // flex:1,
     backgroundColor: "#FAFBFD",

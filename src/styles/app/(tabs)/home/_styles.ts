@@ -178,8 +178,8 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
   },
   tituloMaquina: {
-    height: 32,
-    width: 280,
+    // height: 32,
+    // width: 280,
     backgroundColor: 'rgba(5, 4, 18, 0.70)',
     display: 'flex',
     flexDirection: 'row',
@@ -188,7 +188,7 @@ export const styles = StyleSheet.create({
     margin: 8,
     padding: 8,
     marginTop: 16,
-    marginLeft: 16,
+    // marginLeft: 16,
   },
   tituloMargin: {
     // Usado para ajustes extras se precisar

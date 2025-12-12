@@ -1,5 +1,6 @@
 import CircularProgress from "@/components/CircularProgress";
 import ModalExit from "@/components/ModalExit";
+import { useEquipment } from "@/src/context/EquipmentContext";
 import { useGlobalState } from "@/src/context/GlobalStateContext";
 import { useOP } from "@/src/context/OPContext";
 import { useOperations } from "@/src/context/OperationContext";
@@ -14,10 +15,7 @@ import { Avatar, Button, Icon, IconButton, Modal, TextInput } from "react-native
 
 
 // Assets
-const colheitadeira = require("@/assets/images/colheitadeira.png");
 const iconColhedora = require("@/assets/images/colhedora4x.png");
-const userIcon = require('@/assets/images/react-logo.png');
-const nullUserIcon = require('@/assets/images/user_icon.png');
 const metaConcluida = require('@/assets/images/circle-check-regular-full.png');
 const metaInalcancada = require("@/assets/images/circle-xmark-regular-full.png");
 const checkIcon = require('@/assets/images/check.png')
@@ -27,6 +25,12 @@ const iconInterferenciaMotorLigado = require("@/assets/images/icon_interferencia
 const iconInterferenciasOperacionais = require("@/assets/images/icon_interferencias_operacionais.png")
 const iconManutencao = require("@/assets/images/icon_manutencao.png")
 const iconExit = require("@/assets/images/icon_exit.png")
+const colheitadeira = require("@/assets/images/colheitadeira.png")
+const caminhao = require("@/assets/images/caminhao.png")
+const trator = require("@/assets/images/trator.png")
+const userIcon = require('@/assets/images/react-logo.png');
+const nullUserIcon = require('@/assets/images/user_icon.png');
+const pulverizadora = require('@/assets/images/pulverizadora.png');
 // Constants
 const numEquip = 34531;
 const modeloEquip = 'New Holland Tc5090';
@@ -99,8 +103,18 @@ export default function Home() {
         loggedInUserData,
         equipmentNumber
     } = useUser();
+    const {
+        allMachines,          // ALTERADO: Agora usa allMachines (sem implementos)
+        selectedEquipment,
+        setSelectedImplementCode1,
+        setSelectedImplementCode2,
+        selectedImplement1,
+        selectedImplement2,
+        setSelectedEquipmentCode
+    } = useEquipment();
 
     const companyUnitId = loggedInUserData?.company_unit_id || 0;
+    const pickTheGroup = selectedEquipment ? selectedEquipment.operation_group_id : '---';
 
     const maquina = 20;
     // Carrega o grupo da máquina
@@ -142,8 +156,8 @@ export default function Home() {
         setModal2Text('');
     };
     const params = useLocalSearchParams();
-    
-    
+
+
 
     const ordensFiltradas = opByEquipmentGroup.filter(
         (op) =>
@@ -233,26 +247,26 @@ export default function Home() {
                     <View style={styles.maquinaInfo}>
                         <Pressable onPress={() => router.replace('/(tabs)/selecao_equipamento')}>
 
-                            <ImageBackground source={colheitadeira} style={styles.maquinaImg}>
+                            <ImageBackground source={[pickTheGroup == 10 ? caminhao : null, pickTheGroup == 12 ? trator : null, pickTheGroup == 18 ? colheitadeira : null, pickTheGroup == 2 || 11 ? pulverizadora : null]} style={styles.maquinaImg}>
                                 <View style={[styles.tituloMaquina, styles.tituloMargin]}>
-                                    <Icon source={iconColhedora} color="#FFF" size={37} />
-                                    <Text style={styles.nmMaquina}>Colhedora</Text>
+                                    {/* <Icon source={iconColhedora} color="#FFF" size={37} /> */}
+                                    <Text style={styles.nmMaquina}>Máquina</Text>
                                     <View style={styles.iconSeta}>
                                         <Icon source="chevron-right" color="#FFF" size={18} />
                                     </View>
                                 </View>
 
                                 <View style={styles.numMAquinaContainer}>
-                                    <Text style={styles.numMaquina}>Nº</Text><Text style={styles.numEquip}>{numEquip}</Text>
+                                    <Text style={styles.numMaquina}>Nº</Text><Text style={styles.numEquip}>{selectedEquipment?.code}</Text>
                                 </View>
                                 <View style={styles.modeloMAquinaContainer}>
-                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Modelo</Text><Text style={styles.numEquip}>{modeloEquip}</Text>
+                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Modelo</Text><Text style={styles.numEquip}>{selectedEquipment?.model_name}</Text>
                                 </View>
                                 <View style={styles.modeloMAquinaContainer}>
-                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Implemento 1</Text><Text style={styles.numEquip}>{implemento1}</Text>
+                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Implemento 1</Text><Text style={styles.numEquip}>{selectedImplement1?.code}</Text>
                                 </View>
                                 <View style={styles.modeloMAquinaContainer}>
-                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Implemento 2</Text><Text style={styles.numEquip}>{implemento2}</Text>
+                                    <Text style={[styles.numMaquina, styles.alinhamentoModelo]}>Implemento 2</Text><Text style={styles.numEquip}>{selectedImplement2?.code}</Text>
                                 </View>
                             </ImageBackground>
                         </Pressable>

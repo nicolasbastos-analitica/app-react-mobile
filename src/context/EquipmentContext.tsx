@@ -4,35 +4,36 @@ import React, { createContext, ReactNode, useCallback, useContext, useMemo, useS
 // --- Interfaces ---
 
 export interface Equipment {
-    class:   'Auxiliar' | 'Principal' | 'Proprio';
-    code:  number;
-    company_code:   number;
-    company_unit_code:  number;
-    equipment_operational_group_code:   number;
-    hourmeter:   boolean;
-    id:  number;
-    is_implement:  number | null;
-    model_name:  string;
-    odometer:  boolean;
-    operation_group_id:  number | null;
-    status_embedded:  number;
-    type:   string;
-    bluechip_bluetooth_name:  string | null;
+    class: 'Auxiliar' | 'Principal' | 'Proprio';
+    code: number;
+    company_code: number;
+    company_unit_code: number;
+    equipment_operational_group_code: number;
+    hourmeter: boolean;
+    id: number;
+    is_implement: number | null;
+    model_name: string;
+    odometer: boolean;
+    operation_group_id: number | null;
+    status_embedded: number;
+    type: string;
+    bluechip_bluetooth_name: string | null;
     harvester_code: string | null;
     planter_code: string | null;
-    truck_number:  string | null;
+    truck_number: string | null;
 }
 
 // ✅ Interface corrigida para a estrutura real do JSON
 interface EquipmentDataFile {
     data: {
-        harvesters?:  any[];
+        harvesters?: any[];
         planters?: any[];
         trucks?: any[];
         sprays?: any[];
         loaders?: any[];
         other_equipment?: any[];
-        equipment:  Equipment[]; // ✅ AQUI ESTÃO OS DADOS COMPLETOS! 
+        equipment: Equipment[]; // ✅ AQUI ESTÃO OS DADOS COMPLETOS! 
+        implements?: any[];
     };
 }
 
@@ -45,17 +46,22 @@ const useGlobalState = () => {
 
 interface EquipmentContextData {
     selectedEquipment: Equipment | null;
+    selectedImplement1: Equipment | null;
+    selectedImplement2: Equipment | null;
     selectedEquipmentCode: number | null;
-    setSelectedEquipmentCode:  (code: number) => void;
+    setSelectedEquipmentCode: (code: number) => void;
+    setSelectedImplementCode1: (code: number) => void;
+    setSelectedImplementCode2: (code: number) => void;
     allEquipment: Equipment[];
-    allMachines:  Equipment[];
+    allMachines: Equipment[];
     equipmentByCompanyUnit: Equipment[];
     equipmentByCode: Equipment[];
     getEquipmentByCode: (code: number) => Equipment | undefined;
     getEquipmentByCompanyUnit: (companyUnitId: number) => Equipment[];
     getEquipmentByType: (type: string) => Equipment[];
-    searchEquipment:  (searchText: string, includeAllUnits?:  boolean) => Equipment[];
+    searchEquipment: (searchText: string, includeAllUnits?: boolean) => Equipment[];
     clearSelection: () => void;
+    allImplements: any[];
 }
 
 const EquipmentContext = createContext<EquipmentContextData>({} as EquipmentContextData);
@@ -70,6 +76,8 @@ export const EquipmentProvider: React.FC<EquipmentProviderProps> = ({ children }
     const { companyUnitId } = useGlobalState();
 
     const [selectedEquipmentCode, setSelectedEquipmentCodeState] = useState<number | null>(null);
+    const [selectedImplementCode1, setSelectedImplementCode1State] = useState<number | null>(null);
+    const [selectedImplementCode2, setSelectedImplementCode2State] = useState<number | null>(null);
 
     // ✅ BUSCA OS DADOS COMPLETOS DA SEÇÃO "equipment"
     const allEquipment = useMemo(() => {
@@ -100,10 +108,26 @@ export const EquipmentProvider: React.FC<EquipmentProviderProps> = ({ children }
         return machines;
     }, [allEquipment]);
 
+    const allImplements = useMemo(() => {
+        const Implements = allEquipment.filter((e) =>
+            e.is_implement === 1 || e.is_implement !== null
+        );
+        return Implements;
+    }, [allEquipment]);
     const selectedEquipment = useMemo(() => {
         if (selectedEquipmentCode === null) return null;
         return allEquipment.find((e) => e.code === selectedEquipmentCode) || null;
     }, [selectedEquipmentCode, allEquipment]);
+
+    const selectedImplement1 = useMemo(() => {
+        if (selectedImplementCode1 === null) return null;
+        return allEquipment.find((e) => e.code === selectedImplementCode1) || null;
+    }, [selectedImplementCode1, allEquipment]);
+
+    const selectedImplement2 = useMemo(() => {
+        if (selectedImplementCode2 === null) return null;
+        return allEquipment.find((e) => e.code === selectedImplementCode2) || null;
+    }, [selectedImplementCode2, allEquipment]);
 
     const equipmentByCompanyUnit = useMemo(() => {
         if (companyUnitId === null) return [];
@@ -117,6 +141,14 @@ export const EquipmentProvider: React.FC<EquipmentProviderProps> = ({ children }
 
     const setSelectedEquipmentCode = useCallback((code: number): void => {
         setSelectedEquipmentCodeState(code);
+    }, []);
+
+    const setSelectedImplementCode1 = useCallback((code: number): void => {
+        setSelectedImplementCode1State(code);
+    }, []);
+
+    const setSelectedImplementCode2 = useCallback((code: number): void => {
+        setSelectedImplementCode2State(code);
     }, []);
 
     // --- Funções Auxiliares ---
@@ -134,10 +166,10 @@ export const EquipmentProvider: React.FC<EquipmentProviderProps> = ({ children }
         return allEquipment.filter((e) => e.type.toLowerCase() === lowerCaseType);
     }, [allEquipment]);
 
-    const searchEquipment = useCallback((searchText:  string, includeAllUnits:  boolean = false): Equipment[] => {
+    const searchEquipment = useCallback((searchText: string, includeAllUnits: boolean = false): Equipment[] => {
         // ✅ Se includeAllUnits for true, busca em TODAS as máquinas
         const sourceList = includeAllUnits
-            ?  allMachines
+            ? allMachines
             : equipmentByCompanyUnit.filter(e => e.is_implement === null || e.is_implement === 0);
 
         if (!searchText) return sourceList;
@@ -156,10 +188,15 @@ export const EquipmentProvider: React.FC<EquipmentProviderProps> = ({ children }
 
     const contextValue = useMemo(() => ({
         selectedEquipment,
+        selectedImplement1,
+        selectedImplement2,
         selectedEquipmentCode,
         setSelectedEquipmentCode,
+        setSelectedImplementCode1,
+        setSelectedImplementCode2,
         allEquipment,
         allMachines,
+        allImplements,
         equipmentByCompanyUnit,
         equipmentByCode,
         getEquipmentByCode,
@@ -169,10 +206,13 @@ export const EquipmentProvider: React.FC<EquipmentProviderProps> = ({ children }
         clearSelection,
     }), [
         selectedEquipment,
+        selectedImplement1,
+        selectedImplement2,
         selectedEquipmentCode,
         setSelectedEquipmentCode,
         allEquipment,
         allMachines,
+        allImplements,
         equipmentByCompanyUnit,
         equipmentByCode,
         getEquipmentByCode,
@@ -185,7 +225,7 @@ export const EquipmentProvider: React.FC<EquipmentProviderProps> = ({ children }
     return (
         <EquipmentContext.Provider value={contextValue}>
             {children}
-        </EquipmentContext. Provider>
+        </EquipmentContext.Provider>
     );
 };
 
